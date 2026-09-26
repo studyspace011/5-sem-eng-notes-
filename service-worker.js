@@ -1,4 +1,4 @@
-const CACHE_NAME = "econ-notes-v3";
+const CACHE_NAME = "eng-notes-v1";
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,8 +9,8 @@ const ASSETS = [
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
-  "./subjects/mic-5/mic-5.html",
-  "./subjects/mic-6/mic-6.html",
+  "./subjects/mic-5-urdu/mic-5-urdu.html",
+  "./subjects/mic-6-urdu/mic-6-urdu.html",
   "./subjects/mjc-8/mjc-8.html",
   "./subjects/mjc-9/mjc-9.html"
 ];
