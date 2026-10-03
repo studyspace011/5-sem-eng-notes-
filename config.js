@@ -17,6 +17,20 @@ const CONFIG = {
       path: "subjects/mjc-9/mjc-9.html",
       badge: "Core English"
     },
+    {
+      id: "mic-5-hindi",
+      title: "MIC - 5: भारतीय काव्यशास्त्र (Indian Poetics)",
+      description: "N/A",
+      path: "subjects/mic-5-hindi/mic-5-hindi.html",
+      badge: "Minor"
+    },
+    {
+      id: "mic-6-hindi",
+      title: "MIC - 6: Literary Genres of Hindi: Origin and Development",
+      description: "N/A",
+      path: "subjects/mic-6-hindi/mic-6-hindi.html",
+      badge: "Minor"
+    },
         {
       id: "mic-5-urdu",
       title: "MIC 05: Study of Urdu Masnavi, Marsiya and Qaseeda",
