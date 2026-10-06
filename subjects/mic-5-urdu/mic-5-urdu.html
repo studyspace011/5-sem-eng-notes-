@@ -1,0 +1,799 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MIC 05: Study of Urdu Masnavi, Marsiya and Qaseeda</title><meta name="data-notion-page-icon" content="🕋"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%95%8B%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="22a24f8d-7cec-8204-ae8e-01308c9bfa05" class="page sans" data-notion-page-icon="🕋"><header><div class="page-header-icon undefined"><span class="icon" data-emoji="🕋"></span></div><h1 class="page-title" dir="auto"><strong>MIC 05: Study of Urdu Masnavi, Marsiya and Qaseeda</strong></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Created</th><td><time datetime="2026-10-06">October 6, 2026</time></td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/hashtag_gray.svg" style="width:14px;height:14px;display:block"/></span>CODE</th><td>6</td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Created by</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">S</span></span>Study Space</span></td></tr></tbody></table></header><div class="page-body"><h2 id="3f124f8d-7cec-80c9-8847-fdea856ed84e" class="" dir="auto">یونٹ 1: تعارف اور خاکہ (Unit Introduction)</h2><p id="3f124f8d-7cec-807a-9448-ccf64e147fcd" class="" dir="auto">اس یونٹ میں ہم اردو ادب کی بنیادی اصناف، ان کے ارتقاء اور ادبی نظریات کا تفصیل سے مطالعہ کریں گے۔</p><p id="3f124f8d-7cec-8025-b602-e5b17a05d9f4" class="" dir="auto">یہ یونٹ مختلف موضوعات کا ایک خوبصورت تسلسل ہے:</p><ol type="1" id="3f124f8d-7cec-806a-b3f5-ddd4c0336dc9" class="numbered-list" start="1" dir="auto"><li><strong>1.1.1 سے 1.1.X:</strong> ہم سب سے پہلے ادب کی تعریف اور اس کے بنیادی مقاصد کو سمجھیں گے۔</li></ol><ol type="1" id="3f124f8d-7cec-80c4-abcc-ee9a58dcb0e6" class="numbered-list" start="2" dir="auto"><li>اس کے بعد ہم دیکھائیں گے کہ <strong>نثر (Prose)</strong> اور <strong>نظم (Poetry)</strong> میں کیا فرق ہے اور اردو میں ان دونوں کی اہم شاخیں (مثلاً داستان، افسانہ، غزل، نظم) کس طرح وجود میں آئیں۔</li></ol><ol type="1" id="3f124f8d-7cec-800d-a48f-ecb3802f91df" class="numbered-list" start="3" dir="auto"><li>آگے چل کر ہم یہ بھی دیکھیں گے کہ وقت کے ساتھ ساتھ مختلف ادبی تحریکوں (যেমন علی گڑھ تحریک، ترقی پسند تحریک) نے اردو ادب کو کس طرح متاثر کیا۔</li></ol><p id="3f124f8d-7cec-8022-a513-e777071a2f61" class="" dir="auto">یہ تمام موضوعات آپس میں ایک زنجیر کی طرح جڑے ہوئے ہیں: پہلے بنیاد (مفہوم) -&gt; پھر ساخت (اصناف) -&gt; اور آخر میں ارتقاء (تاریخ و تحریکات)۔</p><hr id="3f124f8d-7cec-80f9-9723-e84ca225c9a8" dir="auto"/><h2 id="3f124f8d-7cec-80fe-b854-f8a9bc3c958e" class="" dir="auto">1.1.1 ادب کیا ہے اور اس کے بنیادی مقاصد (What is Literature and Its Objectives)</h2><h3 id="3f124f8d-7cec-80a0-864d-f4496457ae82" class="" dir="auto">ادب کی تعریف (Definition of Literature)</h3><p id="3f124f8d-7cec-8018-9f84-d1f979d4a487" class="" dir="auto">عام الفاظ میں &quot;ادب&quot; یا Literature زندگی کا آئینہ ہوتا ہے۔ انسان اپنے احساسات، جذبات، تجربات اور خیالات کو جب خوبصورت، دلکش اور اثر انگیز الفاظ میں ڈھال کر بیان کرتا ہے، تو اسے ادب کہتے ہیں۔</p><p id="3f124f8d-7cec-8059-b212-eb37463afb75" class="" dir="auto">اگر کوئی شخص صرف یہ کہے: <em>&quot;آج موسم بہت خراب ہے اور بارش ہو رہی ہے&quot;</em> – تو یہ ایک عام بات ہے۔<br/>لیکن اگر ادب کی زبان میں کہا جائے: <em>&quot;آسمان پر کالے بادلوں کا راج ہے اور بارش کی بوندیں زمین سے محبت کا نغمہ گا رہی ہیں&quot;</em> – تو یہ ادب بن جاتا ہے۔</p><p id="3f124f8d-7cec-8074-a441-d1ce36de914d" class="" dir="auto">ادب انسان کے دل کو چھوتا ہے اور اس کے سوچنے کے انداز کو بدلتا ہے۔</p><hr id="3f124f8d-7cec-80a9-bceb-ef509b53934f" dir="auto"/><figure id="3f124f8d-7cec-80c4-8800-fb92ec741032" class="image" data-notion-image="image.png" dir="ltr"><a href="image.png"><img style="width:703.9854736328125px" src="image.png"/></a></figure><hr id="3f124f8d-7cec-808c-99a4-df13fc74f181" dir="auto"/><h3 id="3f124f8d-7cec-8080-a9c0-edc730ccd03f" class="" dir="auto">ادب کے بنیادی مقاصد (Core Objectives of Literature)</h3><p id="3f124f8d-7cec-80f2-862a-f18b157503ec" class="" dir="auto">ادب صرف تفریح کا ذریعہ نہیں ہے، بلکہ اس کے کچھ اہم مقاصد ہوتے ہیں:</p><ol type="1" id="3f124f8d-7cec-8022-8433-da4eed893a61" class="numbered-list" start="1" dir="auto"><li><strong>جمالیاتی خوشی (Aesthetic Pleasure):</strong><br/>ادب پڑھ کر انسان کے دل و دماغ کو سکون اور خوشی ملتی ہے۔ یہ انسان کے اندر خوبصورتی کو محسوس کرنے کی حس پیدا کرتا ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-8014-9970-d553b051f115" class="numbered-list" start="2" dir="auto"><li><strong>سماجی اصلاح (Social Reform):</strong><br/>ادب معاشرے کی برائیوں (جیسے ناانصافی، جہالت، اور غربت) کو سامنے لاتا ہے اور لوگوں کو ان کے خلاف آواز اٹھانے کا شعور دیتا ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-80ee-89c0-ccaa8c9d567b" class="numbered-list" start="3" dir="auto"><li><strong>تہذیب و ثقافت کی حفاظت (Preservation of Culture):</strong><br/>ادب کے ذریعے ہم اپنی تاریخ، روایت، زبان اور ثقافت کو محفوظ رکھتے ہیں تاکہ آنے والی نسلیں اپنی جڑوں سے جڑی رہیں۔</li></ol><ol type="1" id="3f124f8d-7cec-80a1-9a1a-da2408709e17" class="numbered-list" start="4" dir="auto"><li><strong>جذبات و احساسات کی ترجمانی (Expression of Emotions):</strong><br/>انسان اپنی خوشی، غم، امید اور مایوسی کو ادب کے ذریعے دوسروں تک پہنچاتا ہے۔</li></ol><hr id="3f124f8d-7cec-800b-a96d-d64f4908b289" dir="auto"/><figure id="3f124f8d-7cec-805e-841b-fe5591430919" class="image" data-notion-image="image%201.png" dir="ltr"><a href="image%201.png"><img style="width:703.9854736328125px" src="image%201.png"/></a></figure><hr id="3f124f8d-7cec-80d1-ba6a-cd4357a1ed76" dir="auto"/><h3 id="3f124f8d-7cec-800e-b64b-d7b3d93e2e4f" class="" dir="auto">آسان مثال سے سمجھئے (Real-life Example)</h3><p id="3f124f8d-7cec-809c-ac8d-d91c5861089a" class="" dir="auto">فرض کیجیے کہ ایک گاؤں میں غریب کسانوں کے ساتھ ناانصافی ہو رہی ہے۔</p><ul id="3f124f8d-7cec-801f-b4fd-f5f061005fc7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اگر کوئی صحافی اس پر رپورٹ لکھے گا، تو وہ صرف اعداد و شمار (Data) پیش کرے گا۔</li></ul><ul id="3f124f8d-7cec-80be-9039-ee8114e149e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">لیکن اگر کوئی ادیب (Writer) اس پر کہانی یا نظم لکھے گا، تو وہ کسان کے درد، اس کے بچوں کی بھوک اور اس کے دل کی حالت کو اس طرح بیان کرے گا کہ پڑھنے والے کی آنکھوں میں آنسو آ جائیں گے۔</li></ul><p id="3f124f8d-7cec-8005-b377-e778a5b62be3" class="" dir="auto">یہی ادب کی حقیقی طاقت ہے—یہ بات کو صرف دماغ تک نہیں پہنچاتا، بلکہ دل میں اتار دیتا ہے۔</p><hr id="3f124f8d-7cec-80bd-bfe6-e0e5c27b1944" dir="auto"/><p id="3f124f8d-7cec-804a-a8d4-c75eabf1e784" class="" dir="auto">
+</p><hr id="3f124f8d-7cec-8044-9ac7-e84f942d182d" dir="auto"/><h2 id="3f124f8d-7cec-8063-8b37-cea1b6fc7a82" class="" dir="auto">1.1.2 اردو مثنوی کا تاریخی ارتقاء                                                       (Historical Evolution of Urdu Masnavi)</h2><p id="3f124f8d-7cec-8073-83dc-cf9bbe491ba5" class="" dir="auto">مثنوی اردو ادب کی وہ اہم اور قدیم صنف ہے جس میں کوئی لمبا قصہ، داستان، یا اخلاقی مضمون مسلسل اشعار میں بیان کیا جاتا ہے۔ اردو مثنوی کا ارتقاء (Development) دکن سے شروع ہو کر شمال (دہلی و لکھنؤ) تک پھیلا۔</p><p id="3f124f8d-7cec-8018-b231-f248769ff69f" class="" dir="auto">اس ارتقاء کو ہم بنیادی طور پر تین بڑے دور میں تقسیم کر سکتے ہیں:</p><hr id="3f124f8d-7cec-80f8-b04b-db873d5d32fe" dir="auto"/><h3 id="3f124f8d-7cec-80fe-b64a-cc9256cd9ffa" class="" dir="auto">1. دکن کا دور (ابتدائی دور - Early Period in Deccan)</h3><p id="3f124f8d-7cec-8015-bdf0-d5b9c2c1b09a" class="" dir="auto">اردو مثنوی کی شروعات دکن (جنوبی ہند) سے ہوئی۔ وہاں کے سلاطین (بادشاہوں) نے شاعری کی بہت سرپرستی کی۔</p><ul id="3f124f8d-7cec-8010-9af8-cfbaffe34d88" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نظامی دکنی (Nizami Ganjavi/Dakhni):</strong> اردو کی پہلی دستیاب مثنوی <strong>&quot;کدم راؤ پدم راؤ&quot;</strong> ہے جسے نظامی دکنی نے لکھا۔ یہ ایک راجہ اور اس کے وزیر کی کہانی ہے۔</li></ul><ul id="3f124f8d-7cec-803b-bbc9-cd71ca62649f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ملا وجہی (Mulla Wajhi):</strong> انہوں نے مشہور مثنوی <strong>&quot;قطب مشتری&quot;</strong> لکھی، جس میں سلطان قلی قطب شاہ اور بھاگ متی کی محبت کی داستان ہے۔</li></ul><ul id="3f124f8d-7cec-805a-8261-ff2e9f98fd56" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>غواصی اور نصرتی:</strong> غواصی کی <em>&quot;سیف الملوک و بدیع الجمال&quot;</em> اور نصرتی کی <em>&quot;گلشنِ عشق&quot;</em> دکن کے دور کی شاہکار مثنویاں ہیں۔</li></ul><p id="3f124f8d-7cec-8088-bc06-c4be2e0d91fc" class="" dir="auto"><strong>خصوصیت:</strong> اس دور کی زبان پر مقامی زبانوں (مرہٹی، ہندی) کا اثر تھا اور کہانیوں میں مافوق الفطرت (Magic/Fantasy) عناصر زیادہ ہوتے تھے۔</p><hr id="3f124f8d-7cec-8053-9043-cfb8f0ff469a" dir="auto"/><figure id="3f124f8d-7cec-8065-b2cb-fc9dca9ba4d5" class="image" data-notion-image="image%202.png" dir="ltr"><a href="image%202.png"><img style="width:703.9854736328125px" src="image%202.png"/></a></figure><hr id="3f124f8d-7cec-80f0-8ef7-f35c9c46bc0c" dir="auto"/><h3 id="3f124f8d-7cec-8047-bd9f-f72e04ffab7b" class="" dir="auto">2. شمالی ہند اور دہلی کا دور (Development in North India &amp; Delhi)</h3><p id="3f124f8d-7cec-8038-91d2-ff76c8c79e05" class="" dir="auto">جب دکن سے شاعرو ادب کا مرکز شمالی ہند (دہلی) منتقل ہوا، تو مثنوی نگاری میں بھی نکھار آیا۔</p><ul id="3f124f8d-7cec-8040-900d-f79cead6d456" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>میر تقی میر (Mir Taqi Mir):</strong> میر صرف غزل کے نہیں بلکہ مثنوی کے بھی بڑے شاعر تھے۔ ان کی مثنویاں جیسے <strong>&quot;دریائے عشق&quot;</strong>، <strong>&quot;شعلۂ عشق&quot;</strong> اور <strong>&quot;معاملاتِ عشق&quot;</strong> بہت مشہور ہیں۔ انہوں نے مثنوی میں سچی محبت اور انسانی جذبات کا درد بیان کیا۔</li></ul><ul id="3f124f8d-7cec-8055-82f0-c76d744799eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سودا (Mirza Sauda):</strong> انہوں نے بھی مثنویاں لکھیں، لیکن ان کا زیادہ تر رجحان ہجو (طنز/Satire) اور قصیدے کی طرف تھا۔</li></ul><p id="3f124f8d-7cec-8085-9f1e-dfaeff6c6382" class="" dir="auto"><strong>خصوصیت:</strong> دہلی کے دور میں مثنوی کی زبان زیادہ صاف، شستہ اور جذبات سے بھری ہوئی ہو گئی۔</p><hr id="3f124f8d-7cec-8024-9733-dbb72a4bf290" dir="auto"/><h3 id="3f124f8d-7cec-80b2-8c93-c47fec524281" class="" dir="auto">3. لکھنؤ کا دور (اردو مثنوی کا سنہری دور - Golden Age of Lucknow)</h3><p id="3f124f8d-7cec-8070-911d-c2db5c0e2403" class="" dir="auto">لکھنؤ پہنچ کر مثنوی اپنے عروج (Peak) پر پہنچ گئی۔ یہاں مثنوی نگاری میں خوبصورت مناظر، لکھنؤ کی تہذیب، لباس، اور جذبات کی تفصیلی عکاسی کی گئی۔</p><ul id="3f124f8d-7cec-8071-90b2-eddfd52d0701" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>میر حسن (Mir Hasan):</strong> ان کی مثنوی <strong>&quot;سحر البیان&quot;</strong> (قصہ بے نظیر و بدرِ منیر) اردو ادب کی سب سے مشہور اور شاہکار مثنوی مانی جاتی ہے۔ اس کی زبان اتنی دلکش ہے کہ اشعار آج بھی زبان زدِ عام ہیں۔</li></ul><ul id="3f124f8d-7cec-80f4-9a5d-ec628a0807fc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پنڈت دیا شنکر نسیم (Daya Shankar Naseem):</strong> انہوں نے <strong>&quot;گلزارِ نسیم&quot;</strong> لکھی، جس میں شہزادہ بکاؤلی اور گلِ بکاؤلی کا قصہ ہے۔ اس کی خاصیت ایجاز و اختصار (کم الفاظ میں بڑی بات کہنا) ہے۔</li></ul><ul id="3f124f8d-7cec-80f9-853c-e4cdfef33cc4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نواب مرزا شوق (Nawab Mirza Shauq):</strong> ان کی مثنوی <strong>&quot;زہرِ عشق&quot;</strong> لکھنؤ کے معاشرے اور سچی محبّت کے المیہ (Tragedy) کی بہترین مثال ہے۔</li></ul><hr id="3f124f8d-7cec-8004-a27a-c04471055cf3" dir="auto"/><figure id="3f124f8d-7cec-8035-92e1-c7f67a7802dc" class="image" data-notion-image="image%203.png" dir="ltr"><a href="image%203.png"><img style="width:703.9854736328125px" src="image%203.png"/></a></figure><hr id="3f124f8d-7cec-8013-9089-c93a1af4ae3a" dir="auto"/><h3 id="3f124f8d-7cec-80f3-a748-d0ee516ec33e" class="" dir="auto">آسان خلاصہ (Quick Exam Revision Summary)</h3><table id="3f124f8d-7cec-8082-8d4b-e609d98304e1" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-802c-b4ee-e880d63bc42a" dir="ltr"><th id="koxT" class="simple-table-header-color simple-table-header">دور (Era)</th><th id="nY}S" class="simple-table-header-color simple-table-header">اہم مثنوی نگار (Key Poets)</th><th id="d{kK" class="simple-table-header-color simple-table-header">مشہور مثنوی (Famous Masnavi)</th><th id="=e&lt;w" class="simple-table-header-color simple-table-header">خاص بات (Key Feature)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8045-b57d-d8c5de991fe7" dir="ltr"><td id="koxT" class=""><strong>دکن (Deccan)</strong></td><td id="nY}S" class="">نظامی دکنی، ملا وجہی</td><td id="d{kK" class="">کدم راؤ پدم راؤ، قطب مشتری</td><td id="=e&lt;w" class="">اردو کی پہلی مثنوی، داستانی انداز</td></tr><tr id="3f124f8d-7cec-80ae-a778-e1165d28b47d" dir="ltr"><td id="koxT" class=""><strong>دہلی (Delhi)</strong></td><td id="nY}S" class="">میر تقی میر</td><td id="d{kK" class="">دریائے عشق، شعلۂ عشق</td><td id="=e&lt;w" class="">سچی محبت اور سوز و درد</td></tr><tr id="3f124f8d-7cec-8025-8553-f6d4b05341c3" dir="ltr"><td id="koxT" class=""><strong>لکھنؤ (Lucknow)</strong></td><td id="nY}S" class="">میر حسن، نسیم، مرزا شوق</td><td id="d{kK" class="">سحر البیان، گلزارِ نسیم، زہرِ عشق</td><td id="=e&lt;w" class="">زبان کی خوبصورتی اور تہذیبی عکاسی</td></tr></tbody></table><hr id="3f124f8d-7cec-80f3-b3d8-ffab7ba952ac" dir="auto"/><hr id="3f124f8d-7cec-80f5-b8f8-d6b8d7630187" dir="auto"/><h2 id="3f124f8d-7cec-80e8-a1b6-c3e7824543f6" class="" dir="auto">1.2.1 شوق نیموی کی مثنوی نگاری کا اسلوب اور فن                            (Shauq Nimvi&#x27;s Art and Style of Masnavi)</h2><h3 id="3f124f8d-7cec-80f8-aace-fb78cefd9f72" class="" dir="auto">شوق نیموی کا مختصر تعارف (Introduction)</h3><ul id="3f124f8d-7cec-80cf-9448-fc6fe88033a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصل نام:</strong> سید شاہ محمد عبد الرشید</li></ul><ul id="3f124f8d-7cec-80e5-a3fa-fdb479383735" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تخلص:</strong> شوق نیموی (تخلص &#x27;شوق&#x27; تھا اور &#x27;نیموی&#x27; کی نسبت بہار کے قصبے <strong>نیما</strong> سے ہے)۔</li></ul><ul id="3f124f8d-7cec-8074-b0a1-c4d0d83810a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مقام:</strong> آپ کا تعلق صوبہ بہار (عظیم آباد/پٹنہ کے قریب) سے تھا۔</li></ul><ul id="3f124f8d-7cec-80b2-bbc3-c15e0eb43658" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ادبی مقام:</strong> وہ ایک بہترین شاعر، محقق، اور ناقد تھے۔ مثنوی نگاری میں ان کا نام بہار اور اردو ادب کی تاریخ میں بہت محترم مان جاتا ہے۔</li></ul><hr id="3f124f8d-7cec-8009-98bb-e8874e3e2df9" dir="auto"/><figure id="3f124f8d-7cec-8042-b7c8-d8213d391382" class="image" data-notion-image="image%204.png" dir="ltr"><a href="image%204.png"><img style="width:703.9854736328125px" src="image%204.png"/></a></figure><hr id="3f124f8d-7cec-802c-acaf-c08c309ed650" dir="auto"/><h3 id="3f124f8d-7cec-805f-8e3b-e52467b2e874" class="" dir="auto">شوق نیموی کے اسلوب اور فن کی اہم خصوصیات (Key Features of His Style)</h3><ol type="1" id="3f124f8d-7cec-806b-993b-c007e6343f62" class="numbered-list" start="1" dir="auto"><li><strong>واقعہ نگاری اور سچائی (Realism and True Events):</strong><br/>شوق نیموی نے خیالی یا پریوں کی فرضی داستانوں کے بجائے اپنے دور کے <strong>حقیقی واقعات</strong> اور انسانی جذبات کو مثنوی کا موضوع بنایا۔ ان کی داستانیں حقیقت سے قریب تر ہوتی ہیں۔</li></ol><ol type="1" id="3f124f8d-7cec-80b3-9631-c5e848a0a92a" class="numbered-list" start="2" dir="auto"><li><strong>سادہ اور شستہ زبان (Simple and Fluent Language):</strong><br/>ان کا اسلوب (Style) بالکل سادہ، روان اور عام فہم ہے۔ انہوں نے بغیر وجہ کے مشکل اور دسیانوسی الفاظ کا استعمال نہیں کیا۔ ان کے اشعار آسانی سے دل میں اتر جاتے ہیں۔</li></ol><ol type="1" id="3f124f8d-7cec-80bf-8326-eea8412e9b35" class="numbered-list" start="3" dir="auto"><li><strong>سوز و گداز اور درد (Pathos and Deep Emotion):</strong><br/>شوق نیموی کے کلام میں ایک خاص قسم کی نرمی، سچائی اور درد (Pathos) پایا جاتا ہے۔ یہی وجہ ہے کہ ان کی سب سے مشہور مثنوی کا نام ہی <strong>&quot;سوز و گداز&quot;</strong> ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-800b-91a8-cfde58e709f9" class="numbered-list" start="4" dir="auto"><li><strong>تہذیب و معاشرت کی عکاسی (Cultural Reflection):</strong><br/>ان کی مثنویوں میں بہار اور خاص طور پر اس دور کے ہندؤستانی معاشرے کی رسم و رواج، بول چال اور اخلاقی قدروں کی سچی جھلک ملتی ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-8037-88fb-d7b59732407f" class="numbered-list" start="5" dir="auto"><li><strong>اخلاقی و اصلاحی عنصر (Moral and Reformist Tone):</strong><br/>ان کا مقصد صرف قصہ سنانا یا تفریح فراہم کرنا نہیں تھا، بلکہ کہانی کے ذریعے پڑھنے والوں کو کوئی اخلاقی سبق یا اصلاحی پیغام دینا تھا۔</li></ol><hr id="3f124f8d-7cec-8054-8515-c615619e1295" dir="auto"/><figure id="3f124f8d-7cec-80db-9ce2-dcc4facc7492" class="image" data-notion-image="image%205.png" dir="ltr"><a href="image%205.png"><img style="width:703.9854736328125px" src="image%205.png"/></a></figure><hr id="3f124f8d-7cec-801c-85a0-e182f0ab8f07" dir="auto"/><h3 id="3f124f8d-7cec-8036-aae8-fd96c19c92e6" class="" dir="auto">امتحانی نقطہ نظر سے خلاصہ (Quick Exam Summary)</h3><table id="3f124f8d-7cec-80d9-bce8-dee8aee64f15" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-809c-9acd-d5d28436db70" dir="ltr"><th id="Y[^b" class="simple-table-header-color simple-table-header">خصوصیت (Feature)</th><th id="Yg`J" class="simple-table-header-color simple-table-header">تفصیلیت (Details)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8082-93e6-ffdcbff6eea3" dir="ltr"><td id="Y[^b" class=""><strong>نام و تخلص</strong></td><td id="Yg`J" class="">سید شاہ محمد عبد الرشید (شوق نیموی)</td></tr><tr id="3f124f8d-7cec-8002-b6aa-d9d67fc0c51e" dir="ltr"><td id="Y[^b" class=""><strong>موضوع</strong></td><td id="Yg`J" class="">سچے واقعات، سچی محبت، اور اخلاقی باتیں</td></tr><tr id="3f124f8d-7cec-801d-b1c0-fbde8579f409" dir="ltr"><td id="Y[^b" class=""><strong>زبان و بیان</strong></td><td id="Yg`J" class="">سادہ، سلیس، اور روانی سے بھرپور</td></tr><tr id="3f124f8d-7cec-8050-8152-c7f382d197f3" dir="ltr"><td id="Y[^b" class=""><strong>اہم مثنوی</strong></td><td id="Yg`J" class="">مثنوی &quot;سوز و گداز&quot;</td></tr></tbody></table><hr id="3f124f8d-7cec-803a-a82d-e700cbcdcb6d" dir="auto"/><hr id="3f124f8d-7cec-805c-9dd6-dc3419e2b1fb" dir="auto"/><h2 id="3f124f8d-7cec-8063-9bfe-dd31a2a3b22b" class="" dir="auto">1.2.2 مثنوی &quot;سوز و گداز&quot; کا مطالعہ (Detailed Study of Masnavi &quot;Soz-o-Gudaz&quot;)</h2><h3 id="3f124f8d-7cec-80a2-91d1-e2b4b1e299dc" class="" dir="auto">1. مثنوی &quot;سوز و گداز&quot; کیا ہے؟ (Basic Introduction)</h3><ul id="3f124f8d-7cec-8069-b555-c23405da3198" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مصنف:</strong> شوق نیموی (Shauq Nimvi)</li></ul><ul id="3f124f8d-7cec-8088-9e38-eba7b482347d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>عنوان کا مطلب:</strong> <em>&quot;سوز&quot;</em> کا مطلب ہوتا ہے <strong>جلن یا درد</strong>، اور <em>&quot;گداز&quot;</em> کا مطلب ہوتا ہے <strong>پگھلنا یا نرم ہونا</strong>۔ یعنی یہ ایک ایسی کہانی ہے جو درد، غم اور دل کو پگھلا دینے والے جذبات سے بھری ہوئی ہے۔</li></ul><ul id="3f124f8d-7cec-8073-accd-d68483e4d144" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>خاص بات:</strong> یہ کوئی پریوں یا جادو کی خیالی کہانی نہیں ہے، بلکہ یہ ایک <strong>سچا واقعہ</strong> ہے جو بہار کے علاقے میں پیش آیا تھا۔</li></ul><hr id="3f124f8d-7cec-805f-b321-e32a74afa02b" dir="auto"/><figure id="3f124f8d-7cec-803b-9d59-ee206a9f67a6" class="image" data-notion-image="image%206.png" dir="ltr"><a href="image%206.png"><img style="width:703.9854736328125px" src="image%206.png"/></a></figure><hr id="3f124f8d-7cec-8050-afe7-dcfa16c4ad84" dir="auto"/><h3 id="3f124f8d-7cec-80ea-acc0-f6f63db0ff1e" class="" dir="auto">2. مثنوی کا مرکزی قصہ / کہانی (The Central Story)</h3><p id="3f124f8d-7cec-807d-b239-f6b010fada22" class="" dir="auto">اس مثنوی میں سچی محبت، وفا اور ایک دل دہلا دینے والے المیہ (Tragedy) کو بیان کیا گیا ہے:</p><ol type="1" id="3f124f8d-7cec-8077-a296-fdd1757c7cfc" class="numbered-list" start="1" dir="auto"><li><strong>محبت اور شادی:</strong><br/>قصے کا آغاز ایک ہندو جوڑے (میاں بیوی) کی گہری محبت سے ہوتا ہے۔ دونوں ایک دوسرے پر جان چھڑکتے تھے اور ان کی زندگی بہت خوشگوار گزر رہی تھی۔</li></ol><ol type="1" id="3f124f8d-7cec-8099-a364-e3feb88f7636" class="numbered-list" start="2" dir="auto"><li><strong>شوہر کی اچانک موت (المیہ/Tragedy):</strong><br/>اچانک ایک دن شوہر شدید بیمار ہو جاتا ہے اور اس کا انتقال ہو جاتا ہے۔ شوہر کی موت بیوی کے لیے ایک قیامت بن کر ٹوٹتی ہے۔ وہ اس کے بغیر جینے کا تصور بھی نہیں کر سکتی۔</li></ol><ol type="1" id="3f124f8d-7cec-8065-bd85-fdea477d1649" class="numbered-list" start="3" dir="auto"><li><strong>سَتی (Sati) ہونے کا فیصلہ:</strong><br/>اس دور کے معاشرے کی روایت کے مطابق بیوی اپنے شوہر کی چتا (میت) کے ساتھ خود کو زندہ جلا دینے (سَتی ہونے) کا فیصلہ کر لیتی ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-8005-a87f-f128bc0361ae" class="numbered-list" start="4" dir="auto"><li><strong>لوگوں کی روک تھام اور عورت کا ثبات:</strong><br/>گاؤں کے لوگ اور رشتہ دار اس عورت کو بہت سمجھاتے ہیں کہ وہ ایسا نہ کرے اور اپنی زندگی نہ گنوائے، لیکن اس کی سچی محبت اور غم کا جذبہ اتنا شدید تھا کہ وہ اپنے فیصلے سے پیچھے نہیں ہٹتی۔</li></ol><ol type="1" id="3f124f8d-7cec-802a-a2bc-c1ee467b61c2" class="numbered-list" start="5" dir="auto"><li><strong>دہدہلاتا ہوا انجام:</strong><br/>آخرمیں وہ عورت اپنے شوہر کی میت کے ساتھ آگ کی لپٹوں میں بیٹھ جاتی ہے اور مسکراتے ہوئے اپنے شوہر کے ساتھ جان دے دیتی ہے۔</li></ol><hr id="3f124f8d-7cec-8028-bc3c-f7ce0aa3d331" dir="auto"/><figure id="3f124f8d-7cec-8058-b159-d69f0ac98224" class="image" data-notion-image="image%207.png" dir="ltr"><a href="image%207.png"><img style="width:703.9854736328125px" src="image%207.png"/></a></figure><hr id="3f124f8d-7cec-80ba-8a7c-cccf614865f4" dir="auto"/><h3 id="3f124f8d-7cec-800b-9ec6-eb2a36341429" class="" dir="auto">3. اس مثنوی کی اہم خصوصیات (Key Themes &amp; Features)</h3><p id="3f124f8d-7cec-80c0-b77e-f4a0a307a84a" class="" dir="auto">امتحان میں اگر &quot;سوز و گداز&quot; کا تنقیدی جائزہ یا خصوصیات پوچھی جائیں تو ان 4 نکات کو ضرور لکھیں:</p><ul id="3f124f8d-7cec-8058-af28-edb136157897" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>1. سچی انسانی نفسیات (Real Human Psychology):</strong><br/>شوق نیموی نے اس مثنوی میں دکھایا ہے کہ جب انسان سچی محبت میں ہوتا ہے تو وہ موت سے بھی نہیں ڈرتا۔ عورت کا ثبات اور اس کا غم اتنی صفائی سے دکھایا گیا ہے کہ پڑھنے والا رو پڑتا ہے۔</li></ul><ul id="3f124f8d-7cec-8055-be9a-d7ffbca16885" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2. مقامی تہذیب کی عکاسی (Local Cultural Background):</strong><br/>اس مثنوی میں بہار کے دیہی معاشرے، وہاں کی رسوم و رواج اور لوگوں کے رہنے سہنے کا ذکر بہت خوبصورتی سے کیا گیا ہے۔</li></ul><ul id="3f124f8d-7cec-80a9-8c3a-c955bb6744f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>3. درد اور سوز (Emotional Depth):</strong><br/>مثنوی کے ہر بند میں سوز و درد ہے۔ شاعر نے ایسے الفاظ کا انتخاب کیا ہے جو براہِ راست پڑھنے والے کے دل پر اثر کرتے ہیں۔</li></ul><ul id="3f124f8d-7cec-800e-96f0-d6a13be48c42" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>4. سلیس اور رواں زبان (Simple Language):</strong><br/>زبان اتنی آسان ہے کہ عام پڑھنے والا بھی بغیر کسی مشکل لغت (Dictionary) کے پوری کہانی کو محسوس کر سکتا ہے۔</li></ul><hr id="3f124f8d-7cec-8020-ab90-e33d1506f8db" dir="auto"/><h3 id="3f124f8d-7cec-8009-8907-e1ecb9279369" class="" dir="auto">4. امتحانی نقطہ نظر سے جلدی یاد کرنے کا طریقہ (Quick Summary for Exam)</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3f124f8d-7cec-8028-9f35-f62f612e18eb" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">سوز و گداز = سچی محبت + ستی کا واقعہ + مقامی تہذیب + غم و الم کا اعلیٰ نمونہ</code></pre><table id="3f124f8d-7cec-8059-9b41-c5a720d8531b" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-8089-9ae8-e9b93051ddc9" dir="ltr"><th id="gfnj" class="simple-table-header-color simple-table-header">سوال جو پوچھا جا سکتا ہے</th><th id="j`Bl" class="simple-table-header-color simple-table-header">جواب کا بنیادی نقطہ</th></tr></thead><tbody><tr id="3f124f8d-7cec-80cb-9e3e-c9ae32415c7b" dir="ltr"><td id="gfnj" class=""><strong>سوز و گداز کا موضوع کیا ہے؟</strong></td><td id="j`Bl" class="">شوہر کی موت پر بیوی کی سچی وفاداری اور ستی ہونے کا سچا واقعہ।</td></tr><tr id="3f124f8d-7cec-8015-a45d-ffd80ee0bfb0" dir="ltr"><td id="gfnj" class=""><strong>اس مثنوی کا انجام کیسا ہے؟</strong></td><td id="j`Bl" class="">المیہ (Tragical) — جہاں عورت شوہر کے ساتھ جان دے دیتی ہے۔</td></tr><tr id="3f124f8d-7cec-800d-8e45-ff9378ef0c1f" dir="ltr"><td id="gfnj" class=""><strong>اس کا اسلوب کیسا ہے؟</strong></td><td id="j`Bl" class="">درد و اثر سے بھرا ہوا، سادہ اور حقیقت پر مبنی۔</td></tr></tbody></table><hr id="3f124f8d-7cec-805c-861c-e15b76d580bb" dir="auto"/><p id="3f124f8d-7cec-805b-83b3-dbf2399afd69" class="" dir="auto">
+</p><h1 id="3f124f8d-7cec-8053-b648-f1dcc0c2f5e4" class="" dir="auto"><span style="border-bottom:0.05em solid">UNIT-2</span></h1><hr id="3f124f8d-7cec-8063-9332-f8fafc1b636c" dir="auto"/><h2 id="3f124f8d-7cec-8054-b7ae-fecc0e717d88" class="" dir="auto">2.1.1 مرثیہ کا فن اور اجزائے ترکیبی (Art &amp; Components of Marsiya)</h2><h3 id="3f124f8d-7cec-804a-ac31-ea00f95482f8" class="" dir="auto">1. مرثیہ کیا ہے؟ (Definition &amp; Meaning)</h3><ul id="3f124f8d-7cec-80f0-b46c-c6833ab7ad15" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>لفظی معنی:</strong> لفظ &quot;مرثیہ&quot; عربی کے لفظ <strong>&quot;رَثَا&quot; (Rasa)</strong> سے بنا ہے، جس کے معنی ہیں: <strong>&quot;میت پر رونا، ماتم کرنا یا مرنے والے کی خوبیاں بیان کر کے افسوس کرنا&quot;</strong>۔</li></ul><ul id="3f124f8d-7cec-800e-9b15-dd51d24794f8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصطلاحی معنی:</strong> اردو ادب میں مرثیہ اس نظم کو کہتے ہیں جس میں حضرت امام حسینؓ اور شہدائے کربلا کی قربانیوں، مصائب، جنگ اور شہادت کا دردناک بیان ہو۔</li></ul><hr id="3f124f8d-7cec-804f-a434-d1ee81e49963" dir="auto"/><figure id="3f124f8d-7cec-8090-a202-f5ffeb49f041" class="image" data-notion-image="image%208.png" dir="ltr"><a href="image%208.png"><img style="width:703.9854736328125px" src="image%208.png"/></a></figure><hr id="3f124f8d-7cec-803a-8605-e26c451339ea" dir="auto"/><h3 id="3f124f8d-7cec-80bb-8657-ea19ae6ce772" class="" dir="auto">2. مرثیہ کی ساخت (Structure)</h3><p id="3f124f8d-7cec-800f-bfb5-c195aff039ef" class="" dir="auto">اردو میں مرثیہ عام طور پر <strong>&quot;مسدس&quot; (Musaddas)</strong> کی ہیئت (Form) میں لکھا جاتا ہے۔</p><ul id="3f124f8d-7cec-80f3-ab39-e120ab957b1d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">مسدس کا مطلب ہے: ایسا بند (Stanza) جس میں <strong>6 مصرعے (Lines)</strong> ہوتے ہیں۔</li></ul><ul id="3f124f8d-7cec-8027-9614-e4580dbccb09" class="bulleted-list" dir="auto"><li style="list-style-type:disc">پہلے 4 مصرعوں کے قافیے آپس میں ملتے ہیں، اور آخری 2 مصرعے (بیت) کا قافیہ الگ اور آپس میں ہم قافیہ ہوتا ہے۔</li></ul><hr id="3f124f8d-7cec-8094-83a0-dc0410795a8e" dir="auto"/><h3 id="3f124f8d-7cec-80c7-a8aa-fcf321153b8f" class="" dir="auto">3. مرثیہ کے اجزائے ترکیبی (8 Main Components of Marsiya)</h3><p id="3f124f8d-7cec-80bb-bb00-f73ce39e5fc1" class="" dir="auto">میر ضمیر اور میر انیس کے دور میں مرثیے کی ایک خاص ترتیب اور 8 اجزاء طے کیے گئے تھے۔ یہ آٹھوں اجزاء مرثیے کا ڈھانچہ ہیں:</p><pre id="3f124f8d-7cec-80ba-a857-d9122a7e04c5" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">چہرہ ➔ سراپا ➔ رخصت ➔ آمد ➔ رجز ➔ رزم ➔ شہادت ➔ بین</code></pre><h4 id="3f124f8d-7cec-800f-bcea-df66305570a7" class="" dir="auto">1. چہرہ (Chehra / Introduction):</h4><ul id="3f124f8d-7cec-8011-ae16-d34cc4b29232" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہ مرثیے کا <strong>تمہیدی حصہ (Intro)</strong> ہوتا ہے۔</li></ul><ul id="3f124f8d-7cec-80c8-a9eb-dde2234b5d6f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس میں صبح کا منظر، رات کی تاریکی، دنیا کی بے ثباتی، خدا کی حمد، یا نعتِ رسول کا ذکر ہوتا ہے۔ اس کا براہ راست جنگ سے تعلق نہیں ہوتا، بلکہ یہ ماحول بناتا ہے۔</li></ul><h4 id="3f124f8d-7cec-8078-ae94-ccfeeb4d19dd" class="" dir="auto">2. سراپا (Sarapa / Description of Personality):</h4><ul id="3f124f8d-7cec-8051-b34c-d4bf554d574f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس حصے میں جنگ میں جانے والے ہیرو (حضرت امام حسینؓ یا ان کے کسی رفیق/جانباز) کے <strong>قد و قامت، خوبصورتی، بہادری، لباس اور اخلاق</strong> کی تفصیلی تعریف کی جاتی ہے۔</li></ul><h4 id="3f124f8d-7cec-80d5-a047-cda5e5a83ae1" class="" dir="auto">3. رخصت (Rukhsaat / Farewell):</h4><ul id="3f124f8d-7cec-809a-8bda-e69944e83a99" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ہیرو کا میدانِ جنگ میں جانے کے لیے <strong>اہلِ خانہ (خیمے کے لوگوں، ماؤں، بہنوں، بچوں) سے اجازت لینا</strong> اور الگ ہونا۔ یہ حصہ بہت رقت انگیز (جذباتی) ہوتا ہے۔</li></ul><h4 id="3f124f8d-7cec-800f-8545-e7e6a102e519" class="" dir="auto">4. آمد (Aamad / Arrival on Battlefield):</h4><ul id="3f124f8d-7cec-8022-8cc6-dafae5764220" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ہیرو کا بڑی شان و شوکت، جاہ و جلال اور گھوڑے پر سوار ہو کر <strong>میدانِ کربلا میں داخل ہونا</strong>۔</li></ul><h4 id="3f124f8d-7cec-8028-8524-cb2950530cd3" class="" dir="auto">5. رجز (Rajaz / Challenging Speech):</h4><ul id="3f124f8d-7cec-80cf-b1ad-df1db124605e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">عرب کے قدیم رواج کے مطابق جنگ سے پہلے شاعر یا مجاہد میدان میں اپنے <strong>خاندان، آباؤ اجداد کی بہادری اور اپنی شجاعت کے اشعار</strong> پڑھ کر دشمن کو للکارتا ہے۔</li></ul><h4 id="3f124f8d-7cec-8051-9533-c35fc475161c" class="" dir="auto">6. رزم (Razm / Battle Scene):</h4><ul id="3f124f8d-7cec-809a-82cc-e514b127f437" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>جنگ کا عمل:</strong> تلوار بازی، گھوڑے کی سواری، دشمن پر حملے اور ہیرو کی بے مثال بہادری کی تفصیلی اور جوشلی عکاسی۔</li></ul><h4 id="3f124f8d-7cec-809f-b31e-c9a28adf6d11" class="" dir="auto">7. شہادت (Shahadat / Martyrdom):</h4><ul id="3f124f8d-7cec-80be-bc8a-cd18db14d612" class="bulleted-list" dir="auto"><li style="list-style-type:disc">مرثیے کا سب سے اہم اور دردناک موڑ۔ ہیرو کا <strong>دشمنوں کے ہاتھوں زخم کھانا اور میدانِ جنگ میں شہید ہو جانا</strong>۔</li></ul><h4 id="3f124f8d-7cec-802b-8203-c31b3c1adbbb" class="" dir="auto">8. بین (Bain / Mourning &amp; Lamentation):</h4><ul id="3f124f8d-7cec-805b-a31a-e191cb10ce1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">شہادت کے بعد خیموں میں عورتوں اور بچوں کا <strong>رونا، ماتم کرنا اور شہید کی یاد میں نالہ و فریاد کرنا</strong>۔ اس سے مرثیہ ختم ہوتا ہے۔</li></ul><hr id="3f124f8d-7cec-8020-b0e0-c7b21a53dba0" dir="auto"/><figure id="3f124f8d-7cec-800d-9f2f-dbe8fc01968b" class="image" data-notion-image="image%209.png" dir="ltr"><a href="image%209.png"><img style="width:703.9854736328125px" src="image%209.png"/></a></figure><hr id="3f124f8d-7cec-80cc-a67a-fb25fe2d6050" dir="auto"/><h3 id="3f124f8d-7cec-8012-91cb-ec65e3b639ef" class="" dir="auto">4. امتحانی نقطہ نظر سے خلاصہ (Quick Exam Summary Table)</h3><table id="3f124f8d-7cec-80f8-9a56-ce6404e5df67" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-803b-8261-c877085f27ef" dir="ltr"><th id="tAnv" class="simple-table-header-color simple-table-header">جزو (Component)</th><th id="WUb^" class="simple-table-header-color simple-table-header" style="width:307.98854064941406px">آسان مطلب (Simple Explanation)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8051-af93-f9de50790331" dir="ltr"><td id="tAnv" class=""><strong>چہرہ</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">ابتدائی منظر يا تمہید</td></tr><tr id="3f124f8d-7cec-800e-8157-d79ab7de5444" dir="ltr"><td id="tAnv" class=""><strong>سراپا</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">مجاہد کی شکل و صورت اور خصوصیات</td></tr><tr id="3f124f8d-7cec-802d-a0cb-cf3022af9856" dir="ltr"><td id="tAnv" class=""><strong>رخصت</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">اہل خانہ سے اخری الوداع</td></tr><tr id="3f124f8d-7cec-8096-afe7-d62cac41a911" dir="ltr"><td id="tAnv" class=""><strong>آمد</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">میدانِ جنگ میں شاندار اینٹری</td></tr><tr id="3f124f8d-7cec-800c-b0d4-c4d602c5c989" dir="ltr"><td id="tAnv" class=""><strong>رجز</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">دشمن کو للکارنا اور نسب نامہ بیان کرنا</td></tr><tr id="3f124f8d-7cec-8007-ab99-e5dff56e41fb" dir="ltr"><td id="tAnv" class=""><strong>رزم</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">اصل جنگ اور تلوار بازی</td></tr><tr id="3f124f8d-7cec-804a-a91d-dc2a9862f717" dir="ltr"><td id="tAnv" class=""><strong>شہادت</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">شہید ہونے کا غمگین منظر</td></tr><tr id="3f124f8d-7cec-8081-b334-d509ce10d1bb" dir="ltr"><td id="tAnv" class=""><strong>بین</strong></td><td id="WUb^" class="" style="width:307.98854064941406px">شہداء کا ماتم اور رونا</td></tr></tbody></table><hr id="3f124f8d-7cec-8070-aef9-f99dc2711d2d" dir="auto"/><hr id="3f124f8d-7cec-80fd-844f-e113686d6c09" dir="auto"/><h2 id="3f124f8d-7cec-80b1-af0c-d993cf395f68" class="" dir="auto">2.1.2 اردو مرثیہ کا تاریخی ارتقاء                                                           (Historical Development of Urdu Marsiya)</h2><p id="3f124f8d-7cec-8055-a49e-c20c2314f956" class="" dir="auto">اردو مرثیہ نگاری کی تاریخ کو ہم آسان مطالعے کے لیے <strong>تین اہم ادوار (Eras)</strong> میں بانٹ سکتے ہیں:</p><hr id="3f124f8d-7cec-8026-a55f-d1a886c4ad30" dir="auto"/><h3 id="3f124f8d-7cec-80af-9f33-eeffbd7e8432" class="" dir="auto">1. ابتدائی دور: دکن میں مرثیہ نگاری (Deccan Period - The Origin)</h3><p id="3f124f8d-7cec-801f-9a49-f565b11be056" class="" dir="auto">اردو میں مرثیہ نگاری کی باقاعدہ شروعات دکن (جنوبی ہند) سے ہوئی۔ وہاں کے قطب شاہی اور عادل شاہی بادشاہ شیعہ مسلک سے تعلق رکھتے تھے، اس لیے انہوں نے محرم اور مرثیہ نگاری کی سرکاری سطح پر سرپرستی کی۔</p><ul id="3f124f8d-7cec-8090-b217-ca6930c75488" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>قلی قطب شاہ (Quli Qutb Shah):</strong> اردو کا پہلا صاحبِ دیوان شاعر، جس نے خود بھی مرثیے لکھے۔</li></ul><ul id="3f124f8d-7cec-8057-9820-f6f4d653206a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ملا وجہی، غواصی، اور نصرتی:</strong> ان شعراء نے بھی ابتدائی مرثیے تحریر کیے۔</li></ul><ul id="3f124f8d-7cec-80f4-bc91-e2144ca3ba75" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اشرف بیابانی:</strong> ان کی نظم <em>&quot;نوسرہار&quot;</em> کو بھی ابتدائی مرثیہ نگاری کا ایک اہم نمونہ مانا جاتا ہے۔</li></ul><p id="3f124f8d-7cec-8067-a467-c5158ce63cd7" class="" dir="auto"><strong>خصوصیت:</strong> اس دور کے مرثیے سائز میں چھوٹے ہوتے تھے اور ان کا مقصد صرف محرم کی مجالس میں پڑھ کر لوگوں کو رلانا اور غم بنانا تھا۔ اس میں ادبی فنکاری کم اور جذباتیت زیادہ تھی۔</p><hr id="3f124f8d-7cec-804b-a3f6-f722247dd380" dir="auto"/><figure id="3f124f8d-7cec-80d0-9b4c-cd68d408bd2c" class="image" data-notion-image="image%2010.png" dir="ltr"><a href="image%2010.png"><img style="width:703.9854736328125px" src="image%2010.png"/></a></figure><hr id="3f124f8d-7cec-80a7-8043-eba91824c7fd" dir="auto"/><h3 id="3f124f8d-7cec-80c5-8ebd-cc63c3f8beae" class="" dir="auto">2. دوسرا دور: شمالی ہند اور دہلی (Delhi Period - The Transition)</h3><p id="3f124f8d-7cec-8031-96d8-d82cbe65568d" class="" dir="auto">جب دکن کی حکومتوں کا خاتمہ ہوا تو شعر و ادب کا مرکز شمالی ہند (دہلی) بن گیا۔</p><ul id="3f124f8d-7cec-80a1-a1c2-f0b6b838f890" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>روشن علی:</strong> انہوں نے <strong>&quot;عاشور نامہ&quot;</strong> لکھا، جو شمالی ہند کا پہلا طویل مرثیہ مانا جاتا ہے۔</li></ul><ul id="3f124f8d-7cec-8017-a171-effd68608c70" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>فضلی:</strong> ان کی کتاب <strong>&quot;دہ مجالس&quot;</strong> (کربل کسٹھا) نے دہلی میں مرثیہ نگاری کی فضاطیار کی۔</li></ul><ul id="3f124f8d-7cec-805c-aebb-df3a39301d1b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سودا (Mirza Sauda):</strong> مرزا سودا نے مرثیہ نگاری میں ایک بڑا انقلاب لایا۔ انہوں نے مرثیے کو <strong>&quot;مسدس&quot; (Musaddas - 6 مصرعوں والی نظم)</strong> کی شکل دی، جس سے مرثیے میں وسعت اور خوبصورتی پیدا ہوئی۔</li></ul><p id="3f124f8d-7cec-8081-a7df-da997d78c284" class="" dir="auto"><strong>خصوصیت:</strong> اس دور میں مرثیہ صرف ماتم کا ذریعہ نہیں رہا بلکہ اس میں شاعری کا فنی اور ادبی رنگ شامل ہونا شروع ہو گیا۔</p><hr id="3f124f8d-7cec-8024-8529-d3d50d162176" dir="auto"/><h3 id="3f124f8d-7cec-80df-ae51-da21eeed39c9" class="" dir="auto">3. تیسرا دور: لکھنؤ کا سنہری دور (Golden Era of Lucknow - The Peak)</h3><p id="3f124f8d-7cec-80b2-9c35-e34fd3579e6d" class="" dir="auto">لکھنؤ پہنچ کر مرثیہ اپنی کامیابی کے سب سے اونچے مقام (Peak) پر پہنچ گیا۔ لکھنؤ کے نوابوں کی سرپرستی اور وہاں کے ماحول نے مرثیے کو ایک مکمل ادبی صنف بنا دیا۔</p><ul id="3f124f8d-7cec-8038-9a08-ef4b55b5e93c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>میر ضمیر اور میر خلیق:</strong> ان دونوں شعراء نے مرثیے کی ہیئت کو مضبوط کیا اور مرثیے کے <strong>اجزائے ترکیبی</strong> (چہرہ، سراپا، رخصت، آمد، رجز، رزم، شہادت، بین) طے کیے اور ڈرامائی انداز پیدا کیا۔</li></ul><ul id="3f124f8d-7cec-807c-a286-ec05af3f3e83" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>میر انیس (Meer Anees) اور مرزا دبیر (Mirza Dabeer):</strong> یہ مرثیہ نگاری کے دو سب سے بڑے ستارے ہیں۔</li></ul><ul id="3f124f8d-7cec-8072-a45a-ee8c4fa6348d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>میر انیس</strong> کی زبان کی روانی، جذباتی عکاسی اور منظر نگاری کا کوئی ثانی نہیں ہے۔</li></ul><ul id="3f124f8d-7cec-8090-affe-eaf592d75576" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مرزا دبیر</strong> علمی الفاظ، علمِ بیان اور مشکل تراکیب کے لیے جانے جاتے ہیں۔</li></ul><p id="3f124f8d-7cec-80cd-bcca-df9b08dd730a" class="" dir="auto"><strong>خصوصیت:</strong> اس دور میں مرثیہ صرف غم کی کہانی نہیں رہا بلکہ اس میں <strong>رزمیہ (Epic/Heroic Poem)</strong> کا رنگ، جنگ کے مناظر، کردار نگاری اور اعلٰے ترین زبان شامل ہو گئی۔</p><hr id="3f124f8d-7cec-801f-84fc-d773efb85ef9" dir="auto"/><figure id="3f124f8d-7cec-809d-9d4f-ed739722867b" class="image" data-notion-image="image%2011.png" dir="ltr"><a href="image%2011.png"><img style="width:703.9854736328125px" src="image%2011.png"/></a></figure><hr id="3f124f8d-7cec-80f9-9f07-e4f40cfea4c4" dir="auto"/><h3 id="3f124f8d-7cec-8003-8504-db08cdfc6215" class="" dir="auto">امتحانی نقطہ نظر سے خلاصہ (Quick Exam Table)</h3><table id="3f124f8d-7cec-80f0-8b4a-fbe8bb9e4c46" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-80cf-ba65-df6111b08071" dir="ltr"><th id=":fYh" class="simple-table-header-color simple-table-header">دور (Era)</th><th id="o\Hg" class="simple-table-header-color simple-table-header">اہم مرثیہ نگار (Key Poets)</th><th id="sE^_" class="simple-table-header-color simple-table-header">خاص اہم نقطہ (Key Feature)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8046-8f25-f5fa0810fe4f" dir="ltr"><td id=":fYh" class=""><strong>دکن (Deccan)</strong></td><td id="o\Hg" class="">قلی قطب شاہ، اشرف بیابانی</td><td id="sE^_" class="">شروعات، سادہ اور جذبات پر مبنی</td></tr><tr id="3f124f8d-7cec-8008-b01f-d0f49fcd85cc" dir="ltr"><td id=":fYh" class=""><strong>دہلی (Delhi)</strong></td><td id="o\Hg" class="">روشن علی، فضلی، مرزا سودا</td><td id="sE^_" class="">مسدس (Musaddas) کا استعمال شروع ہوا</td></tr><tr id="3f124f8d-7cec-80a9-b198-daf3a4f91a22" dir="ltr"><td id=":fYh" class=""><strong>لکھنؤ (Lucknow)</strong></td><td id="o\Hg" class="">میر ضمیر، میر انیس، مرزا دبیر</td><td id="sE^_" class="">مرثیے کا عروج، اجزائے ترکیبی اور رزمیہ انداز</td></tr></tbody></table><hr id="3f124f8d-7cec-801b-bf76-ea156e42f531" dir="auto"/><hr id="3f124f8d-7cec-8096-ae26-d8de6791039d" dir="auto"/><h2 id="3f124f8d-7cec-806f-97f4-c6b068a0d349" class="" dir="auto">2.2.1 میر انیس کا فن اور مرثیہ نگاری (Meer Anees&#x27;s Art of Marsiya)</h2><h3 id="3f124f8d-7cec-80fe-a192-d5111cbdab06" class="" dir="auto">1. مختصر تعارف (Introduction)</h3><ul id="3f124f8d-7cec-80e6-9d19-c06584cf04dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصل نام:</strong> میر ببر علی (تخلص: انیس)</li></ul><ul id="3f124f8d-7cec-80a0-a22a-e560ee0fc333" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پیدائش:</strong> فیض آباد (لکھنؤ)، اتر پردیش۔</li></ul><ul id="3f124f8d-7cec-8082-bed9-f98edb3f8904" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>خاندانی پس منظر:</strong> ان کا تعلق ایک ایسے ادبی گھرانے سے تھا جہاں نسل در نسل شاعری ہوتی آ رہی تھی (ان کے دادا میر حسن &quot;سحر البیان&quot; کے خالق تھے)۔</li></ul><ul id="3f124f8d-7cec-806a-92f2-e2e26bdc3c5b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ادبی مقام:</strong> میر انیس کو اردو مرثیہ نگاری کا <strong>&quot;خدائے سخن&quot;</strong> اور <strong>ہندوستان کا شیکسپیئر (Shakespeare of India)</strong> کہا جاتا ہے۔</li></ul><hr id="3f124f8d-7cec-80cb-9bbd-d729d71c7a5f" dir="auto"/><figure id="3f124f8d-7cec-8018-9832-dd0d791cbe21" class="image" data-notion-image="image%2012.png" dir="ltr"><a href="image%2012.png"><img style="width:703.9854736328125px" src="image%2012.png"/></a></figure><hr id="3f124f8d-7cec-8099-8e9f-f3eea46a9f77" dir="auto"/><h3 id="3f124f8d-7cec-8042-915e-cf63f469a518" class="" dir="auto">2. میر انیس کی مرثیہ نگاری کی خصوصیات (Key Mastery Traits)</h3><p id="3f124f8d-7cec-80ea-b4e5-f26b87bc3b9b" class="" dir="auto">امتحان میں اگر میر انیس کے فن پر سوال آئے تو ان <strong>5 اہم نکات</strong> کو لازمی تحریر کریں:</p><h4 id="3f124f8d-7cec-80d2-b297-cc8366d1f6c3" class="" dir="auto">1. بے مثال فصاحت و بلاغت (Mastery over Urdu Language):</h4><p id="3f124f8d-7cec-80b9-825d-ff5248b12c7e" class="" dir="auto">میر انیس کو زبان پر زبردست تسلط حاصل تھا۔ ان کے پاس الفاظ کا اتنا بڑا ذخیرہ (Vocabulary) تھا کہ وہ ایک ہی بات کو سو الگ الگ انداز سے بیان کر سکتے تھے۔ انہوں نے اپنے مرثیوں میں لکھنؤ کی ٹکسالی، پاکیزہ اور مٹھاس سے بھری زبان استعمال کی۔</p><h4 id="3f124f8d-7cec-8074-8c52-c2f2ab8a996a" class="" dir="auto">2. حیرت انگیز منظر نگاری (Visual &amp; Scenery Description):</h4><p id="3f124f8d-7cec-805c-ac69-f3a02d2d18bd" class="" dir="auto">جب میر انیس کربلا کے گرم صحرا، کڑکتی دھوپ، صبح کا دلکش منظر یا رات کی خاموشی کا ذکر کرتے ہیں، تو ایسا لگتا ہے جیسے پڑھنے والا خود کربلا کے میدان میں کھڑا ہو کر سب کچھ اپنی آنکھوں سے دیکھ رہا ہو۔</p><h4 id="3f124f8d-7cec-8016-8da1-e13de6195794" class="" dir="auto">3. کردار نگاری (Characterization):</h4><p id="3f124f8d-7cec-8071-b554-eb3d23631bf2" class="" dir="auto">انہوں نے مرثیے کے تمام کرداروں (حضرت امام حسینؓ، حضرت عباسؓ، علی اکبرؓ، حضرت زینبؓ) کی شخصیت کو ان کے مقام کے مطابق ابھارا۔ بزرگوں کا وقار، جوانوں کی شجاعت اور ماؤں کی ممتا کی ایسی تصویر کھینچی جو دل کو چھو لیتی ہے۔</p><h4 id="3f124f8d-7cec-8023-b69b-f6dbae852467" class="" dir="auto">4. رزمیہ انداز اور تلوار کی تعریف (Heroic Battle Scenes):</h4><p id="3f124f8d-7cec-8040-97d9-dc15abde0dce" class="" dir="auto">جنگ کے مناظر اور تلوار بازی کی عکاسی میں میر انیس کا کوئی ثانی نہیں۔ ان کے اشعار میں الفاظ کی آواز سے ہی تلواروں کے ٹکرانے اور گھوڑوں کی ٹاپوں کی آوازیں سنائی دینے لگتی ہیں۔</p><h4 id="3f124f8d-7cec-80c3-8adc-f9be650e3714" class="" dir="auto">5. جذبات نگاری اور رقت (Deep Emotion &amp; Pathos):</h4><p id="3f124f8d-7cec-802e-9b03-f5395b695e9e" class="" dir="auto">میر انیس نے انسانی جذبات (خاص کر دکھ، غم اور قربانی) کی عکاسی اتنی سچائی سے کی ہے کہ ان کے مرثیے سن کر سخت سے سخت دل انسان بھی رو پڑتا ہے۔</p><hr id="3f124f8d-7cec-8065-83a1-e5f9ccd54cf1" dir="auto"/><figure id="3f124f8d-7cec-80f1-9b3a-e85fa0de4126" class="image" data-notion-image="image%2013.png" dir="ltr"><a href="image%2013.png"><img style="width:703.9854736328125px" src="image%2013.png"/></a></figure><hr id="3f124f8d-7cec-800e-a530-d91cdc9b1b9a" dir="auto"/><h3 id="3f124f8d-7cec-80aa-b2b2-efee7f245b8e" class="" dir="auto">3. امتحانی نقطہ نظر سے خلاصہ (Quick Exam Summary)</h3><table id="3f124f8d-7cec-8035-9eec-dc900643a953" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-80dd-bff0-fa93d7427a3e" dir="ltr"><th id=":aob" class="simple-table-header-color simple-table-header">خصوصیت (Feature)</th><th id="{Eec" class="simple-table-header-color simple-table-header" style="width:380.9825134277344px">آسان مطلب (Simple Explanation)</th></tr></thead><tbody><tr id="3f124f8d-7cec-80ca-88f0-cec385840ef7" dir="ltr"><td id=":aob" class=""><strong>لقب</strong></td><td id="{Eec" class="" style="width:380.9825134277344px">مرثیہ نگاری کا خدائے سخن</td></tr><tr id="3f124f8d-7cec-80fa-9f7f-dbfe848f6bd2" dir="ltr"><td id=":aob" class=""><strong>زبان</strong></td><td id="{Eec" class="" style="width:380.9825134277344px">لکھنوی فصاحت اور پاکیزہ محاورے</td></tr><tr id="3f124f8d-7cec-80b7-9a33-e3c40e32d047" dir="ltr"><td id=":aob" class=""><strong>بڑا کمال</strong></td><td id="{Eec" class="" style="width:380.9825134277344px">کربلا کے مناظر اور جذبات کی سچی تصویر کشی</td></tr><tr id="3f124f8d-7cec-8087-8286-c148c9e844fe" dir="ltr"><td id=":aob" class=""><strong>ہیئت (Structure)</strong></td><td id="{Eec" class="" style="width:380.9825134277344px">مسدس (6 مصرعوں والے بند)</td></tr></tbody></table><hr id="3f124f8d-7cec-8065-ba13-d75e7ad45c1a" dir="auto"/><hr id="3f124f8d-7cec-805b-839b-e9384baa0d41" dir="auto"/><h2 id="3f124f8d-7cec-80fe-aa3c-f1d89112cfdd" class="" dir="auto">2.2.2 مرثیہ &quot;فرزندِ پیمبر کا مدینے سے سفر ہے&quot; کا مطالعہ            (Detailed Textual Study)</h2><h3 id="3f124f8d-7cec-8029-b1cc-d492a414244a" class="" dir="auto">1. بنیادی تعارف (Basic Introduction)</h3><ul id="3f124f8d-7cec-80a7-9df6-dc399e7b1490" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شاعر:</strong> میر انیس (Meer Anees)</li></ul><ul id="3f124f8d-7cec-805e-9939-e54e85486ae2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ہیئت:</strong> مسدس (Musaddas — 6 مصرعوں والے بند)</li></ul><ul id="3f124f8d-7cec-8041-a3bb-f69ffb813b80" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>موضوع:</strong> حضرت امام حسینؓ کا اپنے تمام اہل و عیال (خاندان) کے ساتھ وطنِ عزیز <strong>مدینہ منورہ</strong> کو چھوڑ کر مکہ اور کربلا کی طرف سفر کا دردناک منظر۔</li></ul><ul id="3f124f8d-7cec-807f-94be-c5b47fb61629" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مرکزی تاثر:</strong> وطن سے جدائی کا غم، آلِ رسولؐ کا غیرت و وقار، اور مستقبل کے مصائب کا احساس۔</li></ul><hr id="3f124f8d-7cec-80dc-b18a-ce7138dcdbf5" dir="auto"/><figure id="3f124f8d-7cec-80c0-bdde-d6d28f418261" class="image" data-notion-image="image%2014.png" dir="ltr"><a href="image%2014.png"><img style="width:703.9854736328125px" src="image%2014.png"/></a></figure><hr id="3f124f8d-7cec-80b5-a7eb-c450a934bb39" dir="auto"/><h3 id="3f124f8d-7cec-80c3-b14c-e9313ab4b3da" class="" dir="auto">2. مرثیے کا متن اور مرکزی کہانی (The Narrative &amp; Key Scenes)</h3><p id="3f124f8d-7cec-8030-8a6a-d38ff419911a" class="" dir="auto">میر انیس نے اس مرثیے میں حضرت امام حسینؓ کی مدینے سے رخصت کے منظر کو چند اہم مراحل (Stages) میں بیان کیا ہے:</p><ol type="1" id="3f124f8d-7cec-8005-9414-e1ab6900cd2d" class="numbered-list" start="1" dir="auto"><li><strong>روضۂ رسولؐ سے رخصت (Farewell to Prophet&#x27;s Shrine):</strong><br/>سفر پر نکلنے سے پہلے امام حسینؓ اپنے نانا حضرت محمد مصطفیٰؐ کے روضہ انور پر تشریف لے جاتے ہیں۔ وہاں وہ اپنے نانا سے رخصت لیتے ہیں اور ان کی آنکھوں سے آنسو جاری ہوتے ہیں۔ یہ منظر انتہائی جذباتی اور رقت انگیز ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-80bb-a4fe-d5abb093b1e2" class="numbered-list" start="2" dir="auto"><li><strong>مدینے کے گلی کوچوں سے الوداع (Leaving Native City):</strong><br/>امام حسینؓ اور ان کا خاندان مدینے کے لوگوں اور گلیوں کو آخری بار دیکھ رہے ہیں۔ وطن چھوڑنے کا غم ہر چہرے پر عیاں ہے، لیکن وہ دینِ اسلام کی حفاظت کے لیے یہ قربانی دینے پر راضی ہیں۔</li></ol><ol type="1" id="3f124f8d-7cec-80f5-bf72-e2ae7e4f8c9b" class="numbered-list" start="3" dir="auto"><li><strong>اہلِ بیت اور عورتوں کا غم (Grief of the Holy Household):</strong><br/>خیموں اور محملوں میں موجود عورتوں اور بچوں کا درد۔ حضرت زینبؓ اور دیگر بیبیوں کا اپنے آباؤ اجداد کی نگری کو چھوڑنے پر نالہ و فریاد اور حسرت۔</li></ol><ol type="1" id="3f124f8d-7cec-8047-8fed-e20d64c47a4c" class="numbered-list" start="4" dir="auto"><li><strong>سفر کا آغاز اور وقار (Dignity of the Caravan):</strong><br/>غم و اندوہ کے باوجود امام حسینؓ کا قافلہ نہایت صبر، وقار، اور جاہ و جلال کے ساتھ آگے بڑھتا ہے۔ قافلے کے ساتھ حضرت عباسؓ کی علمداری اور حفاظت کا زبردست احساس دکھایا گیا ہے۔</li></ol><hr id="3f124f8d-7cec-802a-ba78-cb476ac400c5" dir="auto"/><figure id="3f124f8d-7cec-8046-b53e-dd2a3142237a" class="image" data-notion-image="image%2015.png" dir="ltr"><a href="image%2015.png"><img style="width:703.9854736328125px" src="image%2015.png"/></a></figure><hr id="3f124f8d-7cec-8069-9a77-f41418d1be54" dir="auto"/><h3 id="3f124f8d-7cec-8098-a8fe-d5c51ae287eb" class="" dir="auto">3. اس مرثیے کی ادبی اور فنی خصوصیات (Literary Significance)</h3><p id="3f124f8d-7cec-80b1-baa7-f8a4ed61e0b3" class="" dir="auto">امتحان میں اس مرثیے کی ادبی خصوصیات پوچھی جائیں تو ان <strong>4 نکات</strong> کو لکھیں:</p><ul id="3f124f8d-7cec-8082-a225-d2282965b662" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>1. وطن کی محبت اور جدائی کا اثر (Love for Homeland):</strong><br/>میر انیس نے دکھایا ہے کہ انسان کو اپنا وطن کتنا عزیز ہوتا ہے۔ نبی اکرمؐ کے نواسے کا اپنا گھر چھوڑنا کتنا بڑا ایثار اور غم ہے۔</li></ul><ul id="3f124f8d-7cec-803f-831b-e6e09b6ad7b6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2. تصویر کشی / منظر نگاری (Vivid Imagery):</strong><br/>اشعار پڑھتے ہی مدینہ منورہ کا ماحول، قافلے کے اونٹ، اور الوداع کہتے ہوئے صحابہ و اہل بیت کی تصویر آنکھوں کے سامنے گھوم جاتی ہے۔</li></ul><ul id="3f124f8d-7cec-8045-b5b2-f65669565692" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>3. فصاحت و بلاغت (Flawless Diction):</strong><br/>میر انیس نے ایسے الفاظ کا استعمال کیا ہے جو دل میں گداز اور آنکھوں میں آنسو لے آتے ہیں۔ زبان بالکل شستہ اور روان ہے۔</li></ul><ul id="3f124f8d-7cec-80c8-9797-fce98f74b83f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>4. پیش گوئی اور تاثر (Foreboding Tragedy):</strong><br/>سفر کے آغاز میں ہی ایسے اشعار اور سوز شامل ہیں جن سے پڑھنے والے کو اندازہ ہو جاتا ہے کہ یہ سفر آگے چل کر کربلا کے عظیم المیے (Tragedy) پر ختم ہونے والا ہے۔</li></ul><hr id="3f124f8d-7cec-8045-a12c-ee40c1ed8660" dir="auto"/><h3 id="3f124f8d-7cec-8030-8085-e9ca0588657d" class="" dir="auto">4. امتحانی نقطہ نظر سے خلاصہ (Quick Exam Summary)</h3><pre id="3f124f8d-7cec-8025-9a19-d867b36e123b" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">مدینے سے سفر = روضۂ رسولؐ سے الوداع + وطن چھوڑنے کا غم + صبر و تسلیم + کربلا کی طرف پیش قدمی</code></pre><table id="3f124f8d-7cec-807c-b78a-f00cddb5602d" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-808e-85eb-d0ac32cb3fc1" dir="ltr"><th id="VaNu" class="simple-table-header-color simple-table-header">سوال (Expected Question)</th><th id=":}G=" class="simple-table-header-color simple-table-header" style="width:428.9822082519531px">بنیادی جواب (Core Answer Point)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8030-adca-dedf0f06243c" dir="ltr"><td id="VaNu" class=""><strong>مرثیے کا اہم موضوع کیا ہے؟</strong></td><td id=":}G=" class="" style="width:428.9822082519531px">امام حسینؓ کا مدینہ منورہ سے مکہ اور کربلا کی طرف ہجرت و سفر۔</td></tr><tr id="3f124f8d-7cec-805f-82d4-defbe017cfbe" dir="ltr"><td id="VaNu" class=""><strong>سب سے رقت انگیز منظر کون سا ہے؟</strong></td><td id=":}G=" class="" style="width:428.9822082519531px">روضۂ رسولؐ پر حاضری اور نانا سے رخصتی کا منظر۔</td></tr><tr id="3f124f8d-7cec-809c-bd59-e3da67f8da4b" dir="ltr"><td id="VaNu" class=""><strong>انیس کا کمال کیا ہے؟</strong></td><td id=":}G=" class="" style="width:428.9822082519531px">غمِ جدائی اور دینی وقار دونوں کو ایک ساتھ نبھانا۔</td></tr></tbody></table><hr id="3f124f8d-7cec-80c7-896c-db9f2989d702" dir="auto"/><h1 id="3f124f8d-7cec-8078-aec4-e12f4f4c0b44" class="" dir="auto"><span style="border-bottom:0.05em solid">UNIT-3</span></h1><hr id="3f124f8d-7cec-806b-afaa-d771326cc4df" dir="auto"/><h2 id="3f124f8d-7cec-802d-a2b5-ca356c99e5d6" class="" dir="auto">3.1.1 قصیدہ کا فن، ساخت اور اجزائے ترکیبی                                            (Art, Structure, and Components of Qaseeda)</h2><h3 id="3f124f8d-7cec-80a0-be49-d6d8aba8e2cb" class="" dir="auto">1. قصیدہ کیا ہے؟ (Meaning &amp; Definition)</h3><ul id="3f124f8d-7cec-80b3-9ee9-ea6c7ef63e50" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>لفظی معنی:</strong> لفظ &quot;قصیدہ&quot; عربی زبان کے لفظ <strong>&quot;قَصَدَ&quot;</strong> سے بنا ہے، جس کے معنی ہیں <strong>&quot;قصد کرنا یا ارادہ کرنا&quot;</strong>۔<br/>(ایک دوسری روایت کے مطابق یہ <strong>&quot;قَصیْد&quot;</strong> سے بنا ہے جس کے معنی &quot;گاڑھے مغز&quot; کے ہوتے ہیں، یعنی ایسا کلام جو فکر اور خیال سے بھرا ہوا ہو)۔</li></ul><ul id="3f124f8d-7cec-8019-8fa6-eee6d112ac88" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصطلاحی معنی:</strong> اردو ادب میں قصیدہ اس نظم کو کہتے ہیں جس میں کسی بادشاہ، امیر، مذہبی رہنما یا محترم شخصیت کی <strong>تعریف و مدح (Praise)</strong> کی جائے، یا پھر کسی کی <strong>ہجو (مذمت/طنز/Satire)</strong> کی جائے۔</li></ul><hr id="3f124f8d-7cec-8093-971d-da7fd89a2d88" dir="auto"/><figure id="3f124f8d-7cec-8076-ad0e-e59d2c4cf244" class="image" data-notion-image="image%2016.png" dir="ltr"><a href="image%2016.png"><img style="width:703.9854736328125px" src="image%2016.png"/></a></figure><hr id="3f124f8d-7cec-80b3-8b77-e4c0c678710c" dir="auto"/><h3 id="3f124f8d-7cec-801b-a654-f42857b0bb86" class="" dir="auto">2. قصیدہ کی ساخت اور ہیئت (Structure of Qaseeda)</h3><ol type="1" id="3f124f8d-7cec-80f7-beed-f6a89e99271d" class="numbered-list" start="1" dir="auto"><li><strong>غزل سے مشابہت (Resemblance to Ghazal):</strong><br/>قصیدہ ہیئت (Form) کے اعتبار سے غزل سے ملتا جلتا ہوتا ہے۔</li></ol><ul id="3f124f8d-7cec-809a-bde3-c43eb2b45405" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کا پہلا شعر <strong>مطلع (Matla)</strong> ہوتا ہے، جس کے دونوں مصرعے ہم قافیہ اور ہم ردیف ہوتے ہیں۔</li></ul><ul id="3f124f8d-7cec-8083-8649-ed789c1acd12" class="bulleted-list" dir="auto"><li style="list-style-type:disc">باقی تمام اشعار کا صرف دوسرا مصرعہ مطلع کے قافیے اور ردیف کا پابند ہوتا ہے۔</li></ul><ol type="1" id="3f124f8d-7cec-803e-a2c3-deab1db6ecf8" class="numbered-list" start="1" dir="auto"><li><strong>اشعار کی تعداد (Length):</strong><br/>غزل کے برعکس قصیدہ ایک طویل نظم ہوتی ہے۔ اس میں کم از کم 15-21 اشعار اور زیادہ سے زیادہ سیکنڑوں اشعار ہو سکتے ہیں۔</li></ol><ol type="1" id="3f124f8d-7cec-80ae-b380-dd79b2601578" class="numbered-list" start="2" dir="auto"><li><strong>قصیدہ کی قسمیں:</strong></li></ol><ul id="3f124f8d-7cec-806c-89c5-ff58a39bac48" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تمہیدیہ قصیدہ:</strong> جس میں مدح (تعریف) سے پہلے تمہید کے طور پر بہار، جوانی، یا حکمت کے مضامین باندھے جائیں۔</li></ul><ul id="3f124f8d-7cec-8029-8fb8-eebc364aabe4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>خطابیہ قصیدہ:</strong> جس میں بغیر تمہید کے براہِ راست ممدوح (جس کی تعریف کی جا رہی ہے) کی تعریف شروع کر دی جائے۔</li></ul><hr id="3f124f8d-7cec-8054-add1-f0aa613fd478" dir="auto"/><h3 id="3f124f8d-7cec-806c-9cb5-f67371b19f21" class="" dir="auto">3. قصیدہ کے اجزائے ترکیبی (5 Main Parts of Qaseeda)</h3><p id="3f124f8d-7cec-807a-8126-ca5dad81c33d" class="" dir="auto">قدیم عربی و فارسی اور اردو روایت کے مطابق ایک مکمل قصیدے کے <strong>5 بنیادی اجزاء</strong> ہوتے ہیں:</p><pre id="3f124f8d-7cec-8039-a7e6-d6888d629aa6" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">تشبیب ➔ گریز ➔ مدح ➔ حسنِ طلب ➔ دعا</code></pre><h4 id="3f124f8d-7cec-80ac-9ae8-df7cf42633f2" class="" dir="auto">1. تشبیب (Tashbeeb / Introduction &amp; Setting the Scene):</h4><ul id="3f124f8d-7cec-80eb-ae97-f717f6de2879" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہ قصیدے کا <strong>ابتدائی حصہ (Intro)</strong> ہوتا ہے۔</li></ul><ul id="3f124f8d-7cec-80ca-a9b0-c72870dd51fc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس میں شاعر موسمِ بہار، صبح کا منظر، عشق و جوانی، یا دنیا کی حکمت کا ذکر کرتا ہے۔</li></ul><ul id="3f124f8d-7cec-806f-9150-cbc5be89f406" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کا مقصد پڑھنے والے یا سننے والے کی توجہ اپنی طرف کھینچنا ہوتا ہے۔</li></ul><h4 id="3f124f8d-7cec-8015-be5e-c92abc077554" class="" dir="auto">2. گریز (Gureez / Smooth Transition):</h4><ul id="3f124f8d-7cec-8033-9838-e398339a4ce9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہ قصیدے کا سب سے <strong>صنعی اور نازک موڑ</strong> ہوتا ہے۔</li></ul><ul id="3f124f8d-7cec-80c5-809d-df26b4d5b186" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس حصے میں شاعر تشبیب (تمہید) کے مضمون سے نکل کر بڑی خوبصورتی اور صفائی کے ساتھ اصل موضوع یعنی <strong>مدح (تعریف)</strong> کی طرف قدم بڑھاتا ہے۔</li></ul><ul id="3f124f8d-7cec-805d-9335-d9b5f4b9c925" class="bulleted-list" dir="auto"><li style="list-style-type:disc">مثال کے طور پر: <em>&quot;بہار کا یہ خوبصورت منظر دیکھ کر مجھے اپنے بادشاہ کی سخاوت یاد آ گئی...&quot;</em></li></ul><h4 id="3f124f8d-7cec-800d-82b1-e0be77e2a20c" class="" dir="auto">3. مدح (Madah / Praise - The Core Part):</h4><ul id="3f124f8d-7cec-8054-aa56-e7910a393dd2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہ قصیدے کا <strong>سب سے اہم اور مرکزی حصہ</strong> ہوتا ہے۔</li></ul><ul id="3f124f8d-7cec-8019-8ce0-f0db65e4ca9f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس میں شاعر اپنے ممدوح (بادشاہ یا شخصیت) کی سخاوت، بہادری، عدل و انصاف، علم اور جاہ و جلال کی کھل کر تعریف کرتا ہے۔</li></ul><h4 id="3f124f8d-7cec-8090-8492-dbecf48abbcb" class="" dir="auto">4. حسنِ طلب (Husn-e-Talab / Artful Request):</h4><ul id="3f124f8d-7cec-80fb-9df3-c22fc9b373df" class="bulleted-list" dir="auto"><li style="list-style-type:disc">مدح کے بعد شاعر اپنے لیے انعام، اکرام، یا مدد کی خواہش کو بڑے شاعرانہ اور باادب انداز میں پیش کرتا ہے۔</li></ul><ul id="3f124f8d-7cec-80bb-840b-f87968e716aa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">شاعر ایسا ظاہر کرتا ہے کہ وہ مانگ نہیں رہا بلکہ اپنا حق یا انعام کا منتظر ہے۔</li></ul><h4 id="3f124f8d-7cec-801f-96de-ecbf810b09a2" class="" dir="auto">5. دعا (Dua / Prayer &amp; Conclusion):</h4><ul id="3f124f8d-7cec-80ca-8a11-cbe1c2cb0f25" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہ قصیدے کا <strong>آخری حصہ</strong> ہوتا ہے۔</li></ul><ul id="3f124f8d-7cec-80d5-8d66-e23687c65083" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس میں شاعر اپنے ممدوح کے لیے لمبی عمر، اقبال مندی، اور خوشحالی کی دعا مانگتا ہے اور قصیدہ ختم کرتا ہے۔</li></ul><hr id="3f124f8d-7cec-801e-aefc-f34161a5d5e7" dir="auto"/><figure id="3f124f8d-7cec-80c6-8518-ed5fa8cb6fca" class="image" data-notion-image="image%2017.png" dir="ltr"><a href="image%2017.png"><img style="width:703.9854736328125px" src="image%2017.png"/></a></figure><hr id="3f124f8d-7cec-8008-a9bd-f874cc50c383" dir="auto"/><h3 id="3f124f8d-7cec-80e2-b454-e64ba0a8092c" class="" dir="auto">4. امتحانی نقطہ نظر سے آسان خلاصہ (Quick Exam Table)</h3><table id="3f124f8d-7cec-8091-96ab-ec32b5425edd" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-80f3-b9f0-c4a2572d0c8a" dir="ltr"><th id="BneZ" class="simple-table-header-color simple-table-header">جزو (Part)</th><th id="gJ^b" class="simple-table-header-color simple-table-header" style="width:335.98854064941406px">آسان مطلب (Simple Explanation)</th></tr></thead><tbody><tr id="3f124f8d-7cec-807c-9093-e07b55ce870b" dir="ltr"><td id="BneZ" class=""><strong>تشبیب</strong></td><td id="gJ^b" class="" style="width:335.98854064941406px">تمہید، مناظرِ فطرت یا جوانی کا ذکر</td></tr><tr id="3f124f8d-7cec-800d-b749-cb21d5f81bce" dir="ltr"><td id="BneZ" class=""><strong>گریز</strong></td><td id="gJ^b" class="" style="width:335.98854064941406px">تمہید سے تعریف کی طرف خوبصورت موڑ</td></tr><tr id="3f124f8d-7cec-806a-b69b-fecfac6269c5" dir="ltr"><td id="BneZ" class=""><strong>مدح</strong></td><td id="gJ^b" class="" style="width:335.98854064941406px">اصل بادشاہ/شخصیت کی تعریف و توصیف</td></tr><tr id="3f124f8d-7cec-8084-bc29-fd3f049c1e68" dir="ltr"><td id="BneZ" class=""><strong>حسنِ طلب</strong></td><td id="gJ^b" class="" style="width:335.98854064941406px">انعام یا مدد کا باادب سوال</td></tr><tr id="3f124f8d-7cec-801c-93a0-c7eb93ef4045" dir="ltr"><td id="BneZ" class=""><strong>دعا</strong></td><td id="gJ^b" class="" style="width:335.98854064941406px">لمبی عمر اور کامیابی کی دعا پر خاتمہ</td></tr></tbody></table><hr id="3f124f8d-7cec-80bd-8125-dd440a57b55b" dir="auto"/><hr id="3f124f8d-7cec-80f8-b4ee-f5acbeaa8bcf" dir="auto"/><h2 id="3f124f8d-7cec-8001-8130-f58d8284358b" class="" dir="auto">3.1.2 اردو قصیدہ کا تاریخی ارتقاء (Evolution of Urdu Qaseeda)</h2><p id="3f124f8d-7cec-8041-aed6-f15bfc02fd33" class="" dir="auto">اردو قصیدے نے فارسی قصیدہ نگاری (عنصری، خاقانی، اور عرفی) کے اثر سے جنم لیا۔ اس کے تاریخی ارتقاء کو ہم <strong>تین اہم ادوار (Eras)</strong> میں تقسیم کر کے آسانی سے سمجھ سکتے ہیں:</p><hr id="3f124f8d-7cec-80c0-b7f9-cec87ffb8185" dir="auto"/><h3 id="3f124f8d-7cec-80b9-807d-e9100a65c886" class="" dir="auto">1. ابتدائی دور: دکن میں قصیدہ نگاری (Deccan Era)</h3><p id="3f124f8d-7cec-801c-a1a6-e4a2e52aedf4" class="" dir="auto">اردو قصیدے کے نقش سب سے پہلے دکن (جنوبی ہند) کی قطب شاہی اور عادل شاہی حکومتوں میں ملتے ہیں۔ دکن کے سلاطین خود بھی شاعر تھے اور شعراء کی سرپرستی کرتے تھے۔</p><ul id="3f124f8d-7cec-8010-be4f-c37a1c32bcbc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سلطان محمد قلی قطب شاہ:</strong> اردو کا پہلا صاحبِ دیوان شاعر، جس نے مذہبی اور مدحی قصائد لکھے۔</li></ul><ul id="3f124f8d-7cec-8010-87cc-db0c776f08d1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>غواصی اور نصرتی:</strong> نصرتی کو دکن کا سب سے بڑا قصیدہ نگار مانا جاتا ہے۔ ان کا قصیدہ <em>&quot;قصیدہ فتحِ نصرت&quot;</em> تاریخ اور فن دونوں لحاظ سے اہم ہے۔</li></ul><p id="3f124f8d-7cec-804a-9c68-c9dbcdb0c89f" class="" dir="auto"><strong>خصوصیت:</strong><br/>اس دور کے قصائد میں فارسیت کم اور مقامی ہندوستانی زبان کا اثر زیادہ تھا۔ زبان میں کچھ کچا پن تھا، لیکن جوش اور سچائی نمایاں تھی۔</p><hr id="3f124f8d-7cec-803e-b9bf-df8ca97de1e8" dir="auto"/><figure id="3f124f8d-7cec-80cd-94e3-cd846ed9e493" class="image" data-notion-image="image%2018.png" dir="ltr"><a href="image%2018.png"><img style="width:703.9854736328125px" src="image%2018.png"/></a></figure><hr id="3f124f8d-7cec-80eb-95b4-ff4afa1aafec" dir="auto"/><h3 id="3f124f8d-7cec-8026-b159-eb5b12d5271d" class="" dir="auto">2. دوسرا دور: شمالی ہند اور دہلی (Golden Era of Delhi)</h3><p id="3f124f8d-7cec-80d4-9527-ef9a90271faf" class="" dir="auto">جب شعر و ادب کا مرکز دہلی منتقل ہوا تو قصیدہ نگاری میں زبردست فنی نکھار آیا۔ اس دور میں اردو قصیدے نے فارسی قصیدے کا مقابلہ کرنا شروع کر دیا۔</p><ul id="3f124f8d-7cec-806e-bf21-c4a967f9d0ae" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مرزا محمد رفیع سودا (Mirza Sauda):</strong> سودا کو <strong>اردو قصیدے کا امام</strong> کہا جاتا ہے۔ انہوں نے اردو قصیدے کو وہ شوکت، بلند خیالی اور الفاظ کا جاہ و جلال دیا جو اس سے پہلے صرف فارسی قصیدے میں پایا جاتا تھا۔</li></ul><ul id="3f124f8d-7cec-80cf-9a58-de648bdaa653" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شیخ ابراہیم ذوق (Sheikh Ibrahim Zauq):</strong> سودا کے بعد ذوق نے قصیدہ نگاری کو بلندیوں پر پہنچایا۔ ان کی فصاحت، زبان پر تسلط اور تشبیہات بے مثال تھیں۔ وہ آخری مغل بادشاہ بہادر شاہ ظفر کے استاد بھی تھے۔</li></ul><p id="3f124f8d-7cec-807c-af2f-c8262962f50f" class="" dir="auto"><strong>خصوصیت:</strong><br/>اس دور میں قصیدہ اپنے تمام اجزائے ترکیبی (تشبیب، گریز، مدح، دعا) کے ساتھ ایک کامل اور وزنی صنف بن گیا۔ زبان نہایت شستہ اور پرشوکت ہو گئی۔</p><hr id="3f124f8d-7cec-8046-aaae-d9a217d7efdf" dir="auto"/><h3 id="3f124f8d-7cec-806d-8fae-e5034cf271e4" class="" dir="auto">3. تیسرا دور: لکھنؤ اور رام پور (Lucknow &amp; Rampur Era)</h3><p id="3f124f8d-7cec-8091-939c-c284b554cfe9" class="" dir="auto">دہلی کی تباہی کے بعد شعراء نے لکھنؤ اور رام پور کی ریاستوں کا رخ کیا، جہاں نوابین نے قصیدہ نگاروں کا شاندار استقبال کیا۔</p><ul id="3f124f8d-7cec-80be-9269-d52c96c1aa4e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>انشاء اللہ خان انشاء:</strong> انہوں نے قصیدے میں نئے تجربات کیے اور زبان و بیان کی باریکیوں کا استعمال کیا۔</li></ul><ul id="3f124f8d-7cec-8083-a0ee-dd8e0d697669" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ناسخ اور مصحفی:</strong> انہوں نے لکھنوی اسلوب اور رعایتِ لفظی کو قصیدے میں شامل کیا۔</li></ul><ul id="3f124f8d-7cec-80f1-8df8-f6032f7c3a1e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>منیر شکوہ آبادی اور امیر مینائی:</strong> رام پور کی دربار سے وابستہ ہو کر ان شعراء نے قصیدہ نگاری کی روایت کو زوال کے دور میں بھی زندہ رکھا۔</li></ul><p id="3f124f8d-7cec-80e4-a7a7-f99cef8f1b10" class="" dir="auto"><strong>خصوصیت:</strong><br/>اس دور میں قصیدے میں لفظی بناوٹ اور ظاہری سجاوٹ زیادہ ہو گئی، جس کی وجہ سے بتدریج قصیدے کا مقبولیت کم ہونے لگی اور جدید دور میں یہ صنف تقریباً ختم ہو گئی۔</p><hr id="3f124f8d-7cec-808b-8c35-c39ce635dc20" dir="auto"/><figure id="3f124f8d-7cec-8016-8979-e6c8b8cb821e" class="image" data-notion-image="image%2019.png" dir="ltr"><a href="image%2019.png"><img style="width:703.9854736328125px" src="image%2019.png"/></a></figure><hr id="3f124f8d-7cec-80e3-af05-cdef04150726" dir="auto"/><h3 id="3f124f8d-7cec-800b-b7a2-df2d6128c32e" class="" dir="auto">4. امتحانی نقطہ نظر سے آسان خلاصہ (Quick Exam Table)</h3><table id="3f124f8d-7cec-800f-b1b2-dc91d6a31191" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-800e-a51b-d5332acaa0cf" dir="ltr"><th id="{TCZ" class="simple-table-header-color simple-table-header">دور (Era)</th><th id="vvx&lt;" class="simple-table-header-color simple-table-header">اہم قصیدہ نگار (Poets)</th><th id="gS~_" class="simple-table-header-color simple-table-header">خاص خصوصیت (Key Feature)</th></tr></thead><tbody><tr id="3f124f8d-7cec-8039-96f5-e4f330f0310d" dir="ltr"><td id="{TCZ" class=""><strong>دکن (Deccan)</strong></td><td id="vvx&lt;" class="">قلی قطب شاہ، نصرتی</td><td id="gS~_" class="">شروعات، مقامی زبان کا اثر</td></tr><tr id="3f124f8d-7cec-80f3-97b7-cb25b3ba6a0a" dir="ltr"><td id="{TCZ" class=""><strong>دہلی (Delhi)</strong></td><td id="vvx&lt;" class="">مرزا سودا، شیخ ابراہیم ذوق</td><td id="gS~_" class="">قصیدے کا سنہری دور، شوکتِ الفاظ</td></tr><tr id="3f124f8d-7cec-80a2-9032-d0d9541c3b5a" dir="ltr"><td id="{TCZ" class=""><strong>لکھنؤ و رام پور</strong></td><td id="vvx&lt;" class="">انشاء، مصحفی، امیر مینائی</td><td id="gS~_" class="">لفظی سجاوٹ اور تدریجی زوال</td></tr></tbody></table><hr id="3f124f8d-7cec-80b3-89c4-f2777641a360" dir="auto"/><hr id="3f124f8d-7cec-809a-ada9-eff34419e6e7" dir="auto"/><h2 id="3f124f8d-7cec-802f-93e8-df3d6eb82710" class="" dir="auto">3.2.1 مرزا سودا کی قصیدہ نگاری                                                          (Mirza Sauda&#x27;s Style and Mastery in Qaseeda)</h2><h3 id="3f124f8d-7cec-8097-934f-fd95ba23b5e1" class="" dir="auto">1. مختصر تعارف (Introduction)</h3><ul id="3f124f8d-7cec-8018-91da-d7e51e88e9b8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصل نام:</strong> مرزا محمد رفیع (تخلص: سودا)</li></ul><ul id="3f124f8d-7cec-80fc-9b3c-c1e618663420" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>دور:</strong> 18ویں صدی (دہلی اور لکھنؤ)</li></ul><ul id="3f124f8d-7cec-80e0-8686-f62814ef5060" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ادبی مقام:</strong> سودا کو اردو قصیدہ نگاری کا سب سے بڑا استاد اور <strong>&quot;معمار&quot;</strong> تسلیم کیا جاتا ہے۔ انہوں نے اردو قصیدے کو فارسى قصیدے کے برابر لا کر کھڑا کر دیا۔</li></ul><hr id="3f124f8d-7cec-80ec-961c-fe3cb8e390d9" dir="auto"/><figure id="3f124f8d-7cec-802f-bee1-f8b79b771cc4" class="image" data-notion-image="image%2020.png" dir="ltr"><a href="image%2020.png"><img style="width:703.9854736328125px" src="image%2020.png"/></a></figure><hr id="3f124f8d-7cec-8015-93c4-f6f7d05ab563" dir="auto"/><h3 id="3f124f8d-7cec-8035-8b73-c38f39c11ece" class="" dir="auto">2. سودا کی قصیدہ نگاری کا اسلوب اور خصوصیات (Key Style Features)</h3><p id="3f124f8d-7cec-809d-a5cb-c63fb79c40e4" class="" dir="auto">امتحان میں اگر سودا کی قصیدہ نگاری پر سوال آئے تو ان <strong>5 اہم نکات</strong> کو لازمی تحریر کریں:</p><h4 id="3f124f8d-7cec-80ab-af0a-cbfda2235200" class="" dir="auto">1. شوکتِ الفاظ اور جاہ و جلال (Grandeur of Diction):</h4><p id="3f124f8d-7cec-8060-aafb-ee1692585edd" class="" dir="auto">سودا کے قصائد کی سب سے بڑی پہچان ان کے الفاظ کا جاہ و جلال اور شوکت ہے۔ وہ ایسے پرشکوہ، وزنی اور بلند الفاظ استعمال کرتے ہیں کہ شعر پڑھتے ہی ایک رعب اور دبدبہ محسوس ہوتا ہے۔</p><h4 id="3f124f8d-7cec-8025-ad82-de5330babacd" class="" dir="auto">2. جدتِ الفاظ اور تشبیہات (Innovative Imagery &amp; Metaphors):</h4><p id="3f124f8d-7cec-80f3-8376-dd6a2147932b" class="" dir="auto">سودا نے فارسی شاعری سے فائد اٹھاتے ہوئے اردو میں نئی اور اچھوتی تشبیہات، استعارے اور تراکیب شامل کیں۔ ان کی فکر بہت بلند تھی، وہ معمولی بات کو بھی بہت شاندار بنا کر پیش کرتے تھے۔</p><h4 id="3f124f8d-7cec-8080-bdd6-d0d0a82f1c78" class="" dir="auto">3. گریز پر زبردست تسلط (Mastery over Gureez):</h4><p id="3f124f8d-7cec-80f5-a053-fe12e06d48c1" class="" dir="auto">قصیدے کا سب سے مشکل حصہ <strong>&quot;گریز&quot;</strong> (تمہید سے اصل تعریف کی طرف منتقل ہونا) ہوتا ہے۔ سودا کو گریز پر بلا کا ملکہ حاصل تھا۔ وہ تشبیب کے مضمون سے مدح کی طرف اتنی صفائی اور روانی سے مڑتے ہیں کہ پڑھنے والا حیران رہ جاتا ہے۔</p><h4 id="3f124f8d-7cec-80a6-afd8-edf4434e9f84" class="" dir="auto">4. مضمون آفرینی اور علمی وسعت (Intellectual Depth &amp; Knowledge):</h4><p id="3f124f8d-7cec-8072-b8ef-d78f652158c4" class="" dir="auto">سودا صرف شاعر نہیں تھے بلکہ اپنے دور کے علوم و فنون، نجوم، تاریخ، اور فلسفے سے بھی واقف تھے۔ اس لیے ان کے قصائد میں صرف تعریف نہیں ہوتی بلکہ علمی باریکیاں اور دانشمندی بھی دکھائی دیتی ہے۔</p><h4 id="3f124f8d-7cec-804f-8deb-c7ee81395528" class="" dir="auto">5. ہجو گوئی اور طنز (Satire &amp; Hajw):</h4><p id="3f124f8d-7cec-8093-b6d0-f9c692065ac1" class="" dir="auto">سودا صرف مدحی قصائد (تعریف) کے استاد نہیں تھے، بلکہ انہوں نے <strong>&quot;ہجو&quot; (طنز و مذمت)</strong> میں بھی کمال حاصل کیا۔ اگر کوئی شخص ان سے بگاڑتا یا معاشرے میں برائی پھیلاتی شخصیت ہوتی، تو وہ اپنے قصیدے کے ذریعے اس کی ایسی ہجو کرتے کہ وہ تاریخ میں رسوا ہو جاتا (جیسے ان کا مشہور قصیدہ <em>&quot;تضحیکِ روزگار&quot;</em> جو ایک بدحال گھوڑے اور نظام کی خرابی پر طنز ہے)۔</p><hr id="3f124f8d-7cec-8033-96df-d592eaffba3e" dir="auto"/><figure id="3f124f8d-7cec-80c3-9e80-ced4eb751575" class="image" data-notion-image="image%2021.png" dir="ltr"><a href="image%2021.png"><img style="width:703.9854736328125px" src="image%2021.png"/></a></figure><hr id="3f124f8d-7cec-8071-adcb-f82f489edb75" dir="auto"/><h3 id="3f124f8d-7cec-80cb-9635-db37ab8ae6d4" class="" dir="auto">3. امتحانی نقطہ نظر سے خلاصہ (Quick Exam Summary Table)</h3><table id="3f124f8d-7cec-8085-abf1-f056cf0e3efe" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-8004-b191-c8a809c5792b" dir="ltr"><th id="m?=p" class="simple-table-header-color simple-table-header">خصوصیت (Trait)</th><th id="viys" class="simple-table-header-color simple-table-header" style="width:383.98854064941406px">آسان مطلب (Simple Explanation)</th></tr></thead><tbody><tr id="3f124f8d-7cec-804b-b447-d34539abe803" dir="ltr"><td id="m?=p" class=""><strong>ادبی لقب</strong></td><td id="viys" class="" style="width:383.98854064941406px">اردو قصیدے کے امام / بابا Adam</td></tr><tr id="3f124f8d-7cec-805a-88bd-e0af011632af" dir="ltr"><td id="m?=p" class=""><strong>زبان کا انداز</strong></td><td id="viys" class="" style="width:383.98854064941406px">پرشکوہ، سنگلاخ، اور رعب دار الفاظ</td></tr><tr id="3f124f8d-7cec-803b-942a-def775ce6bb5" dir="ltr"><td id="m?=p" class=""><strong>بڑا کمال</strong></td><td id="viys" class="" style="width:383.98854064941406px">فارسی قصیدے کے برابر اردو کو پہنچانا اور گریز میں مہارت</td></tr><tr id="3f124f8d-7cec-803f-8425-c803e4078ead" dir="ltr"><td id="m?=p" class=""><strong>دیگر پہلو</strong></td><td id="viys" class="" style="width:383.98854064941406px">مدح (تعریف) اور ہجو (طنز) دونوں پر یکساں قدرت</td></tr></tbody></table><hr id="3f124f8d-7cec-80ca-8035-d966ff92e93c" dir="auto"/><hr id="3f124f8d-7cec-8067-a03d-e2cc5d63748e" dir="auto"/><h2 id="3f124f8d-7cec-805f-b32c-ca8ad44ea378" class="" dir="auto">3.2.2 قصیدہ &quot;شہر آشوب&quot; کا مطالعہ                                                    (Textual Study of Qaseeda &quot;Shahr-e-Ashoob&quot;)</h2><h3 id="3f124f8d-7cec-80a8-bbbe-fd8ae0ca53b1" class="" dir="auto">1. &quot;شہر آشوب&quot; کا مطلب اور پس منظر (Concept &amp; Background)</h3><ul id="3f124f8d-7cec-80f5-a6fa-ff75b1357477" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>لفظی معنی:</strong> &quot;شہر&quot; یعنی شہر/معاشرہ، اور &quot;آشوب&quot; کا مطلب ہوتا ہے <strong>تباہی، فتویٰ، معاشی بدحالی یا پریشانی</strong>۔</li></ul><ul id="3f124f8d-7cec-809d-9a6a-d463dc475551" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصطلاحی معنی:</strong> اردو ادب میں ایسی نظم جس میں کسی شہر کی سیاسی، معاشی اور سماجی تباہی، روزگار کی کمی اور لوگوں کے زوال کا بیان ہو، اسے <strong>&quot;شہر آشوب&quot;</strong> کہتے ہیں۔</li></ul><ul id="3f124f8d-7cec-8089-aa2a-dbea799aba7a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تاریخی پس منظر:</strong> 18ویں صدی میں جب مغل سلطنت زوال کا شکار ہوئی، نادر شاہ اور احمد شاہ ابدالی کے حملوں نے <strong>دہلی</strong> کو برباد کر دیا۔ امیروں سے لے کر غریبوں تک سب کے روزگار ختم ہو گئے۔ مرزا سودا نے اس بدحالی کو اپنے اس قصیدے/نظم کا موضوع بنایا۔</li></ul><hr id="3f124f8d-7cec-80ad-9ce3-d3dfcdf9eba1" dir="auto"/><figure id="3f124f8d-7cec-80d3-b34b-cd3eea1e2aad" class="image" data-notion-image="image%2022.png" dir="ltr"><a href="image%2022.png"><img style="width:703.9854736328125px" src="image%2022.png"/></a></figure><hr id="3f124f8d-7cec-80f1-bbf6-c8489fd5795a" dir="auto"/><h3 id="3f124f8d-7cec-801e-87b3-dd9adbaaf2b7" class="" dir="auto">2. قصیدہ &quot;شہر آشوب&quot; کا متن اور مرکزی مضامین (Core Themes &amp; Content)</h3><p id="3f124f8d-7cec-80c8-a38a-ed5f5c631a51" class="" dir="auto">مرزا سودا نے اس قصیدے میں دہلی کے مختلف طبقوں اور پیشے سے تعلق رکھنے والے لوگوں کی بدحالی کا شاندار طنز و مزاح اور درد کے ساتھ نقشہ کھینچا ہے:</p><ol type="1" id="3f124f8d-7cec-80f2-9f3e-e075234f67d7" class="numbered-list" start="1" dir="auto"><li><strong>معاشی بدحالی اور بے روزگاری (Poverty &amp; Unemployment):</strong><br/>سودا بتاتے ہیں کہ دہلی میں اب کسی کے پاس کام نہیں رہا۔ معیشت مکمل طور پر تباہ ہو چکی ہے، اور روپیہ پیسہ بازار سے غائب ہو گیا ہے۔</li></ol><ol type="1" id="3f124f8d-7cec-80b3-b283-fd5fc1712ab9" class="numbered-list" start="2" dir="auto"><li><strong>تمام پیشہ وروں کا زوال (Decline of All Professions):</strong></li></ol><ul id="3f124f8d-7cec-809c-a33d-c1d8374dc28b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تاجر (Traders):</strong> ان کی دوکانیں خالی ہیں اور کوئی خریدار نہیں ہے۔</li></ul><ul id="3f124f8d-7cec-8071-8835-cb2ec9199419" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سپاہی (Soldiers):</strong> جن کی تلواریں اب زنگ آلود ہو چکی ہیں اور ان کو مہینوں سے تنخواہ نہیں ملی۔</li></ul><ul id="3f124f8d-7cec-80e3-88f9-e6e7f4e8e6b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شاعر و ادیب (Poets &amp; Scholars):</strong> ان کا اب کوئی قدر دان نہیں رہا، اور وہ بھی فاقہ کشی پر مجبور ہیں۔</li></ul><ul id="3f124f8d-7cec-8027-958e-cff7e4ecf457" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>کسان اور محنت کش:</strong> ان کے پاس بھی کھانے کو اناج نہیں ہے۔</li></ul><ol type="1" id="3f124f8d-7cec-800f-ac62-c64dc05613f7" class="numbered-list" start="1" dir="auto"><li><strong>حکمرانوں کی نااہلی (Incompetence of Rulers):</strong><br/>سودا نے اس قصیدے میں مغل بادشاہوں، نوابوں اور امیروں کا سخت طنز (Satire) اڑایا ہے جو عیاشی میں ڈوبے ہوئے تھے اور عوام کی بدحالی سے بالکل بے خبر تھے۔</li></ol><ol type="1" id="3f124f8d-7cec-80f6-91e8-ef549fc98614" class="numbered-list" start="2" dir="auto"><li><strong>طنز و مزاح اور درد کا انضمام (Blend of Satire &amp; Pathos):</strong><br/>اس نظم کا کمال یہ ہے کہ پڑھنے والے کو سن کر ہنسی بھی آتی ہے اور ساتھ ہی دہلی کی بربادی پر دل میں گہرا درد بھی محسوس ہوتا ہے۔</li></ol><hr id="3f124f8d-7cec-8065-b81e-eaacad69deeb" dir="auto"/><figure id="3f124f8d-7cec-80b7-b86f-e82d225d4780" class="image" data-notion-image="image%2023.png" dir="ltr"><a href="image%2023.png"><img style="width:703.9854736328125px" src="image%2023.png"/></a></figure><hr id="3f124f8d-7cec-8081-8fd8-e6139cc7f25c" dir="auto"/><h3 id="3f124f8d-7cec-80bd-a0dd-eb3f26e0acde" class="" dir="auto">3. امتحانی نقطہ نظر سے اہم خصوصیات (Key Features for Exam)</h3><p id="3f124f8d-7cec-8028-8a58-d5ac1600da9f" class="" dir="auto">اگر امتحان میں قصیدہ &quot;شہر آشوب&quot; پر سوال آئے تو ان <strong>4 نکات</strong> کو لازمی تحریر کریں:</p><ul id="3f124f8d-7cec-805c-b650-f923fed05992" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>1. سچی تاریخی دستاویز (Real Historical Record):</strong> یہ صرف ایک نظم نہیں بلکہ 18ویں صدی کی دہلی کی معاشی اور سماجی حالت کی سچی تصویر ہے۔</li></ul><ul id="3f124f8d-7cec-80ba-a584-c3a1c44e8d54" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2. ہجو اور طنز نگاری کا اعلیٰ نمونہ (Masterpiece of Satire):</strong> سودا نے برائیوں اور نااہلی پر کھل کر چوٹ کی ہے۔</li></ul><ul id="3f124f8d-7cec-8082-ba53-d8508947a683" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>3. واقعیت پسندی (Realism):</strong> اس میں خیالی باتیں نہیں ہیں بلکہ عام انسان کی روزمرہ کی مشکلات (فاقہ، بے روزگاری) کا ذکر ہے۔</li></ul><ul id="3f124f8d-7cec-8090-b489-ed4b007f3811" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>4. روان اور شستہ زبان (Fluent Diction):</strong> سودا نے روزمرہ کی بول چال اور محاوروں کا زبردست استعمال کیا ہے۔</li></ul><hr id="3f124f8d-7cec-80cc-a73a-dad642d4b319" dir="auto"/><h3 id="3f124f8d-7cec-8006-ab89-db5057f86239" class="" dir="auto">4. امتحانی خلاصہ (Quick Exam Summary Table)</h3><pre id="3f124f8d-7cec-80d0-8990-c24b04922161" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">شہر آشوب = دہلی کی معاشی تباہی + ہر پیشے کی بدحالی + نااہل حکمرانوں پر طنز + سچی تاریخ</code></pre><table id="3f124f8d-7cec-8057-9fd0-ea556ef045ac" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f124f8d-7cec-80e1-9ce6-f8e6a308de46" dir="ltr"><th id="=TZu" class="simple-table-header-color simple-table-header">سوال (Expected Question)</th><th id="pY:F" class="simple-table-header-color simple-table-header" style="width:420.9789123535156px">بنیادی جواب (Core Answer Point)</th></tr></thead><tbody><tr id="3f124f8d-7cec-804c-9b44-c70bf524dbf5" dir="ltr"><td id="=TZu" class=""><strong>شہر آشوب کا موضوع کیا ہے؟</strong></td><td id="pY:F" class="" style="width:420.9789123535156px">دہلی کی معاشی و سیاسی تباہی اور عوام کی بے روزگاری۔</td></tr><tr id="3f124f8d-7cec-805e-ab25-ea8327426a08" dir="ltr"><td id="=TZu" class=""><strong>سودا نے کس پر طنز کیا ہے؟</strong></td><td id="pY:F" class="" style="width:420.9789123535156px">نااہل حکمرانوں، امراء اور نظام کی خرابیوں پر۔</td></tr><tr id="3f124f8d-7cec-8005-b43d-c7a4dc94716a" dir="ltr"><td id="=TZu" class=""><strong>اس کی ادبی اہمیت کیا ہے؟</strong></td><td id="pY:F" class="" style="width:420.9789123535156px">یہ اردو کی پہلی اور سب سے مشہور شہر آشوب نظموں میں شامل ہے۔</td></tr></tbody></table><hr id="3f124f8d-7cec-80a4-b0d0-e14507279dd4" dir="auto"/><h2 id="3f124f8d-7cec-80c1-9d6e-cf12e760e08d" class="" dir="auto">📚 سلیبس مکمل ہوا (Course Completed)</h2><p id="3f124f8d-7cec-80d1-a1a8-db77b0c54cf4" class="" dir="auto">مبارک ہو! آپ کا پورا سلیبس <strong>MIC 05: Study of Urdu Masnavi, Marsiya and Qaseeda</strong> اب مکمل ہو چکا ہے:</p><ol type="1" id="3f124f8d-7cec-80bd-88b9-c9e183d9c6e1" class="numbered-list" start="1" dir="auto"><li><strong>Unit 1 (مثنوی):</strong> صنف کا ارتقاء، خصوصیات، شوق نیموی کا اسلوب، اور مثنوی <em>&quot;سوز و گداز&quot;</em>۔</li></ol><ol type="1" id="3f124f8d-7cec-80bf-b0f1-d20640a7fc85" class="numbered-list" start="2" dir="auto"><li><strong>Unit 2 (مرثیہ):</strong> صنف کا ارتقاء، اجزائے ترکیبی (8 اجزاء)، میر انیس کا فن، اور مرثیہ <em>&quot;فرزندِ پیمبر کا مدینے سے سفر ہے&quot;</em>۔</li></ol><ol type="1" id="3f124f8d-7cec-803c-9199-cdb8ef3074ba" class="numbered-list" start="3" dir="auto"><li><strong>Unit 3 (قصیدہ):</strong> صنف کا ارتقاء، اجزائے ترکیبی (5 اجزاء)، مرزا سودا کی قصیدہ نگاری، اور قصیدہ <em>&quot;شہر آشوب&quot;</em>۔</li></ol><p id="3f124f8d-7cec-806d-8943-e881bbc12e35" class="" dir="auto">امتحان کے لیے بہت بہت مبارکباد! تمام نوٹس کو ایک بار دہرا لیں، آپ کا پرچہ انشاء اللہ بہت اچھا ہوگا۔</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
