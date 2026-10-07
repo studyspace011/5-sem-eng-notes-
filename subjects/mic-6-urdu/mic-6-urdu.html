@@ -1,0 +1,812 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MIC 06: Study of Urdu Criticism</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3f224f8d-7cec-808f-8b85-ce4206b8297e" class="page sans"><header><h1 class="page-title" dir="auto"><strong>MIC 06: Study of Urdu Criticism</strong></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Created</th><td><time datetime="2026-10-07">October 7, 2026</time></td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/hashtag_gray.svg" style="width:14px;height:14px;display:block"/></span>CODE</th><td>6</td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/user-circle_gray.svg" style="width:14px;height:14px;display:block"/></span>Created by</th><td><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">S</span></span>Study Space</span></td></tr></tbody></table></header><div class="page-body"><h1 id="3f224f8d-7cec-8004-b0c0-f047a8368e82" class="" dir="auto">Unit 1: Fundamentals and Evolution of Urdu Criticism</h1><h2 id="3f224f8d-7cec-80ee-8cb9-c87309108f78" class="" dir="auto">(یونٹ 1: اردو تنقید: فن اور ارتقاء)</h2><hr id="3f224f8d-7cec-8066-829f-c325392af4ef" dir="auto"/><h3 id="3f224f8d-7cec-8089-b11c-d3a0a5114060" class="" dir="auto">📘 یونٹ 1 کا تعارف (Introduction &amp; Overview)</h3><p id="3f224f8d-7cec-808f-8a46-c3d225354d7c" class="" dir="auto">سلام! اس یونٹ میں آپ کا استقبال ہے۔ سب سے پہلے یہ سمجھتے ہیں کہ اس <strong>Unit 1</strong> میں ہم کیا پڑھنے والے ہیں اور تمام سرفہرست موضوعات (Topics) آپس میں کیسے جڑے ہوئے ہیں:</p><ol type="1" id="3f224f8d-7cec-8022-a730-fb9e462adc4c" class="numbered-list" start="1" dir="auto"><li><strong>تنقید کا مفہوم، تعریف اور اہمیت (Section 1.1.1):</strong><br/>یہاں ہم یہ جانیں گے کہ لفظ &quot;تنقید&quot; کا اصل مطلب کیا ہے؟ روزمرہ کی زندگی میں ہم تنقید کسے کہتے ہیں اور ادبی دنیا (Literature) میں اس کا اصلی مقصد کیا ہوتا ہے۔</li></ol><ol type="1" id="3f224f8d-7cec-80d8-99cd-ca912ba3a345" class="numbered-list" start="2" dir="auto"><li><strong>تنقید کے بنیادی اصول اور وظائف (Section 1.1.2):</strong><br/>تنقید کرنے کا صحیح طریقہ کیا ہے؟ ایک اچھے نقاد (Critic) میں کون سی خوبیاں ہونی چاہئیں اور تنقید ہماری ادب اور معاشرے کی کس طرح خدمت کرتی ہے؟</li></ol><ol type="1" id="3f224f8d-7cec-80df-9d1e-f400e208a386" class="numbered-list" start="3" dir="auto"><li><strong>اردو تنقید کے ابتدائی نقوش اور تاریخی ارتقاء (Section 1.2.1):</strong><br/>قدیم زمانے میں تذکروں اور تذکرہ نگاری سے تنقید کی شروعات کیسے ہوئی اور وقت کے ساتھ ساتھ یہ کیسے جدید شکل میں بدلی؟</li></ol><ol type="1" id="3f224f8d-7cec-80d3-b7be-d274d72dad8b" class="numbered-list" start="4" dir="auto"><li><strong>اردو تنقید کے اہم دبستان اور تحاریک (Section 1.2.2):</strong><br/>مختلف نظریات اور تحریکیں (جیسے حالی کی اصلاحی تنقید، ترقی پسند تنقید، اور جدیدیت) جنہوں نے اردو ادب کو سوچنے کا نیا زاویہ دیا۔</li></ol><p id="3f224f8d-7cec-80dd-bbb0-f354428697b4" class="" dir="auto">تنقید کو سمجھنا بہت آسان ہے۔ جیسے جب آپ کوئی فلم دیکھتے ہیں یا کوئی کھانا کھاتے ہیں، تو آپ فوری بتاتے ہیں کہ اس میں کیا بات بہترین تھی اور کہاں بہتری کی ضرورت تھی۔ بالکل اسی طرح ادب (شاعری اور نثر) کو پرکھنا اور اس کے اچھے برے پہلوؤں کو ظاہر کرنا تنقید کہلاتا ہے۔</p><hr id="3f224f8d-7cec-80ab-bcc9-f7cb2e360269" dir="auto"/><h2 id="3f224f8d-7cec-80b0-b5d6-fafddf61e8fa" class="" dir="auto">Section 1.1: Concept and Art of Criticism</h2><h3 id="3f224f8d-7cec-80c3-96e7-ce65bb464df9" class="" dir="auto">(تنقید کا مفہوم اور فن)</h3><hr id="3f224f8d-7cec-807b-9dae-f52ad1371a1f" dir="auto"/><h3 id="3f224f8d-7cec-8094-9221-ce41752748b8" class="" dir="auto">1.1.1 Meaning, Definition, and Importance of Literary Criticism</h3><h4 id="3f224f8d-7cec-802b-a08c-ea966b9341e0" class="" dir="auto">(تنقید کا مفہوم، تعریف اور اہمیت)</h4><hr id="3f224f8d-7cec-80c0-9279-dbcc58d5a280" dir="auto"/><h4 id="3f224f8d-7cec-80f1-a5f6-fd86cd68c952" class="" dir="auto">1. لفظ &quot;تنقید&quot; کا اصل مفہوم (Meaning of Criticism)</h4><p id="3f224f8d-7cec-80fb-9af3-d97ff4edfdbd" class="" dir="auto">لفظ <strong>&quot;تنقید&quot;</strong> عربی زبان کا لفظ ہے۔ اس کے لفظی اور لغوی معنی ہیں:</p><ul id="3f224f8d-7cec-8054-aa0b-f122e3c57d3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>کھرے اور کھوٹے کو الگ کرنا</strong> (To separate good quality from bad).</li></ul><ul id="3f224f8d-7cec-80b3-8b9b-ce72aaa4a81e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سکے (Coin) کو پرکھنا</strong>: پرانے زمانے میں جب لوگ بازار میں چاندی یا سونے کا سکہ دیتے تھے، تو صراف (Saraf/Jeweller) سکے کو بجا کر اور دیکھ کر بتاتا تھا کہ سکہ اصلی (کھرا) ہے یا نقلی (کھوٹا)۔ صراف کے اس پرکھنے کے عمل کو عربی میں &quot;نَقد&quot; یا &quot;تنقید&quot; کہا جاتا تھا۔</li></ul><p id="3f224f8d-7cec-80d0-8377-d581d449eb0d" class="" dir="auto">ادب کی دنیا میں جب ہم کسی نظم، غزل، داستان یا افسانے کو پڑھتے ہیں اور یہ بتاتے ہیں کہ اس میں کیا خوبیاں ہیں، کیا خامیاں ہیں، اور مصنف نے کیا پیغام دینے کی کوشش کی ہے، تو اس عمل کو <strong>ادبی تنقید (Literary Criticism)</strong> کہتے ہیں۔</p><p id="3f224f8d-7cec-8065-9546-cc722379e0e5" class="" dir="auto"><strong>یاد رکھنے کی آسان ترکیب:</strong></p><blockquote id="3f224f8d-7cec-80db-bec3-c6d95cdd5aa4" class="" dir="auto"><strong>تنقید = پرکھنا + خوبیاں اور خامیاں بتانا + سچائی ظاہر کرنا</strong></blockquote><hr id="3f224f8d-7cec-8038-9dd5-e5474ea4f0b7" dir="auto"/><h4 id="3f224f8d-7cec-8034-ab3c-cc7c5c67a74d" class="" dir="auto">2. تنقید کا عام مطلب بمقابلہ ادبی مطلب (Difference between Common &amp; Literary Criticism)</h4><p id="3f224f8d-7cec-8064-8682-ec96933f2ce3" class="" dir="auto">اکثر لوگ سمجھتے ہیں کہ &quot;تنقید&quot; کا مطلب صرف <strong>برائی کرنا</strong> یا <strong>عیب نکالنا</strong> (Fault-finding) ہے۔ لیکن ادبی دنیا میں ایسا بالکل نہیں ہے!</p><table id="3f224f8d-7cec-801b-a63c-f0361e259371" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-80f6-8a4a-fc9d012849ee" dir="ltr"><th id="?bVX" class="simple-table-header-color simple-table-header" style="width:283.98854064941406px">عام بول چال میں تنقید</th><th id="m;~^" class="simple-table-header-color simple-table-header" style="width:468.98854064941406px">ادبی دنیا میں تنقید (Literary Criticism)</th></tr></thead><tbody><tr id="3f224f8d-7cec-806c-b2e1-c7843f871243" dir="ltr"><td id="?bVX" class="" style="width:283.98854064941406px">صرف خامیاں اور غلطیاں تلاش کرنا۔</td><td id="m;~^" class="" style="width:468.98854064941406px">خوبیاں اور خامیاں دونوں کو انصاف کے ساتھ سامنے لانا۔</td></tr><tr id="3f224f8d-7cec-8031-aec8-df35767e84b2" dir="ltr"><td id="?bVX" class="" style="width:283.98854064941406px">مقصد کسی کو نیچا دکھانا یا طنز کرنا ہوتا ہے۔</td><td id="m;~^" class="" style="width:468.98854064941406px">مقصد فن پارے (Work of Art) کی سچی قدر و قیمت متعین کرنا ہوتا ہے۔</td></tr><tr id="3f224f8d-7cec-806a-ad43-d78a00f96a40" dir="ltr"><td id="?bVX" class="" style="width:283.98854064941406px">یہ جذبات یا ذاتی غصے پر مبنی ہو سکتی ہے۔</td><td id="m;~^" class="" style="width:468.98854064941406px">یہ عقل، دلائل اور اصولوں پر مبنی ہوتی ہے۔</td></tr></tbody></table><hr id="3f224f8d-7cec-80ba-a605-fad649572bb6" dir="auto"/><figure id="3f224f8d-7cec-80ef-82fd-fdf32b9bd3b5" class="image" data-notion-image="image.png" dir="ltr"><a href="image.png"><img style="width:890.0377197265625px" src="image.png"/></a></figure><hr id="3f224f8d-7cec-80bb-83c9-e965ebd9e3f2" dir="auto"/><h4 id="3f224f8d-7cec-8059-b1e2-fee6225556c1" class="" dir="auto">3. تنقید کی اہم تعریفات (Definitions of Criticism)</h4><p id="3f224f8d-7cec-8035-bd6a-f6903f3700bd" class="" dir="auto">امتحان میں اچھے نمبرات حاصل کرنے کے لیے مختلف ماہرین اور نقادوں کی تعریفات لکھنا بہت فائدے مند ہوتا ہے۔ آئیے ان کو سادہ زبان میں سمجھتے ہیں:</p><ol type="1" id="3f224f8d-7cec-80cb-b7f4-cd4da2f027c0" class="numbered-list" start="1" dir="auto"><li><strong>علامہ شبلی نعمانی کے مطابق:</strong></li></ol><blockquote id="3f224f8d-7cec-805e-b76f-c3d482ec4dcf" class="" dir="auto">&quot;تنقید کسی چیز کی خوبیوں اور خامیوں کا جائزہ لینا اور ان کی قیمت کا اندازہ لگانا ہے۔&quot;</blockquote><ul id="3f224f8d-7cec-8052-a789-ddc9c2ff0a90" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> تنقید ایک ترازو (Balance Scale) کی طرح ہے جو یہ بتاتی ہے کہ کسی کتاب یا شعر کی ادبی قدر (Value) کتنی ہے۔</li></ul><ol type="1" id="3f224f8d-7cec-803f-ba22-d85b6592229f" class="numbered-list" start="1" dir="auto"><li><strong>ڈاکٹر عبادت بریلوی کے مطابق:</strong></li></ol><blockquote id="3f224f8d-7cec-8041-b8e7-e66e04875ae3" class="" dir="auto">&quot;تنقید کا مقصد صرف عیب نکالنا نہیں بلکہ فن پارے کے حسن کو تلاش کرنا اور اسے قارئین (Readers) کے سامنے لانا ہے۔&quot;</blockquote><ol type="1" id="3f224f8d-7cec-806d-9cef-c6e0dd497759" class="numbered-list" start="1" dir="auto"><li><strong>میتھیو آرنلڈ (Matthew Arnold - مشرق و مغرب کا مشہور مفکر):</strong></li></ol><blockquote id="3f224f8d-7cec-80ab-824a-f6d518997837" class="" dir="auto">&quot;تنقید کا بنیادی کام دنیا میں جو کچھ بہترین سوچا اور کہا گیا ہے، اسے جاننا اور دوسروں تک پہنچانا ہے۔&quot;</blockquote><hr id="3f224f8d-7cec-80aa-ac72-f77d3c4bd5e1" dir="auto"/><h4 id="3f224f8d-7cec-8009-8468-f6dfe1712c73" class="" dir="auto">4. ادبی تنقید کی اہمیت (Importance of Literary Criticism)</h4><p id="3f224f8d-7cec-8040-adb8-c108daaf0747" class="" dir="auto">تنقید صرف پڑھنے والوں کے لیے ہی نہیں بلکہ لکھنے والوں (ادبا و شعراء) اور پورے ادب کی ترقی کے لیے بے حد ضروری ہے۔ اس کی اہمیت کے چند اہم پہلو درج ذیل ہیں:</p><h4 id="3f224f8d-7cec-80e9-8ff9-da7b3c3367eb" class="" dir="auto">(ا) قارئین (Readers) کی رہنمائی</h4><p id="3f224f8d-7cec-806f-896d-cf35ce2470bb" class="" dir="auto">بازار اور لائبریری میں ہزاروں کتابیں موجود ہوتی ہیں۔ ایک عام پڑھنے والے کو یہ معلوم نہیں ہوتا کہ کون سی کتاب بہترین ہے اور کون سی وقت کا ضیاع۔ تنقید ایک گائیڈ (Guide) کی طرح قارئین کی مدد کرتی ہے اور انہیں اچھے ادب کا انتخاب کرنے کا شعور دیتی ہے۔</p><h4 id="3f224f8d-7cec-800d-ab40-e5510e7f44ee" class="" dir="auto">(ب) تخلیق کار (Author/Writer) کی اصلاح</h4><p id="3f224f8d-7cec-8025-9e27-d75b02e7a090" class="" dir="auto">جب ایک شاعر یا ادیب کوئی چیز لکھتا ہے، تو اسے اپنی تحریر میں غلطیاں نظر نہیں آتیں۔ ایک سچا اور غیر جانبدار نقاد جب اس کی تحریر کا جائزہ لیتا ہے، تو شاعر کو اپنی کمزوریوں کا اندازہ ہوتا ہے اور وہ آئندہ بہتر لکھنے کی کوشش کرتا ہے۔</p><h4 id="3f224f8d-7cec-80c8-bd9d-cbde13ff6fe5" class="" dir="auto">(ج) ادب کے معیار کو قائم رکھنا (Maintaining Quality of Literature)</h4><p id="3f224f8d-7cec-807f-8653-d74ccc29c7e3" class="" dir="auto">اگر تنقید نہ ہو تو ہر غیر معیاری تحریر بازار میں بکنے لگے گی۔ تنقید چوکیدار (Watchdog) کا کام کرتی ہے تاکہ ادب کا معیار (Standard) گرنے نہ پائے۔</p><h4 id="3f224f8d-7cec-80a8-8d40-d290e7ea3a06" class="" dir="auto">(د) نئے زوایوں اور معانی کی تلاش (Uncovering Deeper Meanings)</h4><p id="3f224f8d-7cec-80a7-9593-e5519c812a34" class="" dir="auto">اکثر اوقات ایک شاعر اپنے شعر میں ایسی گہری بات کہہ جاتا ہے جو عام قارئین کی سمجھ میں فوراً نہیں آتی۔ ایک ذہین نقاد اس شعر کی تشریح کر کے اس کے اندر چھپے ہوئے خوبصورت معانی کو باہر لاتا ہے۔</p><hr id="3f224f8d-7cec-806f-b45e-fdacdd107a87" dir="auto"/><h4 id="3f224f8d-7cec-80d5-bfac-d67d68d02f7c" class="" dir="auto">5. امتحان کے لیے فوری دہرائی (Quick Revision Notes for Exams)</h4><ul id="3f224f8d-7cec-8071-8cf8-c707079645c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تنقید کا لفظی معنی:</strong> کھرا اور کھوٹا الگ کرنا (نقد کرنا)۔</li></ul><ul id="3f224f8d-7cec-80fe-9411-f51f5d43750d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی تعریف:</strong> کسی ادبی فن پارے (شعر یا نثر) کی خوبیوں اور خامیوں کا غیر جانبدارانہ جائزہ لینا۔</li></ul><ul id="3f224f8d-7cec-80c5-b2e7-ec400254dae6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی مقصد:</strong> ادب کی سچی قیمت اور معیار کا تعین کرنا۔</li></ul><ul id="3f224f8d-7cec-8088-8305-d6c70402f608" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہمیت:</strong> قارئین کی رہنمائی، مصنف کی اصلاح، اور ادب کو پست ہونے سے بچانا۔</li></ul><hr id="3f224f8d-7cec-80db-ba2f-e8cde0496d40" dir="auto"/><h3 id="3f224f8d-7cec-8081-9e2c-f2f5aac352b7" class="" dir="auto">1.1.2 Basic Principles and Functions of Criticism</h3><h4 id="3f224f8d-7cec-8096-9343-fd109dd688ff" class="" dir="auto">(تنقید کے بنیادی اصول اور وظائف)</h4><hr id="3f224f8d-7cec-804d-b2f5-ddfe2b10777f" dir="auto"/><h3 id="3f224f8d-7cec-804d-a68e-dfc1c8fc3d11" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-806d-9b2b-e46e76d6a5d2" class="" dir="auto">پچھلے حصے (1.1.1) میں ہم نے سیکھا کہ تنقید کیا ہے اور اس کی کیا اہمیت ہے۔ اب اس حصے میں ہم دو اہم باتیں سیکھیں گے:</p><ol type="1" id="3f224f8d-7cec-80c7-9f58-d62881fec654" class="numbered-list" start="1" dir="auto"><li><strong>تنقید کے بنیادی اصول (Principles of Criticism):</strong> ایک اچھے نقاد (Critic) کو تنقید کرتے وقت کن اصولوں اور قواعد پر عمل کرنا چاہیے۔</li></ol><ol type="1" id="3f224f8d-7cec-801a-997f-c89440935023" class="numbered-list" start="2" dir="auto"><li><strong>تنقید کے وظائف (Functions of Criticism):</strong> تنقید ادبی دنیا میں کیا کیا کام یا خدمات انجام دیتی ہے۔</li></ol><hr id="3f224f8d-7cec-80d8-a72c-f1f1e9560578" dir="auto"/><h4 id="3f224f8d-7cec-802d-ae06-fdde7982707f" class="" dir="auto">1. تنقید کے بنیادی اصول (Basic Principles of Criticism)</h4><p id="3f224f8d-7cec-8019-9b54-ec36570254a7" class="" dir="auto">تنقید کا مطلب صرف اپنی پسند یا ناپسند کا اظہار کرنا نہیں ہے۔ ایک درست اور معتبر تنقید کے لیے چند بنیادی اصولوں پر عمل کرنا لازمی ہے:</p><h4 id="3f224f8d-7cec-80b9-861a-df2299b08dad" class="" dir="auto">(ا) غیر جانبداری اور انصاف (Impartiality &amp; Objectivity)</h4><ul id="3f224f8d-7cec-8077-9eb7-e08f8c410381" class="bulleted-list" dir="auto"><li style="list-style-type:disc">نقاد کے لیے سب سے ضروری اصول یہ ہے کہ وہ بالکل <strong>غیر جانبدار (Unbiased)</strong> رہے۔</li></ul><ul id="3f224f8d-7cec-8063-9669-fc7807071dc5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">وہ کسی شاعر یا مصنف سے ذاتی دوستی، دشمنی، مذہب، ذات پات یا تعلق کی بنیاد پر فیصلہ نہ کرے۔</li></ul><ul id="3f224f8d-7cec-800a-a132-da37c1eb1f55" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اگر دشمن نے بھی اچھا شعر لکھا ہے تو اس کی تعریف کرے، اور اگر کسی دوست کی تحریر میں خامیاں ہیں تو انہیں ایمانداری سے سامنے لائے۔</li></ul><h4 id="3f224f8d-7cec-8015-8a39-eeb343a6331a" class="" dir="auto">(ب) ژرف بینی اور عمیق مطالعہ (Deep Knowledge &amp; Analysis)</h4><ul id="3f224f8d-7cec-8041-ae99-eb052167859c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">نقاد کا مطالعہ (Study) بہت وسیع ہونا چاہیے۔ اسے صرف اپنے دور کے ادب کا ہی نہیں بلکہ ماضی کے تمام اہم کلاسیکی ادب اور عالمی ادب (World Literature) کا علم ہونا ضروری ہے۔</li></ul><ul id="3f224f8d-7cec-8056-93d5-e413dd46be32" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اگر نقاد کا اپنا علم کمزور ہوگا تو وہ کسی دوسرے کی تحریر کا صحیح اندازہ نہیں لگا سکے گا۔</li></ul><h4 id="3f224f8d-7cec-8093-a25d-db69f0401331" class="" dir="auto">(ج) متن کو اصل بنیاد بنانا (Focus on Text)</h4><ul id="3f224f8d-7cec-8085-a8cf-c2f7d279f256" class="bulleted-list" dir="auto"><li style="list-style-type:disc">تنقید کا مرکز ہمیشہ <strong>فن پارہ (Text/Work)</strong> ہونا چاہیے، مصنف کی ذاتی زندگی نہیں!</li></ul><ul id="3f224f8d-7cec-809b-896c-f1730fec5790" class="bulleted-list" dir="auto"><li style="list-style-type:disc">مثال کے طور پر: اگر غالب یا میر تقی میر کی ذاتی زندگی میں کچھ تلخیاں یا برائیاں تھیں، تو ان کی بنیاد پر ان کی شاعری کو برا نہیں کہا جا سکتا۔ شاعری کی خوبصورتی کو ہی تنقید کی بنیاد بنانا چاہیے۔</li></ul><h4 id="3f224f8d-7cec-8053-9feb-d6fe36af8b0f" class="" dir="auto">(د) فن پارے کی روح کو سمجھنا (Understanding the Essence)</h4><ul id="3f224f8d-7cec-8091-ab04-f8985b59cc69" class="bulleted-list" dir="auto"><li style="list-style-type:disc">نقاد کو چاہیے کہ وہ یہ سمجھے کہ مصنف یا شاعر کس پس منظر (Background) اور کس ماحول میں لکھ رہا ہے۔</li></ul><ul id="3f224f8d-7cec-802e-83ef-f0b188f57019" class="bulleted-list" dir="auto"><li style="list-style-type:disc">شاعر کی نیت اور جذبے کو سمجھے بغیر اس کی تحریر پر فیصلہ سنانا جلد بازی اور ناانصافی ہوگی۔</li></ul><h4 id="3f224f8d-7cec-8062-998f-e85a92eea07d" class="" dir="auto">(ہ) ہمدردانہ رویہ (Sympathetic Approach)</h4><ul id="3f224f8d-7cec-80fb-a5bd-ed00747ee383" class="bulleted-list" dir="auto"><li style="list-style-type:disc">نقاد کا لہجہ (Tone) تحقیر آمیز یا سخت نہیں ہونا چاہیے۔ اس کا مقصد مصنف کو نیچا دکھانا نہیں بلکہ اس کی اصلاح کرنا اور ادب کی ترقی میں حصہ ڈالنا ہونا چاہیے۔</li></ul><hr id="3f224f8d-7cec-8019-bc35-fe695d230a7c" dir="auto"/><figure id="3f224f8d-7cec-8022-a9d8-c1bd616ff74f" class="image" data-notion-image="image%201.png" dir="ltr"><a href="image%201.png"><img style="width:1024px" src="image%201.png"/></a></figure><hr id="3f224f8d-7cec-8074-9114-ee0c68d54224" dir="auto"/><h4 id="3f224f8d-7cec-8069-bcba-d87dd7cf5fd9" class="" dir="auto">2. تنقید کے اہم وظائف (Functions/Roles of Criticism)</h4><p id="3f224f8d-7cec-8042-813f-de5ae9f30a4c" class="" dir="auto">تنقید ادب اور معاشرے میں درج ذیل اہم کام (Functions) انجام دیتی ہے:</p><h4 id="3f224f8d-7cec-8034-8c29-f3b2301673ce" class="" dir="auto">(1) قدر کا تعین کرنا (Evaluation/Judgement of Value)</h4><p id="3f224f8d-7cec-80d3-83e1-ff1868ce336b" class="" dir="auto">تنقید کا سب سے پہلا اور اہم وظیفہ (Task) یہ بتانا ہے کہ کسی تحریر یا فن پارے کا <strong>معیار (Quality)</strong> کیا ہے۔ یہ ادب کی دنیا میں اچھے اور برے کا فرق واضح کرتی ہے۔</p><h4 id="3f224f8d-7cec-8028-8d95-d08b9bec1f2a" class="" dir="auto">(2) تعبیر و تشریح (Interpretation &amp; Explanation)</h4><p id="3f224f8d-7cec-80e3-86e8-cec638bd6410" class="" dir="auto">شاعری اور ادبی تحریروں میں اکثر گہرے اور پچیدہ مفاہیم چھپے ہوتے ہیں۔ نقاد کا کام ہے کہ وہ مشکل اور پیچیدہ باتوں کو آسان زبان میں قارئین (Readers) کے لیے کھول کر بیان کرے تاکہ ہر عام شخص اس سے لطف اندوز ہو سکے۔</p><h4 id="3f224f8d-7cec-8031-84c9-ebbb0d666afe" class="" dir="auto">(3) ذوقِ سلیم کی تربیت (Refining Literary Taste)</h4><p id="3f224f8d-7cec-8030-b141-e131eeb37c53" class="" dir="auto">عام قارئین کو یہ سکھانا کہ اچھا ادب کیا ہوتا ہے اور اس سے کیسے لطف اٹھایا جاتا ہے۔ تنقید پڑھنے والوں کے اندر ایک ایسا <strong>ادبی ذوق (Good Aesthetic Taste)</strong> پیدا کرتی ہے جس سے وہ خود اچھے اور برے ادب کی تمیز کرنے لگتے ہیں۔</p><h4 id="3f224f8d-7cec-8089-b79f-cb70e80fdc1d" class="" dir="auto">(4) تخلیق کار کی رہنمائی (Guiding the Writer)</h4><p id="3f224f8d-7cec-8049-a8a1-c05c05735fec" class="" dir="auto">تنقید ایک آئینہ (Mirror) کی طرح ہوتی ہے جس میں دیکھ کر شاعر یا ادیب کو اپنی تحریری صلاحیتوں اور خامیوں کا پتہ چلتا ہے، جس سے وہ مستقبل میں مزید بہتر لکھنے کے قابل ہوتا ہے۔</p><h4 id="3f224f8d-7cec-80be-9277-c1bf72ea8019" class="" dir="auto">(5) ادبی تاریخ کی حفاظت (Preservation of Literary History)</h4><p id="3f224f8d-7cec-80a1-aaba-e453e1b09dcd" class="" dir="auto">تنقید کی وجہ سے ہی ماضی کا بہترین ادب محفوظ رہتا ہے۔ نقاد وقت گزرنے کے ساتھ مختلف تحریروں کو پرکھتے ہیں اور جو ادب واقعی معیاری ہوتا ہے اسے تاریخ کا حصہ بنا دیتے ہیں۔</p><hr id="3f224f8d-7cec-803c-9adf-dc836bac91fc" dir="auto"/><h4 id="3f224f8d-7cec-8005-914c-fec730eccbb5" class="" dir="auto">3. اصول اور وظائف کا فوری موازنہ (Quick Comparison Table)</h4><p id="3f224f8d-7cec-8027-983a-d794dd4d8248" class="" dir="auto">امتحان میں چیزوں کو جلدی یاد رکھنے اور بہترین جواب لکھنے کے لیے یہ جدول (Table) ذہن میں رکھیں:</p><table id="3f224f8d-7cec-8051-9aba-e7d0900f5720" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-80cf-86fe-f352e61b479f" dir="ltr"><th id="ybde" class="simple-table-header-color simple-table-header" style="width:232.9879913330078px">عنوان (Category)</th><th id="@dWT" class="simple-table-header-color simple-table-header" style="width:372.98854064941406px">بنیادی نکات (Key Points)</th><th id="ckeN" class="simple-table-header-color simple-table-header" style="width:312.2083740234375px">امتحان میں یاد رکھنے کی ٹرک</th></tr></thead><tbody><tr id="3f224f8d-7cec-801f-a13a-ec1771cb198d" dir="ltr"><td id="ybde" class="" style="width:232.9879913330078px"><strong>تنقید کے اصول (Principles)</strong></td><td id="@dWT" class="" style="width:372.98854064941406px">غير جانبداری، عمیق مطالعہ، متن پر توجہ، ہمدردانہ انداز</td><td id="ckeN" class="" style="width:312.2083740234375px"><strong>&quot;اصول = نقاد کی ایمانداری اور لیاقت&quot;</strong></td></tr><tr id="3f224f8d-7cec-8053-87b0-c173cda63444" dir="ltr"><td id="ybde" class="" style="width:232.9879913330078px"><strong>تنقید کے وظائف (Functions)</strong></td><td id="@dWT" class="" style="width:372.98854064941406px">قدر کا تعین، تعبیر و تشریح، ذوق کی تربیت، مصنف کی رہنمائی</td><td id="ckeN" class="" style="width:312.2083740234375px"><strong>&quot;وظائف = تنقید کے فائدے اور کام&quot;</strong></td></tr></tbody></table><hr id="3f224f8d-7cec-8004-8b56-f8b29ccf0215" dir="auto"/><h4 id="3f224f8d-7cec-8050-a558-c548faa2b9ec" class="" dir="auto">4. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-80ab-a523-dfb42d78bae9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> انصاف اور غیر جانبداری سب سے پہلا اصول ہے۔ نقاد کو ذات پات اور ذاتی تعلق سے اوپر اٹھ کر فیصلہ کرنا چاہیے۔</li></ul><ul id="3f224f8d-7cec-808b-b90b-c116f2ba4b7a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>وظائف:</strong> تنقید کا کام صرف عیب نکالنا نہیں، بلکہ تحریر کی شرح (Explanation) کرنا اور پڑھنے والوں میں اچھے ادب کو سمجھنے کی صلاحيت پیدا کرنا ہے۔</li></ul><hr id="3f224f8d-7cec-80f0-9458-c4622f59206a" dir="auto"/><h1 id="3f224f8d-7cec-80be-a5b1-ddf7325b9b91" class="" dir="auto">Section 1.2: Evolution of Urdu Criticism</h1><h2 id="3f224f8d-7cec-8002-95a7-f20a032bb152" class="" dir="auto">(اردو تنقید کا ارتقاء)</h2><hr id="3f224f8d-7cec-8073-9f31-fa5e2a50e3b8" dir="auto"/><h3 id="3f224f8d-7cec-805e-9d49-f78dacbddbee" class="" dir="auto">1.2.1 Early forms and historical development of Urdu criticism</h3><h4 id="3f224f8d-7cec-8064-9291-ec75d12f6adb" class="" dir="auto">(اردو تنقید کے ابتدائی نقوش اور تاریخی ارتقاء)</h4><hr id="3f224f8d-7cec-80de-a408-d201b8203f5e" dir="auto"/><h3 id="3f224f8d-7cec-80f3-85e2-c28699016309" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-80e6-b502-cbf84bc60dbb" class="" dir="auto">پچھلے سیکشن میں ہم نے تنقید کا مفہوم، اس کے اصول اور وظائف کو اچھے سے سمجھا۔ اب ہم یہ دیکھیں گے کہ <strong>اردو ادب میں تنقید کا آغاز اور تاریخی سفر (History &amp; Evolution) کیسا رہا</strong>۔</p><p id="3f224f8d-7cec-80dd-8ab6-c2b99d550969" class="" dir="auto">بہت سے لوگ سمجھتے ہیں کہ اردو میں تنقید انگریزی یا مغربی ادب کی آمد کے بعد شروع ہوئی۔ لیکن سچ یہ ہے کہ باضابطہ اور باقاعدہ (Formal) تنقید سے پہلے بھی اردو میں <strong>ابتدائی اور غیر رسمی (Informal) تنقید</strong> کا وجود موجود تھا!</p><p id="3f224f8d-7cec-8046-913f-fad1a1d9d8d3" class="" dir="auto">اس حصے میں ہم دو اہم ادوار (Phases) کو سمجھیں گے:</p><ol type="1" id="3f224f8d-7cec-8088-9341-e55274794ac1" class="numbered-list" start="1" dir="auto"><li><strong>ابتدائی نقوش (Early Forms):</strong> تذکرے، مشاعرے، اور استاد-شاگردی کی روایت۔</li></ol><ol type="1" id="3f224f8d-7cec-804c-9775-e51296eacfdd" class="numbered-list" start="2" dir="auto"><li><strong>جدید اور باقاعدہ تنقید (Formal Evolution):</strong> سرسید احمد خان، الطاف حسین حالی، اور شبلی نعمانی کے دور سے باضابطہ تنقید کا آغاز۔</li></ol><hr id="3f224f8d-7cec-80af-835e-e83ae22bd4d2" dir="auto"/><h4 id="3f224f8d-7cec-80cb-85ee-d1b95d28c8d3" class="" dir="auto">1. اردو تنقید کے ابتدائی نقوش (Early Forms &amp; Roots)</h4><p id="3f224f8d-7cec-80e0-9291-e9e3f4c0e7a7" class="" dir="auto">باقاعدہ اور سائنسی تنقید سے پہلے اردو ادب میں تنقید کی شروعات کن ذرائع سے ہوئی؟ ان کو درج ذیل تین بنیادی نقطوں سے سمجھا جا سکتا ہے:</p><h4 id="3f224f8d-7cec-8057-b9b5-df675a988d41" class="" dir="auto">(ا) تذکرے اور تذکرہ نگاری (Tazkiras)</h4><p id="3f224f8d-7cec-8094-905f-eb30e576d49e" class="" dir="auto">قدیم دور میں جب کوئی شاعر یا ادیب شعراء کے حالاتِ زندگی اور ان کے کلام کا مجموعہ تیار کرتا تھا، تو اسے <strong>تذکرہ</strong> کہا جاتا تھا۔</p><ul id="3f224f8d-7cec-806d-8873-c4dabf36326c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تذکرے کی نوعیت:</strong> ان تذکروں میں شعراء کے نام، ان کے حالات اور ان کے منتخب اشعار کے ساتھ ساتھ مصنف کا مختصر تبصرہ (Review) بھی ہوتا تھا۔</li></ul><ul id="3f224f8d-7cec-80eb-81f1-d63dfa736e6f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تنقیدی اہمیت:</strong> اگرچہ ان تذکروں میں آج کل کی طرح تفصیلی اصول یا نظریات نہیں ہوتے تھے، لیکن ان میں لکھی ہوئی باتیں جیسے: <em>&quot;شعر بہت دلکش ہے&quot;</em>، <em>&quot;زبان میں صفائی نہیں ہے&quot;</em>، یا <em>&quot;محاورہ غلط ہے&quot;</em>—یہ سب اردو تنقید کے سب سے پہلے <strong>ابتدائی نقوش (First Footprints)</strong> ہیں۔</li></ul><ul id="3f224f8d-7cec-805a-82d5-c4de8af2f36b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم تذکرے:</strong></li></ul><ol type="1" id="3f224f8d-7cec-802f-bdd7-ee7b45ecb41e" class="numbered-list" start="1" dir="auto"><li>میر تقی میر کا <strong>&quot;نکات الشعراء&quot;</strong> (اردو شعراء کا پہلا اہم تذکرہ)۔</li></ol><ol type="1" id="3f224f8d-7cec-8028-abf6-eed3a5119b8f" class="numbered-list" start="2" dir="auto"><li>قائم چاندپوری کا <strong>&quot;مخزنِ نکات&quot;</strong>۔</li></ol><ol type="1" id="3f224f8d-7cec-8057-b60e-ced8749f1185" class="numbered-list" start="3" dir="auto"><li>میر حسن کا <strong>&quot;تذکرہ شعراءِ اردو&quot;</strong>۔</li></ol><h4 id="3f224f8d-7cec-8033-9ca6-cd94e6a6d787" class="" dir="auto">(ب) مشاعرے (Poetry Recitations / Mushairas)</h4><p id="3f224f8d-7cec-80e3-b757-c56ab2a2b2e0" class="" dir="auto">قدیم زمانے میں مشاعرے صرف تفریح کا ذریعہ نہیں تھے بلکہ تنقید کا ایک کھلا میدان ہوتے تھے۔</p><ul id="3f224f8d-7cec-80c4-a865-f090804e1ffb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">جب کوئی شاعر مشاعرے میں اپنا شعر پڑھتا تھا، تو حاضرین اور دیگر شعراء فوراً داد دیتے تھے یا وہیں پر شعر کا عیب (غلطی) بتا دیتے تھے۔</li></ul><ul id="3f224f8d-7cec-8055-bfac-fbc705331429" class="bulleted-list" dir="auto"><li style="list-style-type:disc">گردن ہلانا، &quot;واہ واہ&quot; کہنا، یا خاموش رہ جانا بھی ایک طرح کی غیر لفظی تنقید (Non-verbal Criticism) ہوا کرتی تھی۔</li></ul><h4 id="3f224f8d-7cec-801b-8dcd-e52e716bedb6" class="" dir="auto">(ج) استاد اور شاگرد کی روایت (Master-Disciple Tradition)</h4><p id="3f224f8d-7cec-80be-81e6-d0d416ed47ea" class="" dir="auto">پرانے دور میں نیا شاعر اپنا کلام کسی سینئر استاد کو دکھاتا تھا (جسے &quot;اصلاح لینا&quot; کہتے ہیں)۔</p><ul id="3f224f8d-7cec-80d0-9872-f9e977c95fb6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">استاد شاعر کے شعر میں لفظوں کی تبدیلی، وزن (Meter) کی غلطی، اور زبان و بیان کی خامیوں کی نشاندہی کرتا تھا۔</li></ul><ul id="3f224f8d-7cec-80e7-99ca-d700a2ce39eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اصلاح کا یہ عمل اردو میں عملی تنقید (Practical Criticism) کی ابتدائی شکل تھا۔</li></ul><hr id="3f224f8d-7cec-808c-b104-ea28e42cb594" dir="auto"/><figure id="3f224f8d-7cec-8064-ad0a-df25141ed27b" class="image" data-notion-image="image%202.png" dir="ltr"><a href="image%202.png"><img style="width:890.0377197265625px" src="image%202.png"/></a></figure><hr id="3f224f8d-7cec-80a9-b9eb-dc5f69a44568" dir="auto"/><h4 id="3f224f8d-7cec-80b0-9f81-f030d7e497cf" class="" dir="auto">2. تاریخی ارتقاء اور جدید تنقید کا آغاز (Historical Evolution to Modern Criticism)</h4><p id="3f224f8d-7cec-8067-8991-cf3c53dea3c6" class="" dir="auto">19ویں صدی کے وسط سے اردو تنقید نے ایک نیا موڑ لیا اور غیر رسمی انداز سے نکل کر ایک <strong>باقاعدہ فن (Formal Art)</strong> کی شکل اختیار کی۔ اس تاریخی سفر کے اہم مراحل یہ ہیں:</p><h4 id="3f224f8d-7cec-806f-8890-c44c8496851b" class="" dir="auto">(1) سرسید احمد خان اور علی گڑھ تحریک (Sir Syed &amp; Aligarh Movement)</h4><ul id="3f224f8d-7cec-800e-9b6f-c91a0a2142b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">1857ء کے بعد سرسید احمد خان نے اردو ادب کو حقیقت پسندی اور مقصدیت (Purposefulness) کی طرف موڑا۔</li></ul><ul id="3f224f8d-7cec-8059-b005-ce8991c85067" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے کہا کہ ادب صرف عاشقانہ باتوں اور پریوں کی کہانیوں کے لیے نہیں ہے، بلکہ اس کا مقصد معاشرے کی اصلاح اور سچائی کو سامنے لانا ہونا چاہیے۔ اس سوچ نے جدید تنقید کی بنیاد رکھی۔</li></ul><h4 id="3f224f8d-7cec-80f3-89c3-e6dc1853360e" class="" dir="auto">(2) مولانا الطاف حسین حالی (Altaf Hussain Hali - باقاعدہ تنقید کے بانی)</h4><ul id="3f224f8d-7cec-80fc-93cb-cb7fc8b42f3b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اردو تنقید کی تاریخ میں سب سے بڑا اور اہم نام <strong>مولانا الطاف حسین حالی</strong> کا ہے۔</li></ul><ul id="3f224f8d-7cec-80f4-81d4-ef3bd0a4a46a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">1893ء میں انہوں نے اپنی مشہور کتاب <strong>&quot;مقدمہ شعر و شاعری&quot; (Muqaddama-e-Sher-o-Shairi)</strong> لکھی۔</li></ul><ul id="3f224f8d-7cec-8004-957d-f86861d7f51e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کتاب کو <strong>اردو تنقید کا پہلا مانیفیسٹو (Manifesto) / پہلا باضابطہ تنقیدی منشور</strong> مانا جاتا ہے۔</li></ul><ul id="3f224f8d-7cec-80c4-b86b-cdd84196875e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے شاعری کی خوبیاں، خامیوں اور غزل و مثنوی جیسی اصناف پر سائنسی اور عقلی بنیادوں پر بحث کی۔</li></ul><h4 id="3f224f8d-7cec-80d0-ae77-e32863f1a096" class="" dir="auto">(3) علامہ شبلی نعمانی (Shibli Nomani)</h4><ul id="3f224f8d-7cec-8036-b886-d535ff6106d2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی کے بعد شبلی نعمانی نے اردو تنقید کو جمالیاتی (Aesthetic) اور تحسینی خوبصورتی عطا کی اور <strong>&quot;شعر العجم&quot;</strong> اور <strong>&quot;موازنہ انیس و دبیر&quot;</strong> جیسی عظیم کتابیں لکھیں۔</li></ul><ul id="3f224f8d-7cec-8054-b353-c58b9db8e457" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے پہلی بار دو بڑے شاعروں (انیس اور دبیر) کا آپس میں موازنہ (Comparative Criticism) کر کے تنقید کو ایک نیا زاویہ دیا۔</li></ul><h4 id="3f224f8d-7cec-80f4-b721-c82a26cb3239" class="" dir="auto">(4) جدید اور بعد کا دور (Modern &amp; Subsequent Era)</h4><p id="3f224f8d-7cec-80c0-9d9f-f031d4a41012" class="" dir="auto">20ویں صدی میں مغربی نظریات (Western Theories) کی آمد کے ساتھ اردو تنقید مزید وسیع ہو گئی اور اس میں مختلف مکاتبِ فکر (Schools of Thought) جیسے ترقی پسند تنقید، نفسیاتی تنقید، اور جدیدیت کا اضافہ ہوا۔ <em>(جسے ہم اگلے سیکشن 1.2.2 میں تفصیل سے پڑھیں گے)</em>۔</p><hr id="3f224f8d-7cec-80d7-9da1-eaad63663d66" dir="auto"/><h4 id="3f224f8d-7cec-8082-bfec-fd1395bae078" class="" dir="auto">3. تاریخی ارتقاء کا خاکہ (Historical Timeline Table)</h4><p id="3f224f8d-7cec-8013-9bd3-da9d3f0e6441" class="" dir="auto">امتحان میں تاریخی سفر کو یاد رکھنے اور لکھنے کے لیے یہ مختصر ٹیبل (Table) ذہن میں رکھیں:</p><table id="3f224f8d-7cec-80b4-9f1a-c234e237d8f9" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-803b-b7a0-c4871f968db8" dir="ltr"><th id="cW}p" class="simple-table-header-color simple-table-header">دور / مرحلہ</th><th id="B]C[" class="simple-table-header-color simple-table-header" style="width:288.98854064941406px">نمایاں ذرائع / شخصیت</th><th id="^s}F" class="simple-table-header-color simple-table-header" style="width:394.9778137207031px">بنیادی خصوصیت / کارنامہ</th></tr></thead><tbody><tr id="3f224f8d-7cec-801f-8319-e97809778330" dir="ltr"><td id="cW}p" class=""><strong>ابتدائی دور (Early Phase)</strong></td><td id="B]C[" class="" style="width:288.98854064941406px">نکات الشعراء (میر تقی میر)، مشاعرے، اصلاح</td><td id="^s}F" class="" style="width:394.9778137207031px">تاثراتی تبصرے، زبان و محاورے کی درستگی، غیر باقاعدہ</td></tr><tr id="3f224f8d-7cec-804f-97e5-d26bb86da36e" dir="ltr"><td id="cW}p" class=""><strong>تحریکی دور (Syr Syed Era)</strong></td><td id="B]C[" class="" style="width:288.98854064941406px">سرسید احمد خان</td><td id="^s}F" class="" style="width:394.9778137207031px">ادب کو مقصدیت اور سچائی سے جوڑنا</td></tr><tr id="3f224f8d-7cec-8025-b4a2-c0024db9d5e1" dir="ltr"><td id="cW}p" class=""><strong>باقاعدہ آغاز (Formal Start)</strong></td><td id="B]C[" class="" style="width:288.98854064941406px">مولانا الطاف حسین حالی</td><td id="^s}F" class="" style="width:394.9778137207031px"><strong>&quot;مقدمہ شعر و شاعری&quot; (1893ء)</strong> — اردو کی پہلی باضابطہ تنقیدی کتاب</td></tr><tr id="3f224f8d-7cec-8069-882c-c6adaa4e4846" dir="ltr"><td id="cW}p" class=""><strong>تطبیقی اور موازنہ (Comparative)</strong></td><td id="B]C[" class="" style="width:288.98854064941406px">شبلی نعمانی</td><td id="^s}F" class="" style="width:394.9778137207031px"><strong>&quot;موازنہ انیس و دبیر&quot;</strong> — دو شاعروں کا فنی و تحلیلی موازنہ</td></tr></tbody></table><hr id="3f224f8d-7cec-8021-a890-e0535571b354" dir="auto"/><h4 id="3f224f8d-7cec-802d-93d5-d123e97b6a00" class="" dir="auto">4. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-8043-95d5-d6d5afa115e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ابتدائی نقوش:</strong> اردو تنقید کا سب سے پہلا سرا تذکروں (جیسے میر تقی میر کا <em>نکات الشعراء</em>)، مشاعروں اور استاد شاگرد کے تعلق سے ملتا ہے۔</li></ul><ul id="3f224f8d-7cec-8075-88f9-d7235717ba4d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>باقاعدہ بانی:</strong> اردو میں باضابطہ اور سائنسی تنقید کا آغاز <strong>مولانا الطاف حسین حالی</strong> نے کیا۔</li></ul><ul id="3f224f8d-7cec-806a-91a5-f8c99a93b2c8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تاریخی موڑ:</strong> سرسید کی علی گڑھ تحریک نے ادب اور تنقید کو خیالی باتوں سے نکال کر واقعی زندگی اور معاشرے سے جوڑا۔</li></ul><hr id="3f224f8d-7cec-80ec-91f3-e4ce4a452b2d" dir="auto"/><h3 id="3f224f8d-7cec-8013-8463-c1561cd1494d" class="" dir="auto">1.2.2 Major Critical Movements and Schools of Thought in Urdu</h3><h4 id="3f224f8d-7cec-80eb-ac43-dd9e03443655" class="" dir="auto">(اردو تنقید کے اہم دبستان اور تحاریک)</h4><hr id="3f224f8d-7cec-80f1-8061-f5d368239bc9" dir="auto"/><h3 id="3f224f8d-7cec-80fa-8648-e041678ee98a" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-8011-8e4a-eafe1355d89a" class="" dir="auto">پچھلے حصے (1.2.1) میں ہم نے دیکھا کہ اردو تنقید تذکروں اور مشاعروں سے نکل کر الطاف حسین حالی کے ذریعے ایک باضابطہ فن کیسے بنی۔</p><p id="3f224f8d-7cec-8057-beeb-cf853deabd38" class="" dir="auto">جب اردو تنقید کا بنیادی ڈھانچہ تیار ہو گیا، تو وقت کے ساتھ ساتھ مختلف سوچ، نظریات اور فلسفوں کی بنیاد پر <strong>مختلف تحاریک اور دبستان (Schools of Thought / Critical Movements)</strong> وجود میں آئے۔</p><p id="3f224f8d-7cec-80ec-8ecf-d9b3e5aa4abe" class="" dir="auto">سادھ الفاظ میں: <strong>&quot;دبستانِ تنقید&quot;</strong> کا مطلب ہے کسی خاص نظریہ یا فلسفے کے تحت ادب کو پرکھنے کا طریقہ۔ امتحان کے نقطہ نظر سے اردو کے اہم دبستانِ تنقید درج ذیل ہیں:</p><hr id="3f224f8d-7cec-8086-a5e1-c23d48981472" dir="auto"/><h4 id="3f224f8d-7cec-801c-a597-f86a6e44727e" class="" dir="auto">1. اہم دبستانِ تنقید اور ان کا تعارف (Major Schools of Urdu Criticism)</h4><h4 id="3f224f8d-7cec-804d-bac3-ee30b2c57424" class="" dir="auto">(1) جمالیاتی تنقید / تاثراتی تنقید (Aesthetic &amp; Impressionistic Criticism)</h4><ul id="3f224f8d-7cec-809e-a0eb-d473243c4378" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی نظریہ:</strong> اس مکتبِ فکر کے مطابق تنقید کا مقصد کسی کتاب یا شعر میں موجود <strong>خوبصورتی، فنکارانہ حسن اور اس سے ملنے والی خوشی (Pleasure)</strong> کو تلاش کرنا ہے۔</li></ul><ul id="3f224f8d-7cec-80e0-961d-ec6486dc6a49" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> یہ لوگ ادب کو سیاسی یا اخلاقی مقصد کے ترازو میں نہیں تولتے، بلکہ یہ دیکھتے ہیں کہ شاعر کے شعر نے دل پر کیا اثر چھوڑا۔</li></ul><ul id="3f224f8d-7cec-800b-a88b-f20b634a6b68" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نعرہ:</strong> &quot;ادب برائے ادب&quot; (Art for Art&#x27;s Sake).</li></ul><ul id="3f224f8d-7cec-80b7-9920-e97c77f05c1a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم نقاد:</strong> <strong>شبلی نعمانی</strong>، <strong>نیاز فتح پوری</strong>، <strong>فراق گورکھپوری</strong>، اور <strong>مجنوں گورکھپوری</strong> (ابتدائی دور)۔</li></ul><h4 id="3f224f8d-7cec-80d8-a429-d9ea04ab2dd5" class="" dir="auto">(2) ترقی پسند تنقید (Progressive Criticism / Marxist Criticism)</h4><ul id="3f224f8d-7cec-808a-ba7b-cefaa5487673" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی نظریہ:</strong> 1936ء میں &quot;ترقی پسند تحریک&quot; کے ساتھ یہ سب سے طاقتور تحریک بن کر ابھری۔ اس کا ماننا ہے کہ ادب کا مقصد معاشرے میں پھیلی ناانصافی، غریبی، اور ظلم کے خلاف آواز اٹھانا ہے۔</li></ul><ul id="3f224f8d-7cec-8088-af17-f87a1ab7138f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> ادب کو عام انسان اور مزدور کے مسائل کو بیان کرنا چاہیے۔ جو ادب سماج کو بدلنے میں مدد نہ کرے، وہ بیکار ہے۔</li></ul><ul id="3f224f8d-7cec-806d-8c86-f1158f2e2091" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نعرہ:</strong> &quot;ادب برائے زندگی&quot; (Art for Life&#x27;s Sake).</li></ul><ul id="3f224f8d-7cec-8019-9903-d985d4a5cc65" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم نقاد:</strong> <strong>احتشام حسین</strong>، <strong>ممتاز حسین</strong>، <strong>سجاد ظہیر</strong>، اور <strong>مجنوں گورکھپوری</strong>۔</li></ul><h4 id="3f224f8d-7cec-80c5-8ad2-d2cb2aafba47" class="" dir="auto">(3) علمی و سائنسی / سائنٹیفک تنقید (Scientific &amp; Academic Criticism)</h4><ul id="3f224f8d-7cec-8015-88c4-e14de856cabd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی نظریہ:</strong> اس میں جذباتی ہو کر یا صرف تاثرات کی بنیاد پر فیصلہ نہیں کیا جاتا، بلکہ ٹھوس حقائق (Solid Facts)، دلائل اور سائنسی اصولوں کو دیکھا جاتا ہے۔</li></ul><ul id="3f224f8d-7cec-8098-a9ae-eacfd4a361b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> کتاب کی تاریخی سچائی، متن (Text) کی درستگی اور تحقیق (Research) کو بنیاد بنایا جاتا ہے۔</li></ul><ul id="3f224f8d-7cec-809e-a7a9-f92f8fd74cfc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم نقاد:</strong> <strong>قاضی عبدالودود</strong> اور <strong>حافظ محمود شیرانی</strong>۔</li></ul><h4 id="3f224f8d-7cec-8054-9321-c232e65a5e4a" class="" dir="auto">(4) نفسیاتی تنقید (Psychological Criticism)</h4><ul id="3f224f8d-7cec-800b-943b-e52c99b845c2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی نظریہ:</strong> اس تنقید کا تعلق سگمگمنڈ فرائیڈ (Freud) اور دیگر ماہرینِ نفسیات کے نظریات سے ہے۔ اس میں یہ دیکھا جاتا ہے کہ شاعر یا ادیب کے لاشعور (Unconscious Mind) اور اس کے نفسیاتی ڈرافٹ نے اس کی تحریر پر کیا اثر ڈالا۔</li></ul><ul id="3f224f8d-7cec-8014-a59b-f22d31b30d49" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> شاعر کی تحریر کے ذریعے اس کے اندرونی جذبات، ڈر، خواہشات اور نفسیات کو سمجھنا۔</li></ul><ul id="3f224f8d-7cec-802d-848c-ee89de7dc055" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم نقاد:</strong> <strong>میرا جی</strong>، <strong>ڈاکٹر محمد حسن</strong>، اور <strong>ڈاکٹر خورشید الاسلام</strong>۔</li></ul><h4 id="3f224f8d-7cec-80ac-bc9c-dcc85ed2ab29" class="" dir="auto">(5) جدیدیت / جدید تنقید (Modernism / Modern Criticism)</h4><ul id="3f224f8d-7cec-805b-bfde-e6f8641c60f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی نظریہ:</strong> 1960ء کے بعد ترقی پسند تحریک کے ردِعمل میں یہ تحریک آئی۔ انہوں نے کہا کہ ادب کو کسی خاص سیاسی یا سماجی نظریے کا پابند نہیں ہونا چاہیے۔</li></ul><ul id="3f224f8d-7cec-8028-b5c7-cb6491a0949d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اصول:</strong> فرد (Individual) کی تنہائی، ذات کا کرب، علامتوں (Symbols) کا استعمال اور نئی زبان کو پرکھنا۔</li></ul><ul id="3f224f8d-7cec-80c8-a7e7-cd2d7be37a74" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم نقاد:</strong> <strong>شمس الرحمن فاروقی</strong>، <strong>گوپی چند نارنگ</strong>، اور <strong>وزیر آغا</strong>۔</li></ul><hr id="3f224f8d-7cec-80ca-9e6c-d8aa1ef36a85" dir="auto"/><figure id="3f224f8d-7cec-8089-8a25-ed61ebf1df64" class="image" data-notion-image="image%203.png" dir="ltr"><a href="image%203.png"><img style="width:890.0377197265625px" src="image%203.png"/></a></figure><hr id="3f224f8d-7cec-8057-aa4e-f20c995b6b18" dir="auto"/><h4 id="3f224f8d-7cec-8080-9b17-c24b1d738e33" class="" dir="auto">2. تمام تحاریک کا تقابلی جائزہ (Comparative Table)</h4><p id="3f224f8d-7cec-80f5-b2c4-c155cc9fb769" class="" dir="auto">امتحان میں تمام تحاریک کو ایک نظر میں یاد رکھنے اور ٹیبل بنا کر بہترین نمبر لانے کے لیے یہ خاکہ دیکھیں:</p><table id="3f224f8d-7cec-8054-8fe3-c49b38ca8ce7" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-809b-a148-cbd6bb514b73" dir="ltr"><th id="CrZh" class="simple-table-header-color simple-table-header">دبستان / تحریک (School)</th><th id="fuk{" class="simple-table-header-color simple-table-header">بنیادی مقصد / نعرہ</th><th id="N\M@" class="simple-table-header-color simple-table-header">مرکزی فکر (Core Idea)</th><th id="Lnbc" class="simple-table-header-color simple-table-header">اہم ترین نقاد</th></tr></thead><tbody><tr id="3f224f8d-7cec-80ef-8eb4-d80fe7ab7e00" dir="ltr"><td id="CrZh" class=""><strong>جمالیاتی تنقید</strong></td><td id="fuk{" class="">ادب برائے ادب</td><td id="N\M@" class="">حسن، لطافت اور شعر کا دل پر اثر</td><td id="Lnbc" class="">شبلی نعمانی، نیاز فتح پوری</td></tr><tr id="3f224f8d-7cec-8047-b65d-d4f159e06b18" dir="ltr"><td id="CrZh" class=""><strong>ترقی پسند تنقید</strong></td><td id="fuk{" class="">ادب برائے زندگی</td><td id="N\M@" class="">سماجی اصلاح، مزدوروں کا درد، ناانصافی کا خاتمہ</td><td id="Lnbc" class="">احتشام حسین، ممتاز حسین</td></tr><tr id="3f224f8d-7cec-808c-86f6-f733df3bbb8e" dir="ltr"><td id="CrZh" class=""><strong>سائنسی / تحقیقی تنقید</strong></td><td id="fuk{" class="">حقیقت اور ثبوت</td><td id="N\M@" class="">تحقیقی حقائق، سچائی اور متن کی درستگی</td><td id="Lnbc" class="">قاضی عبدالودود، محمود شیرانی</td></tr><tr id="3f224f8d-7cec-8088-8a3a-ca8c6509db28" dir="ltr"><td id="CrZh" class=""><strong>نفسیاتی تنقید</strong></td><td id="fuk{" class="">لاشعور کا مطالعہ</td><td id="N\M@" class="">مصنف کی باطنی نفسیات اور ذلیل جذبات</td><td id="Lnbc" class="">میرا جی، ڈاکٹر محمد حسن</td></tr><tr id="3f224f8d-7cec-8054-916d-f26026df93eb" dir="ltr"><td id="CrZh" class=""><strong>جدیدیت</strong></td><td id="fuk{" class="">انفرادیت اور نئی علامتیں</td><td id="N\M@" class="">فرد کی تنہائی، علامت نگاری، ہیئت کی آزادی</td><td id="Lnbc" class="">شمس الرحمن فاروقی، گوپی چند نارنگ</td></tr></tbody></table><hr id="3f224f8d-7cec-8086-850e-c6b3c9ebc169" dir="auto"/><h4 id="3f224f8d-7cec-8076-8e29-cd2b727950b2" class="" dir="auto">3. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-805b-b002-c57377bb53ad" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>یاد رکھنے کی ٹرک:</strong></li></ul><ol type="1" id="3f224f8d-7cec-806f-b915-c4ffed9b192a" class="numbered-list" start="1" dir="auto"><li><strong>جمالیاتی</strong> = حسن اور دلکشی (شبلی)</li></ol><ol type="1" id="3f224f8d-7cec-80a4-90da-d59df69f2acf" class="numbered-list" start="2" dir="auto"><li><strong>ترقی پسند</strong> = سماج اور غریبوں کی آواز (احتشام حسین)</li></ol><ol type="1" id="3f224f8d-7cec-8035-bdc2-e76aef77f220" class="numbered-list" start="3" dir="auto"><li><strong>سائنسی</strong> = ثبوت اور تحقیق (قاضی عبدالودود)</li></ol><ol type="1" id="3f224f8d-7cec-8007-ac46-fe526e99fc28" class="numbered-list" start="4" dir="auto"><li><strong>نفسیاتی</strong> = انسان کے ذہن کی گہرائی (میرا جی)</li></ol><ol type="1" id="3f224f8d-7cec-8043-a708-eda7f9b30c6c" class="numbered-list" start="5" dir="auto"><li><strong>جدیدیت</strong> = فرد کی آزادی اور نئی علامتیں (شمس الرحمن فاروقی)</li></ol><hr id="3f224f8d-7cec-806e-8268-c4319addb483" dir="auto"/><h1 id="3f224f8d-7cec-80a8-b77d-ff63a9205476" class="" dir="auto">Unit 2: Hali and &#x27;Muqaddama-e-Sher-o-Shairi&#x27;</h1><h2 id="3f224f8d-7cec-807a-b1dc-db08529f5988" class="" dir="auto">(یونٹ 2: حالی اور مقدمہ شعر و شاعری)</h2><hr id="3f224f8d-7cec-8098-8fb6-f3996fdc301f" dir="auto"/><h3 id="3f224f8d-7cec-80fb-94a8-db0e90851eae" class="" dir="auto">📘 یونٹ 2 کا تعارف (Introduction &amp; Overview)</h3><p id="3f224f8d-7cec-8053-b23e-f04c385912ab" class="" dir="auto">سلام! <strong>Unit 1</strong> کو کامیابی سے مکمل کرنے کے بعد، اب ہم اس کورس کے سب سے <strong>اہم اور مرکزی یونٹ (Unit 2)</strong> میں داخل ہو رہے ہیں۔</p><p id="3f224f8d-7cec-8006-8b14-f8cf0f24d71e" class="" dir="auto">اردو تنقید کی پوری تاریخ میں اگر کسی ایک شخصیت اور ایک کتاب کو &quot;سنگِ میل&quot; (Milestone) کا درجہ حاصل ہے، تو وہ ہے <strong>مولانا الطاف حسین حالی</strong> اور ان کی شاہکار کتاب <strong>&quot;مقدمہ شعر و شاعری&quot;</strong>۔</p><p id="3f224f8d-7cec-80db-9257-efffe36ca754" class="" dir="auto">اس یونٹ کا بنیادی خاکہ اور تمام موضوعات کا باہمی تعلق درج ذیل ہے:</p><ol type="1" id="3f224f8d-7cec-8042-b682-ec0b3a9545aa" class="numbered-list" start="1" dir="auto"><li><strong>الطاف حسین حالی بحیثیت نقاد (Section 2.1):</strong></li></ol><ul id="3f224f8d-7cec-8011-bc44-ca72bcc598e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2.1.1 اردو تنقید میں حالی کا حصہ:</strong> حالی نے اردو ادب کو روایتی خیالی دنیا سے نکال کر حقیقت اور مقصدیت کا راستہ کیسے دکھایا؟</li></ul><ul id="3f224f8d-7cec-805b-95bc-f9138e67d107" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2.1.2 حالی کا تنقیدی نظریہ:</strong> شاعری کے بارے میں حالی کے بنیادی خیالات اور ایک اچھے شعر کی کیا شرائط ہیں۔</li></ul><ol type="1" id="3f224f8d-7cec-8088-ad9e-c849ea9801d7" class="numbered-list" start="1" dir="auto"><li><strong>مقدمہ شعر و شاعری کا تفصیلی مطالعہ (Section 2.2):</strong></li></ol><ul id="3f224f8d-7cec-80a7-98eb-df129cc98f55" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2.2.1 پس منظر اور اہمیت:</strong> یہ کتاب کیوں لکھی گئی اور اردو ادبی تاریخ میں اس کی اتنی زیادہ اہمیت کیوں ہے؟</li></ul><ul id="3f224f8d-7cec-80bf-ae05-c05e2d7ad4aa" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>2.2.2 اصناف پر افکار:</strong> غزل، مثنوی، اور دیگر اصنافِ سخن پر حالی کے مخصوص تنقیدی نظریات۔</li></ul><hr id="3f224f8d-7cec-8031-8e55-d827323076b1" dir="auto"/><h2 id="3f224f8d-7cec-8056-b075-d9af8ff79c3c" class="" dir="auto">Section 2.1: Altaf Hussain Hali as a Critic</h2><h3 id="3f224f8d-7cec-8009-85eb-f97059e888a2" class="" dir="auto">(بطور نقاد الطاف حسین حالی)</h3><hr id="3f224f8d-7cec-80e9-b4f4-f18dd1999f67" dir="auto"/><h3 id="3f224f8d-7cec-80b9-8761-dde7e1ef6319" class="" dir="auto">2.1.1 Contribution of Altaf Hussain Hali to Urdu Criticism</h3><h4 id="3f224f8d-7cec-80db-931d-e5d53f9b4d81" class="" dir="auto">(اردو تنقید میں الطاف حسین حالی کا حصہ)</h4><hr id="3f224f8d-7cec-8095-9174-dcb3e8a5db5a" dir="auto"/><h4 id="3f224f8d-7cec-8009-9075-cf48945407de" class="" dir="auto">1. الطاف حسین حالی کا مختصر تعارف (Brief Introduction)</h4><ul id="3f224f8d-7cec-8000-a5b0-f795789021d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پیدائش:</strong> 1837ء (پانی پت) — <strong>وفات:</strong> 1914ء۔</li></ul><ul id="3f224f8d-7cec-80a1-b851-fa3ba7353f99" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>حالی کا مقام:</strong> وہ نہ صرف ایک بہترین شاعر، سوانح نگار (Biographer) اور مضمون نگار تھے، بلکہ انہیں <strong>اردو کا پہلا باضابطہ اور باقاعدہ نقاد (First Formal Critic of Urdu)</strong> مانا جاتا ہے۔</li></ul><ul id="3f224f8d-7cec-8066-b9b9-c1d08521b32c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سرپرست و رہنما:</strong> سرسید احمد خان اور مرزا غالب سے ان کا قریبی تعلق تھا، جس نے ان کی فکر اور سوچ کو ایک نئی روشنی دی۔</li></ul><hr id="3f224f8d-7cec-8019-a9c9-c1ae4ec5abc2" dir="auto"/><h4 id="3f224f8d-7cec-809b-93a5-c2f295dd5a04" class="" dir="auto">2. اردو تنقید میں حالی کے عظیم کارنامے اور حصہ (Major Contributions)</h4><p id="3f224f8d-7cec-8088-9bbb-f5ec0fcba13d" class="" dir="auto">حالی سے پہلے اردو تنقید صرف تذکروں، مشاعروں اور محاوروں کی صحت تک محدود تھی۔ حالی نے آ کر اس کا پورا نقشہ ہی بدل دیا۔ ان کے اہم ترین کارنامے درج ذیل ہیں:</p><h4 id="3f224f8d-7cec-80b3-a35a-e86bea1dca20" class="" dir="auto">(ا) اردو کے پہلے باضابطہ تنقیدی منشور کی تدوین (First Critical Manifesto)</h4><ul id="3f224f8d-7cec-802c-847e-f3b33b06d76a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">1893ء میں حالی نے اپنا دیوان (Poetry Collection) شائع کیا، اور اس کے شروع میں ایک طویل تمہید/مقدمہ لکھا۔</li></ul><ul id="3f224f8d-7cec-80cb-879f-f3a791f1c057" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہی مقدمہ بعد میں <strong>&quot;مقدمہ شعر و شاعری&quot;</strong> کے نام سے مستقل کتابی شکل میں شائع ہوا۔</li></ul><ul id="3f224f8d-7cec-80b6-9c41-f87fe5239c39" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کتاب نے اردو میں پہلی بار شاعری کے اصول، تعریف، اور مقاصد کو سائنسی اور عقلی بنیادوں پر مرتب کیا۔</li></ul><h4 id="3f224f8d-7cec-8076-84ad-ee0e18d152a8" class="" dir="auto">(ب) ادب کو &quot;مقصدیت&quot; اور &quot;زندگی&quot; سے جوڑنا (Art for Life&#x27;s Sake)</h4><ul id="3f224f8d-7cec-8066-834b-d20d43b29f30" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی سے پہلے شاعری میں زیادہ تر معشوق کے گیسو (زلف)، شراب و کباب، اور خیالی باتوں کا چرچا تھا۔</li></ul><ul id="3f224f8d-7cec-8002-851c-d67bddef63ba" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے سختی سے اعلان کیا کہ <strong>شاعری صرف تفریح کا ذریعہ نہیں ہے، بلکہ اس کا بنیادی مقصد قوم اور معاشرے کی اصلاح ہے</strong>۔</li></ul><ul id="3f224f8d-7cec-809c-a466-d972cd210493" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے کہا کہ ادب کو زندگی کے مسائل اور سچائی کا ترجمان ہونا چاہیے۔</li></ul><h4 id="3f224f8d-7cec-804c-ba25-cc20b231f847" class="" dir="auto">(ج) مغربی تنقیدی اصولوں کو اردو میں شامل کرنا (Integration of Western Concepts)</h4><ul id="3f224f8d-7cec-8056-bb1d-c50abd8a8115" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے انگریزی تنقیدی نظریات (خاص طور پر ملٹن، کولرج، اور میتھیو آرنلڈ) کا گہرا مطالعہ کیا اور ان کے بہترین اصولوں کو اردو تنقید میں شامل کیا۔</li></ul><ul id="3f224f8d-7cec-8041-aeba-cd22ffa3eeab" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس سے اردو تنقید کو ایک بین الاقوامی اور جدید تناظر حاصل ہوا۔</li></ul><h4 id="3f224f8d-7cec-80a7-a073-f60e8e3f4010" class="" dir="auto">(د) کلاسیکی اصنافِ سخن کا بے باک جائزہ (Critical Review of Classical Genres)</h4><ul id="3f224f8d-7cec-80c0-b2e5-c5982c2b9fee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے قدیم اردو شاعری، خاص طور پر <strong>غزل</strong> اور <strong>قصیدہ</strong> پر بڑی بے باکی سے تنقید کی۔</li></ul><ul id="3f224f8d-7cec-805d-8046-f91e1beddb95" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے غزل کی بے ربطی (مضامین کے بکھراؤ) اور مبالغہ آرائی (حد سے زیادہ بڑھا چڑھا کر بات کرنے) پر اصلاحی اعتراضات کیے تاکہ شاعری زیادہ پائیدار اور بااثر بن سکے۔</li></ul><hr id="3f224f8d-7cec-8070-b961-cea352cdf4e6" dir="auto"/><figure id="3f224f8d-7cec-809f-ae01-ecafdf31d251" class="image" data-notion-image="image%204.png" dir="ltr"><a href="image%204.png"><img style="width:1024px" src="image%204.png"/></a></figure><hr id="3f224f8d-7cec-80d7-ac36-f3860df78f39" dir="auto"/><h4 id="3f224f8d-7cec-80d4-9493-e1d052fba77a" class="" dir="auto">3. حالی کے انقلابی اقدامات کا خلاصہ (Summary Table)</h4><p id="3f224f8d-7cec-80fe-80c3-d67ebcd50441" class="" dir="auto">امتحان میں حالی کے حصے کو شاندار انداز میں پیش کرنے کے لیے یہ خاکہ دیکھیں:</p><table id="3f224f8d-7cec-80ff-8381-e03785ffbbb2" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-8064-b58b-e1a6f81d338e" dir="ltr"><th id="y:Zn" class="simple-table-header-color simple-table-header">پہلو (Aspect)</th><th id=";JI]" class="simple-table-header-color simple-table-header" style="width:283.98854064941406px">حالی سے پہلے اردو تنقید</th><th id="gORF" class="simple-table-header-color simple-table-header" style="width:420.98854064941406px">حالی کے بعد اردو تنقید (حالی کا حصہ)</th></tr></thead><tbody><tr id="3f224f8d-7cec-8044-968d-d844d91f7d2a" dir="ltr"><td id="y:Zn" class=""><strong>حیثیت</strong></td><td id=";JI]" class="" style="width:283.98854064941406px">تذکرے اور غیر باقاعدہ تاثرات</td><td id="gORF" class="" style="width:420.98854064941406px">باضابطہ، سائنسی اور اصولی فن</td></tr><tr id="3f224f8d-7cec-80a5-8d15-e195e6bd4f81" dir="ltr"><td id="y:Zn" class=""><strong>شاعری کا مقصد</strong></td><td id=";JI]" class="" style="width:283.98854064941406px">دل بہلاوا، عاشقانہ گفتگو، اور محاورہ بندی</td><td id="gORF" class="" style="width:420.98854064941406px">قوم اور سماج کی اصلاح (&quot;ادب برائے زندگی&quot;)</td></tr><tr id="3f224f8d-7cec-80e9-8057-e55f4f4993b5" dir="ltr"><td id="y:Zn" class=""><strong>تنقیدی کتاب</strong></td><td id=";JI]" class="" style="width:283.98854064941406px">کوئی باقاعدہ کتاب موجود نہیں تھی</td><td id="gORF" class="" style="width:420.98854064941406px"><strong>&quot;مقدمہ شعر و شاعری&quot; (1893ء)</strong> — اردو کا پہلا تنقیدی منشور</td></tr><tr id="3f224f8d-7cec-8065-b6cc-db9d8942cb13" dir="ltr"><td id="y:Zn" class=""><strong>طرزِ فکر</strong></td><td id=";JI]" class="" style="width:283.98854064941406px">روایتی اور خیالی</td><td id="gORF" class="" style="width:420.98854064941406px">عقلی، تاریخی اور مقصدی</td></tr></tbody></table><hr id="3f224f8d-7cec-8047-9c8c-c25b05020802" dir="auto"/><h4 id="3f224f8d-7cec-80ad-93a4-f84d040c9c1b" class="" dir="auto">4. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-8082-b611-f46d58fb024a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بانی:</strong> الطاف حسین حالی اردو کے پہلے باضابطہ نقاد ہیں۔</li></ul><ul id="3f224f8d-7cec-801b-a9e6-e00724ee0664" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شاہکار:</strong> 1893ء میں ان کی لکھی ہوئی کتاب <strong>&quot;مقدمہ شعر و شاعری&quot;</strong> اردو تنقید کا پہلا منشور (Manifesto) ہے۔</li></ul><ul id="3f224f8d-7cec-8026-96ee-deac73d7e77d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مرکزی نظریہ:</strong> انہوں نے &quot;ادب برائے ادب&quot; کو مسترد کر کے &quot;ادب برائے زندگی&quot; (مقصدیت) کا نعرہ دیا۔</li></ul><hr id="3f224f8d-7cec-8066-9750-e9eef7d3265b" dir="auto"/><h3 id="3f224f8d-7cec-8072-82d7-cc405f3eaaa8" class="" dir="auto">2.1.2 Hali&#x27;s Critical Theory and Perspective on Poetry</h3><h4 id="3f224f8d-7cec-809c-97ae-c9af91794505" class="" dir="auto">(شاعری سے متعلق حالی کا تنقیدی نظریہ)</h4><hr id="3f224f8d-7cec-8034-8434-c76ef5c35cdd" dir="auto"/><h3 id="3f224f8d-7cec-80de-9f4a-cc48d6985d66" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-80cd-9b74-e3d221c796f3" class="" dir="auto">پچھلے حصے (2.1.1) میں ہم نے دیکھا کہ الطاف حسین حالی کا اردو تنقید میں کتنا بڑا مقام ہے۔ اس حصے میں ہم سمجھیں گے کہ <strong>شاعری سے متعلق حالی کی اپنی فکر اور نظریہ (Theory of Poetry) کیا تھا</strong>۔</p><p id="3f224f8d-7cec-8057-ade2-c695a690eebd" class="" dir="auto">حالی کے مطابق شاعری کوئی بیکار کھیل یا صرف دل بہلانے کا مشغلہ نہیں ہے، بلکہ یہ ایک <strong>عظیم طاقت</strong> ہے جو انسان کے اخلاق، سوچ اور پورے معاشرے کو بدلنے کی صلاحیت رکھتی ہے۔</p><p id="3f224f8d-7cec-8042-8ea5-de15c9e81acc" class="" dir="auto">امتحان کے نقطہ نظر سے حالی کے تنقیدی نظریے کے دو سب سے اہم حصے ہیں:</p><ol type="1" id="3f224f8d-7cec-8023-a2a0-c7135535dfc8" class="numbered-list" start="1" dir="auto"><li><strong>شاعری کے لیے بنیادی عناصر (Prerequisites/Elements of Poetry)</strong></li></ol><ol type="1" id="3f224f8d-7cec-80d2-8c4a-e18324f54219" class="numbered-list" start="2" dir="auto"><li><strong>اچھے شعر کی تین بنیادی شرائط (Three Qualities of Good Poetry)</strong></li></ol><hr id="3f224f8d-7cec-802c-8d10-db5755e7da10" dir="auto"/><h4 id="3f224f8d-7cec-80f5-b0bf-ed4013d16a9c" class="" dir="auto">1. شاعری کے بنیادی عناصر (Prerequisites for a Poet)</h4><p id="3f224f8d-7cec-80af-b73c-d432a2894f3b" class="" dir="auto">حالی کے مطابق ہر شخص شاعر نہیں بن سکتا۔ ایک سچے اور کامران شاعر کے اندر درج ذیل تین بنیادی باتیں یا صلاحیتیں ہونا لازمی ہیں:</p><h4 id="3f224f8d-7cec-8082-bf8a-ff63403586d2" class="" dir="auto">(ا) تخیل (Imagination)</h4><ul id="3f224f8d-7cec-80a2-b08e-f9b9495c2694" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> تخیل وہ طاقت ہے جو شاعر کے ذہن میں نئے نئے خیالات، تصاویر اور معانی پیدا کرتی ہے۔</li></ul><ul id="3f224f8d-7cec-80fc-8f9a-cb1d40723cf9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>حالی کا نقطہ نظر:</strong> تخیل کے بغیر کوئی شخص شعر نہیں کہہ سکتا۔ لیکن حالی یہ شرط بھی لگاتے ہیں کہ تخیل کو حد سے زیادہ بے لگام اور غیر منطقی نہیں ہونا چاہیے، بلکہ اس کا سچائی سے تعلق ہونا چاہیے۔</li></ul><h4 id="3f224f8d-7cec-805a-afca-e777482d8db9" class="" dir="auto">(ب) کائنات کا مطالعہ اور مشاہدہ (Observation of Nature &amp; Life)</h4><ul id="3f224f8d-7cec-801d-9025-cb75025cf96e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> شاعر کو صرف کتابیں نہیں پڑھنی چاہئیں، بلکہ اپنے ارد گرد کی دنیا، انسانوں کے جذبات، فطرت (Nature)، اور حالاتِ حاضرہ کا گہرا مشاہدہ (Observation) کرنا چاہیے۔</li></ul><ul id="3f224f8d-7cec-80f3-97b5-fab0230b3b10" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>حالی کا نقطہ نظر:</strong> جتنا گہرا مشاہدہ ہوگا، شاعری اتنی ہی سچی اور بااثر ہوگی۔</li></ul><h4 id="3f224f8d-7cec-806e-9bfa-d4153b0c265b" class="" dir="auto">(ج) تفحصِ الفاظ (Selection of Words / Diction)</h4><ul id="3f224f8d-7cec-8015-bd54-f13f3e67063f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> مناسب، خوبصورت اور موزوں الفاظ کا انتخاب کرنا۔</li></ul><ul id="3f224f8d-7cec-80a6-bee9-dc648239daab" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>حالی کا نقطہ نظر:</strong> اگر خیال بہت اچھا ہو لیکن الفاظ غلط یا بدصورت چنے جائیں، تو شعر کا اثر ختم ہو جاتا ہے۔ شاعر کو الفاظ کا جوہری (Jeweller) ہونا چاہیے۔</li></ul><hr id="3f224f8d-7cec-80eb-aa35-e4ab5da11f87" dir="auto"/><figure id="3f224f8d-7cec-80f4-82c2-edd613147ce7" class="image" data-notion-image="image%205.png" dir="ltr"><a href="image%205.png"><img style="width:890.0377197265625px" src="image%205.png"/></a></figure><hr id="3f224f8d-7cec-8075-adbb-d2e80fef25c0" dir="auto"/><h4 id="3f224f8d-7cec-8003-a7b6-fb8dc8aaa194" class="" dir="auto">2. اچھے شعر کی تین بنیادی شرائط (Three Essential Qualities of Good Poetry)</h4><p id="3f224f8d-7cec-80de-8803-e48aa7fdf7b7" class="" dir="auto">حالی نے ملٹن (Milton) کے مغربی نظریے سے استفادہ کرتے ہوئے اچھے اور معیاری شعر کی <strong>تین اہم خصوصیات</strong> بتائی ہیں:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3f224f8d-7cec-8025-8549-ef60e5e87f1e" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">                  ┌────────────────────────┐
+                  │   اچھے شعر کی شرائط   │
+                  └───────────┬────────────┘
+                              │
+       ┌──────────────────────┼──────────────────────┐
+       ▼                      ▼                      ▼
+  1. سادگی              2. اصلیت              3. جوش
+  (Simplicity)          (Originality)         (Passion)</code></pre><h4 id="3f224f8d-7cec-80b4-bcf1-f37a0cdbadb1" class="" dir="auto">(1) سادگی (Simplicity)</h4><ul id="3f224f8d-7cec-8080-9bd6-e4a5740df1cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> شعر کی زبان اور خیال میں ایسی سادگی ہو کہ سنتے ہی بات دل میں اتر جائے۔</li></ul><ul id="3f224f8d-7cec-808f-815b-ff3d2909b317" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تفصیل:</strong> شعر میں غیر ضروری مشکل الفاظ، نامأنوس ترکیبیں، اور پچیدہ پہیلیوں جیسے معانی نہیں ہونے چاہئیں۔ جسے عام پڑھنے والا بھی بلا کسی الجھن کے سمجھ سکے۔</li></ul><h4 id="3f224f8d-7cec-8089-98cc-e7a2ea33c9e9" class="" dir="auto">(2) اصلیت / سچائی (Originality &amp; Truth)</h4><ul id="3f224f8d-7cec-80e7-86cc-e347f64f495a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> شعر میں حقیقت، سچائی اور اصلی جذبات کی عکاسی ہونی چاہیے۔</li></ul><ul id="3f224f8d-7cec-80d0-af7a-fa3e42584f36" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تفصیل:</strong> حالی مبالغہ آرائی (جھوٹی اور حد سے زیادہ بڑھا چڑھا کر کہی گئی باتیں) کے سخت خلاف تھے۔ وہ کہتے ہیں کہ شعر ایسا ہو جو سچائی پر مبنی ہو اور مصنوعی نہ لگے۔</li></ul><h4 id="3f224f8d-7cec-80b8-a534-d3f98c13dcdf" class="" dir="auto">(3) جوش (Passion / Enthusiasm)</h4><ul id="3f224f8d-7cec-80cb-92bd-ee1121898118" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مطلب:</strong> شعر میں دل کو گرمانے اور جذبات کو ابھارنے والی تپش (Heat/Emotion) ہونی چاہیے۔</li></ul><ul id="3f224f8d-7cec-8008-951c-f98716c4c436" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تفصیل:</strong> جوش کا مطلب یہ ہے کہ شاعر نے جس جذبے کے ساتھ شعر لکھا ہے، پڑھنے والے کے دل میں بھی بالکل وہی جذبہ اور تاثر (Impact) پیدا ہو جائے۔</li></ul><hr id="3f224f8d-7cec-80f1-914f-e9e84d6b98b8" dir="auto"/><h4 id="3f224f8d-7cec-80ef-b531-fa86dc50b45d" class="" dir="auto">3. حالی کا &quot;نیچرل شاعری&quot; (Natural Poetry) کا تصور</h4><ul id="3f224f8d-7cec-8046-985b-c5ead9ca61f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے روایتی اور بناوٹی شاعری کے مقابلے میں <strong>&quot;نیچرل شاعری&quot;</strong> پر زور دیا۔</li></ul><ul id="3f224f8d-7cec-8089-9647-f9563376cac4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نیچرل شاعری کیا ہے؟</strong> وہ شاعری جو فطرت کے قوانین کے مطابق ہو، جس میں بناوٹ، جھوٹ اور لغو عاشقانہ مضامین نہ ہوں، بلکہ جو انسانی زندگی اور قدرت کی سچی تصویر کشی کرے۔</li></ul><hr id="3f224f8d-7cec-8070-bdbb-e35450a137d9" dir="auto"/><h4 id="3f224f8d-7cec-80dc-8c7d-dc929610c9b9" class="" dir="auto">4. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-80c2-8d70-f7ea39088ec9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شاعر کے لیے 3 لازمی خصوصیات:</strong> تخیل (Imagination)، کائنات کا مطالعہ (Observation)، اور تفحصِ الفاظ (Word Selection)۔</li></ul><ul id="3f224f8d-7cec-8004-bf4a-e6a532d88f83" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>معیاری شعر کی 3 شرائط:</strong></li></ul><ol type="1" id="3f224f8d-7cec-80cd-bdc1-cf764d407af0" class="numbered-list" start="1" dir="auto"><li><strong>سادگی (Simplicity):</strong> آسان اور عام فہم زبان۔</li></ol><ol type="1" id="3f224f8d-7cec-8028-b057-e966fa3bd6e8" class="numbered-list" start="2" dir="auto"><li><strong>اصلیت (Truth/Originality):</strong> سچائی اور حقیقت پر مبنی خیال۔</li></ol><ol type="1" id="3f224f8d-7cec-8058-8fed-c5beef791d37" class="numbered-list" start="3" dir="auto"><li><strong>جوش (Passion):</strong> دل پر گہرا اثر چھوڑنے والا جذبہ۔</li></ol><ul id="3f224f8d-7cec-80ee-92f2-d15108e57308" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>یاد رکھنے کی شارٹ ٹرک:</strong> <strong>&quot;سادگی + اصلیت + جوش = معیاری شعر&quot;</strong></li></ul><hr id="3f224f8d-7cec-80e9-9d23-eeab782b069a" dir="auto"/><h1 id="3f224f8d-7cec-8003-a649-e1877e4ca62f" class="" dir="auto">Section 2.2: Study of &#x27;Muqaddama-e-Sher-o-Shairi&#x27;</h1><h2 id="3f224f8d-7cec-802a-902c-d5194f82ba8a" class="" dir="auto">(مقدمہ شعر و شاعری کا مطالعہ)</h2><hr id="3f224f8d-7cec-80c2-a5c6-f1a9874d70df" dir="auto"/><h3 id="3f224f8d-7cec-8031-a406-e8ab4d74e78e" class="" dir="auto">2.2.1 Background and Significance of &#x27;Muqaddama-e-Sher-o-Shairi&#x27;</h3><h4 id="3f224f8d-7cec-80cf-a01a-cb147274873e" class="" dir="auto">(مقدمہ شعر و شاعری کا پس منظر اور اہمیت)</h4><hr id="3f224f8d-7cec-804a-aa6c-dbf6a9b84345" dir="auto"/><h3 id="3f224f8d-7cec-80c1-9c3a-ccd467122747" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-80b8-8ad9-dc5c920997e6" class="" dir="auto">پچھلے بخشوں (2.1.1 اور 2.1.2) میں ہم نے الطاف حسین حالی کی شخصیت بحیثیت نقاد اور ان کے شاعری کے نظریات کو تفصیل سے سمجھا۔</p><p id="3f224f8d-7cec-80b4-a34f-f1e74e92cbf4" class="" dir="auto">اب ہم ان کی لازوال اور تاریخی شاہکار کتاب <strong>&quot;مقدمہ شعر و شاعری&quot;</strong> کا الگ سے مطالعہ کر رہے ہیں۔ اردو ادبی تاریخ میں یہ وہ کتاب ہے جس نے اردو شاعری اور تنقید کی سمت بدل کر رکھ دی۔</p><p id="3f224f8d-7cec-807e-872f-f3cb402dffbc" class="" dir="auto">اس حصے میں ہم دو اہم باتوں پر توجہ دیں گے:</p><ol type="1" id="3f224f8d-7cec-80a3-83ba-e64bf448ee92" class="numbered-list" start="1" dir="auto"><li><strong>پس منظر (Background):</strong> یہ کتاب کیوں اور کن حالات میں لکھی گئی؟</li></ol><ol type="1" id="3f224f8d-7cec-80b4-ba16-e7f6811e63c1" class="numbered-list" start="2" dir="auto"><li><strong>اہمیت (Significance):</strong> اردو ادب پر اس کے کیا اثرات پڑے اور اسے پہلا تنقیدی منشور کیوں کہا جاتا ہے؟</li></ol><hr id="3f224f8d-7cec-805f-b68b-d6e53d5bd9a7" dir="auto"/><h4 id="3f224f8d-7cec-8025-9f70-d2e797915e30" class="" dir="auto">1. &quot;مقدمہ شعر و شاعری&quot; کا تاریخی پس منظر (Historical Background)</h4><p id="3f224f8d-7cec-80bd-aa37-c00a1d5253a7" class="" dir="auto">اس کتاب کی تخلیق کے پیچھے تین اہم تاریخی اور تحریکی اسباب تھے:</p><h4 id="3f224f8d-7cec-80f0-8a5a-c004954266af" class="" dir="auto">(ا) 1857ء کے انقلاب کے بعد کے حالات (Post-1857 Era)</h4><ul id="3f224f8d-7cec-8089-86a1-c65f34c566b5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">1857ء کی جنگِ آزادی کی ناکامی کے بعد ہندوستان میں بالخصوص مسلمان سماجی، تعلیمی اور ادبی اعتبار سے شدید بحران کا شکار تھے۔</li></ul><ul id="3f224f8d-7cec-8063-bf76-fc7646ae2f77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">پرانی روایت پر مبنی شاعری (شراب و معشوق کے چرچے، پریوں کی کہانیاں) بدلتے ہوئے دور کے مسائل کا حل نہیں دے سکتی تھی۔</li></ul><h4 id="3f224f8d-7cec-80f8-9159-eb9be6649d64" class="" dir="auto">(ب) علی گڑھ تحریک اور سرسید کا اثر (Impact of Sir Syed&#x27;s Movement)</h4><ul id="3f224f8d-7cec-8087-b9e2-cf03cbea2f52" class="bulleted-list" dir="auto"><li style="list-style-type:disc">سرسید احمد خان نے حالی کو یہ احساس دلایا کہ قوم کو بیدار کرنے کے لیے ادب کو ایک ہتھیار کے طور پر استعمال کرنا پڑے گا۔</li></ul><ul id="3f224f8d-7cec-80ac-9081-d715518c343b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">سرسید نے کہا کہ شاعری کو فضول قصیدوں اور جھوٹی تعریفوں سے نکال کر <strong>سچائی، اخلاق اور اصلاح</strong> کی طرف لایا جائے۔</li></ul><h4 id="3f224f8d-7cec-8081-9908-e6ee53406307" class="" dir="auto">(ج) کتاب کی اشاعت کا واقعہ (1893ء)</h4><ul id="3f224f8d-7cec-803d-a9cf-ebd03a4ee7c5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے 1893ء میں اپنا شعری مجموعہ (دیوان) شائع کیا۔</li></ul><ul id="3f224f8d-7cec-8022-873e-cc0dd13d675b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس دیوان کے شروع میں انہوں نے ایک لمبی تمہید (Introduction) لکھی جس میں انہوں نے بتایا کہ انہوں نے اپنی شاعری کا انداز کیوں بدلا اور شاعری کے کیا اصول ہونے چاہئیں۔</li></ul><ul id="3f224f8d-7cec-80a6-ba29-f075b32373bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">یہی تمہید اتنی جامع اور علم سے بھرپور تھی کہ بعد میں اسے <strong>&quot;مقدمہ شعر و شاعری&quot;</strong> کے نام سے ایک الگ کتاب کی شکل میں شائع کر دیا گیا۔</li></ul><hr id="3f224f8d-7cec-808b-94aa-f0eb9a16b24c" dir="auto"/><figure id="3f224f8d-7cec-8078-a696-f332eae9d030" class="image" data-notion-image="image%206.png" dir="ltr"><a href="image%206.png"><img style="width:890.0377197265625px" src="image%206.png"/></a></figure><hr id="3f224f8d-7cec-80a8-855a-f63a00f0d8cb" dir="auto"/><h4 id="3f224f8d-7cec-809a-88f5-fe517c585b1d" class="" dir="auto">2. &quot;مقدمہ شعر و شاعری&quot; کی ادبی اہمیت (Literary Significance)</h4><p id="3f224f8d-7cec-801f-a2bb-dadb4644926d" class="" dir="auto">اردو تنقید اور ادب میں اس کتاب کی اہمیت درج ذیل نکات کی روشنی میں سمجھی جا سکتی ہے:</p><h4 id="3f224f8d-7cec-8030-9a3c-c7f630325944" class="" dir="auto">(1) اردو تنقید کا پہلا باضابطہ منشور (First Formal Manifesto)</h4><ul id="3f224f8d-7cec-8077-a26a-db576b4f8c2d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">جس طرح فرانسیسی ادب میں والٹیئر یا انگریزی میں ورڈز ورتھ (Wordsworth) کا &#x27;Preface to Lyrical Ballads&#x27; اہمیت رکھتا ہے، بالکل وہی مقام اردو میں &quot;مقدمہ شعر و شاعری&quot; کو حاصل ہے۔</li></ul><ul id="3f224f8d-7cec-8076-bd08-ee18967e3110" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس نے اردو میں پہلی بار <strong>اصولِ تنقید</strong> کو ایک باقاعدہ فن کی شکل دی۔</li></ul><h4 id="3f224f8d-7cec-800f-8093-cb98f303a913" class="" dir="auto">(2) اصلاحی اور مقصدی شاعری کی بنیاد (Foundation of Purposeful Poetry)</h4><ul id="3f224f8d-7cec-809c-bd58-c4abe6e48ed1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کتاب نے شاعری کا مقصد محض تفریح یا دل بہلاوا ماننے سے انکار کر دیا۔</li></ul><ul id="3f224f8d-7cec-806d-a7b9-cf28e7bbed19" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے یہ ثابت کیا کہ شاعری میں اتنی طاقت ہے کہ وہ قوموں کی تقدیر بدل سکتی ہے اور اخلاقی اصلاح کر سکتی ہے۔</li></ul><h4 id="3f224f8d-7cec-80c9-a2d2-f6eaa99d27ed" class="" dir="auto">(3) اصنافِ سخن کا بے باک اور سائنسی تجزیہ (Scientific Analysis of Genres)</h4><ul id="3f224f8d-7cec-801e-a6d4-c06e94e5063d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حالی نے اس کتاب میں اردو کی قدیم اصناف جیسے <strong>غزل، قصیدہ، مثنوی، اور مرثیہ</strong> پر تفصیل سے بحث کی اور ان کی خوبیاں اور خامیاں بتائیں۔</li></ul><ul id="3f224f8d-7cec-8051-b096-ef7cf63a4f4a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے مبالغہ آرائی، جھوٹ اور مصنوعی پن کو سختی سے مسترد کر دیا۔</li></ul><h4 id="3f224f8d-7cec-808f-b714-ed59e02a428a" class="" dir="auto">(4) جدید اردو شاعری کا راستہ (Paving Way for Modern Poetry)</h4><ul id="3f224f8d-7cec-80ac-8c02-c7c8aa4b1ca1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کتاب کی ہدایت اور اثر سے اردو میں نیچرل شاعری، قومی و ملی شاعری، اور جدید نظم نگاری کا باقاعدہ آغاز ہوا۔</li></ul><hr id="3f224f8d-7cec-800e-a82e-def66b84e96a" dir="auto"/><h4 id="3f224f8d-7cec-8087-8e1f-d89a79eaf4a9" class="" dir="auto">3. پس منظر اور اہمیت کا خلاصہ (Summary Table)</h4><table id="3f224f8d-7cec-8013-ad07-d494bd6748a3" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-800d-b997-f7be6e278959" dir="ltr"><th id="lAGt" class="simple-table-header-color simple-table-header">عنوان (Headings)</th><th id="NTzk" class="simple-table-header-color simple-table-header" style="width:418.98854064941406px">بنیادی نکات (Key Points)</th></tr></thead><tbody><tr id="3f224f8d-7cec-801b-8d85-e940ebd3c44d" dir="ltr"><td id="lAGt" class=""><strong>تصنیف کا سال</strong></td><td id="NTzk" class="" style="width:418.98854064941406px">1893ء (اصل میں دیوانِ حالی کا مقدمہ تھا)</td></tr><tr id="3f224f8d-7cec-80fe-874b-d3bf03140bff" dir="ltr"><td id="lAGt" class=""><strong>بنیادی پس منظر</strong></td><td id="NTzk" class="" style="width:418.98854064941406px">1857ء کے بعد قومی زوال، سرسید کی اصلاحی تحریک</td></tr><tr id="3f224f8d-7cec-802d-adcb-ee1ea97747d9" dir="ltr"><td id="lAGt" class=""><strong>سب سے بڑی اہمیت</strong></td><td id="NTzk" class="" style="width:418.98854064941406px">اردو تنقید کا پہلا سائنسی منشور (First Critical Manifesto)</td></tr><tr id="3f224f8d-7cec-8063-a94d-c38ad9afbdfe" dir="ltr"><td id="lAGt" class=""><strong>اصلی پیغام</strong></td><td id="NTzk" class="" style="width:418.98854064941406px">&quot;ادب برائے زندگی&quot; (شاعری کو قومی و اخلاقی اصلاح کا ذریعہ بنانا)</td></tr></tbody></table><hr id="3f224f8d-7cec-803b-8a14-c36eb4fa7875" dir="auto"/><h4 id="3f224f8d-7cec-80b7-bfb0-dccb8f3d164d" class="" dir="auto">4. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-8019-85b3-f0bfe09af9e1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پہلا منشور:</strong> &quot;مقدمہ شعر و شاعری&quot; (1893ء) اردو تنقید کی تاریخ کا پہلا اور سب سے اہم باضابطہ منشور ہے۔</li></ul><ul id="3f224f8d-7cec-809e-b925-f65a9760c351" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تحریکی پس منظر:</strong> یہ کتاب سرسید احمد خان کی اصلاحی تحریک اور 1857ء کے بعد کے زوال پذیر حالات کے ردِعمل میں لکھی گئی۔</li></ul><ul id="3f224f8d-7cec-805f-9609-d1e5ce917999" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بنیادی اثر:</strong> اس نے شاعری کو خیالی محفلوں سے نکال کر حقیقی زندگی، سچائی اور سماجی مسائل سے جوڑا۔</li></ul><hr id="3f224f8d-7cec-800e-b523-d7dd295eccd5" dir="auto"/><h3 id="3f224f8d-7cec-8049-b8ce-ec47f37f772b" class="" dir="auto">2.2.2 Key Views on Ghazal, Masnavi, and Functions of Poetry</h3><h4 id="3f224f8d-7cec-80ea-a734-e5459c952edc" class="" dir="auto">(غزل، مثنوی اور شعر کے مقاصد پر حالی کے افکار)</h4><hr id="3f224f8d-7cec-809d-ac38-ded5b29255c9" dir="auto"/><h3 id="3f224f8d-7cec-8099-a5b2-ef3c71585739" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-800e-9edf-c371c58da69d" class="" dir="auto">پچھلے حصے (2.2.1) میں ہم نے &quot;مقدمہ شعر و شاعری&quot; کا پس منظر اور اس کی تاریخی اہمیت کو سمجھا۔</p><p id="3f224f8d-7cec-803d-830a-f965962ae86c" class="" dir="auto">اب اس حصے میں ہم یہ پڑھیں گے کہ حالی نے اپنی اس تاریخی کتاب میں <strong>اردو کی مختلف اصنافِ سخن (Poetic Genres) جیسے غزل اور مثنوی پر کیا تنقید کی ہے</strong> اور ان کے نزدیک <strong>شاعری کے اصل مقاصد (Functions of Poetry)</strong> کیا ہیں۔</p><p id="3f224f8d-7cec-808c-a867-c2739eaead04" class="" dir="auto">امتحان میں اس موضوع سے اکثر تفصیلی سوالات آتے ہیں، اس لیے اسے درج ذیل تین بنیادی حصوں میں تقسیم کر کے سمجھنا بہت آسان رہے گا:</p><ol type="1" id="3f224f8d-7cec-8032-8028-e698527deb52" class="numbered-list" start="1" dir="auto"><li><strong>شاعری کے مقاصد اور افادیت (Functions and Utility of Poetry)</strong></li></ol><ol type="1" id="3f224f8d-7cec-8077-bffb-e57a24a87623" class="numbered-list" start="2" dir="auto"><li><strong>غزل پر حالی کے تنقیدی افکار (Hali&#x27;s Views on Ghazal)</strong></li></ol><ol type="1" id="3f224f8d-7cec-80bd-82d9-d0d3560dec06" class="numbered-list" start="3" dir="auto"><li><strong>مثنوی پر حالی کے افکار (Hali&#x27;s Views on Masnavi)</strong></li></ol><hr id="3f224f8d-7cec-809c-ae12-f9995f106c89" dir="auto"/><h4 id="3f224f8d-7cec-80aa-a4b7-e2dcc6f9ebb7" class="" dir="auto">1. شعر اور شاعری کے مقاصد (Functions &amp; Purpose of Poetry)</h4><p id="3f224f8d-7cec-8001-81b0-c05f6d0f6fd6" class="" dir="auto">حالی کے نزدیک شاعری کوئی فضول یا بیکار مشغلہ نہیں ہے، بلکہ اس کے کچھ اہم مقاصد ہیں:</p><ul id="3f224f8d-7cec-8045-a2dc-cacbe12ad8e7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اخلاقی اور قومی اصلاح (Moral &amp; Social Reform):</strong><br/>شاعری کا سب سے بڑا مقصد یہ ہے کہ وہ انسان کے اندر اچھے اخلاق پیدا کرے اور قوم کو زوال (Downfall) سے نکال کر ترقی کی طرف لے جائے۔</li></ul><ul id="3f224f8d-7cec-8069-bf76-cad1c8ba5974" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>سچائی اور حقیقت کی ترجمانی (Representation of Truth):</strong><br/>شاعری کو جھوٹی تعریفوں، مصنوعی جذبات اور لغو مبالغہ آرائی سے پاک ہونا چاہیے۔ شعر میں سچائی کی وہ تپش ہونی چاہیے جو پڑھنے والے کے دل پر فوراً اثر کرے۔</li></ul><ul id="3f224f8d-7cec-800e-baa5-fe35bbcf3272" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تہذیبی و سماجی بیداری (Cultural Awareness):</strong><br/>شاعری کے ذریعے معاشرے میں پھیلی برائیوں، جہالت اور ناانصافی پر ضرب لگائی جانی چاہیے۔</li></ul><hr id="3f224f8d-7cec-8024-9907-fa83f413a6f9" dir="auto"/><h4 id="3f224f8d-7cec-80cd-bcd3-d82f882c08b4" class="" dir="auto">2. غزل پر حالی کے تنقیدی افکار (Hali&#x27;s Views on Ghazal)</h4><p id="3f224f8d-7cec-8028-a9ec-c7397a439004" class="" dir="auto">اردو ادب میں غزل سب سے مقبول صنفِ سخن رہی ہے، لیکن حالی نے اس پر بڑی بے باکی اور ایمانداری سے تنقید کی۔</p><h4 id="3f224f8d-7cec-804c-8eea-db25669cb66e" class="" dir="auto">(ا) غزل کی خامیاں (Drawbacks Identified by Hali)</h4><ul id="3f224f8d-7cec-8038-9d89-f76812d9f7b4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>بے ربطی (Lack of Continuity):</strong> غزل کا ہر شعر ایک الگ مضمون بیان کرتا ہے اور پوری غزل میں کوئی ایک مرکزی خیال (Central Idea) نہیں ہوتا۔ حالی نے اس بے ربطی کو غزل کی ایک بڑی کمزوری مانا۔</li></ul><ul id="3f224f8d-7cec-8051-a7e3-d68528955b07" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>محدود مضامین (Limited Themes):</strong> حالی کا کہنا تھا کہ روایتی غزل صرف عشق و محبت، معشوق کی زلف و رخسار، اور شراب و کباب تک محدود ہو کر رہ گئی ہے۔</li></ul><ul id="3f224f8d-7cec-80bc-8554-c7526a74363c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مبالغہ آرائی اور جھوٹ:</strong> غزل میں شاعر حد سے زیادہ بڑھا چڑھا کر باتیں کرتے ہیں جو حقیقی زندگی سے میل نہیں کھاتیں۔</li></ul><h4 id="3f224f8d-7cec-8038-919a-fdf59b415cb9" class="" dir="auto">(ب) غزل کی اصلاح کے لیے حالی کی تجاویز (Suggestions for Reform)</h4><ul id="3f224f8d-7cec-80ec-818b-dd9d355fa1fa" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>وسعتِ مضامین (Expanding Scope):</strong> غزل میں صرف عاشقانہ باتیں نہیں ہونی چاہئیں، بلکہ اس میں اخلاقی، علمی، سیاسی، اور فلسفیانہ مضامین بھی شامل کیے جائیں۔</li></ul><ul id="3f224f8d-7cec-8000-8229-f7db2d1b9beb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>قافیہ اور ردیف کی آزادی:</strong> شعراء کو چاہیے کہ وہ صرف مشکل قافیوں اور ردیفوں کے پیچھے نہ بھاگیں، بلکہ خیال کی خوبصورتی اور سادگی پر توجہ دیں۔</li></ul><blockquote id="3f224f8d-7cec-80d4-b513-ee033a33cdd8" class="" dir="auto"><strong>حالی کا مشہور قول:</strong> اگرچہ حالی نے غزل پر سخت تنقید کی، لیکن وہ اس صنف کو ختم نہیں کرنا چاہتے تھے بلکہ اس کی <strong>اصلاح (Reform)</strong> چاہتے تھے تاکہ غزل جدید دور کے تقاضوں کو پورا کر سکے۔</blockquote><hr id="3f224f8d-7cec-80b9-8c7c-fa3fbaba3491" dir="auto"/><figure id="3f224f8d-7cec-807d-ba76-dcb4d2c14ace" class="image" data-notion-image="image%207.png" dir="ltr"><a href="image%207.png"><img style="width:1024px" src="image%207.png"/></a></figure><hr id="3f224f8d-7cec-8009-ac3c-d6486d3dd72e" dir="auto"/><h4 id="3f224f8d-7cec-8013-8533-c73ef52bc47d" class="" dir="auto">3. مثنوی پر حالی کے افکار (Hali&#x27;s Views on Masnavi)</h4><p id="3f224f8d-7cec-808d-b463-e88050798c3c" class="" dir="auto">غزل کے برعکس، حالی نے <strong>مثنوی</strong> کو اردو کی سب سے مفید اور کارآمد صنفِ سخن قرار دیا۔</p><h4 id="3f224f8d-7cec-80b6-99f2-f4dc28b717b5" class="" dir="auto">(ا) مثنوی کو ترجیح دینے کی وجوہات (Why Hali Preferred Masnavi)</h4><ul id="3f224f8d-7cec-80de-a403-e1182476b94f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>تسلسل اور ربط (Continuity &amp; Structure):</strong> مثنوی میں ایک ہی واقعہ، داستان یا قصہ شروع سے آخر تک تسلسل (Sequence) کے ساتھ بیان کیا جاتا ہے۔ اس میں خیالات بکھرے ہوئے نہیں ہوتے۔</li></ul><ul id="3f224f8d-7cec-80b9-94fb-e3c6cf732086" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ہر قسم کے مضمون کی گنجائش (Versatility):</strong> مثنوی میں تاریخ، اخلاقیات، سائنس، فلسفہ اور قومی مسائل سمیت کسی بھی بڑے موضوع کو تفصیل سے بیان کیا جا سکتا ہے۔</li></ul><ul id="3f224f8d-7cec-8086-a5cf-e0e9bb8d311a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>نیچرل شاعری کے لیے بہترین:</strong> مثنوی میں سچی داستان نگاری اور فطرت کی تصویر کشی (Nature Description) کے لیے غزل کے مقابلے میں زیادہ آزادی ملتی ہے۔</li></ul><hr id="3f224f8d-7cec-80dd-a053-d0ce919ba1fa" dir="auto"/><h4 id="3f224f8d-7cec-8088-af27-c2edf6c4e5e7" class="" dir="auto">4. غزل اور مثنوی پر حالی کے خیالات کا موازنہ (Comparative Table)</h4><p id="3f224f8d-7cec-808b-94a1-ed3347c9d5c4" class="" dir="auto">امتحان میں اس موضوع پر جواب کو مزید متاثر کن بنانے کے لیے یہ مختصر جدول دیکھئے:</p><table id="3f224f8d-7cec-80de-936a-f8758f2094d1" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-8063-8d10-f3698028cfa3" dir="ltr"><th id="WL{h" class="simple-table-header-color simple-table-header">صنفِ سخن (Genre)</th><th id="o|M&gt;" class="simple-table-header-color simple-table-header">حالی کی تنقید / نظر</th><th id="|L;O" class="simple-table-header-color simple-table-header">حالی کا فیصلہ / تجاویز</th></tr></thead><tbody><tr id="3f224f8d-7cec-80af-9894-c7742d134ab1" dir="ltr"><td id="WL{h" class=""><strong>غزل (Ghazal)</strong></td><td id="o|M&gt;" class="">مضامین محدود ہیں، اشعار میں ربط نہیں ہوتا، مبالغہ آرائی زیادہ ہے۔</td><td id="|L;O" class="">اس کو ختم نہ کیا جائے بلکہ اس میں اخلاقی اور سماجی مضامین شامل کر کے <strong>اصلاح</strong> کی جائے۔</td></tr><tr id="3f224f8d-7cec-80dd-b39a-c1771ca34634" dir="ltr"><td id="WL{h" class=""><strong>مثنوی (Masnavi)</strong></td><td id="o|M&gt;" class="">اس میں تسلسل ہے، قصہ اور سچائی بیان کرنے کی مکمل آزادی ہے۔</td><td id="|L;O" class="">اسے اردو شاعری کی <strong>سب سے مفید اور بااثر صنف</strong> قرار دیا۔</td></tr></tbody></table><hr id="3f224f8d-7cec-808d-8e52-e861e74f8822" dir="auto"/><h4 id="3f224f8d-7cec-807e-bbe1-ff6a2da63060" class="" dir="auto">5. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-80ae-9794-c94d3029f810" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>شاعری کا مقصد:</strong> حالی کے نزدیک شاعری کا مقصد &quot;ادب برائے زندگی&quot; یعنی اخلاقی اور قومی اصلاح ہے۔</li></ul><ul id="3f224f8d-7cec-8073-9309-c5372d178fbf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>غزل پر موقف:</strong> غزل کی بے ربطی اور محدود عاشقانہ مضامین پر تنقید کی اور اس کا دائرہ وسیع کرنے کی ہدایت دی۔</li></ul><ul id="3f224f8d-7cec-801f-9db3-e41cc30952fe" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مثنوی پر موقف:</strong> مثنوی کو اس کے ربط اور مسلسل داستان نگاری کی وجہ سے اردو کی سب سے کارآمد صنف مانا۔</li></ul><hr id="3f224f8d-7cec-8013-89ca-e0f8b93a9649" dir="auto"/><h1 id="3f224f8d-7cec-804e-b90d-c14484a67cd3" class="" dir="auto">Unit 3: Representative Critics of Bihar</h1><h2 id="3f224f8d-7cec-8050-a898-e8863ca195f2" class="" dir="auto">(یونٹ 3: بہار کے نمائندہ تنقید نگار)</h2><hr id="3f224f8d-7cec-8068-a4ad-c288425c429c" dir="auto"/><h3 id="3f224f8d-7cec-8080-840a-e88ff09fe57f" class="" dir="auto">📘 یونٹ 3 کا تعارف (Introduction &amp; Overview)</h3><p id="3f224f8d-7cec-801d-94b2-e4032c92809a" class="" dir="auto">سلام! <strong>Unit 1</strong> اور <strong>Unit 2</strong> کو مکمل کرنے کے بعد، اب ہم اس کورس کے آخری اور انتہائی اہم <strong>Unit 3</strong> میں داخل ہو چکے ہیں۔</p><p id="3f224f8d-7cec-80e1-ad90-e6f18222e052" class="" dir="auto">بہار کی سرزمین ہمیشہ سے علم و ادب، شعر و شاعری اور خاص طور پر <strong>ادبی تنقید (Literary Criticism)</strong> کا ایک عظیم مرکز رہی ہے۔ اردو تنقید کی روایت کو مضبوط بنانے، اس میں تحقیقی گہرائی پیدا کرنے اور نئے تنقیدی نظریات کو متعارف کرانے میں بہار کے نقادوں نے تاریخی اور ناگزیر کردار ادا کیا ہے۔</p><p id="3f224f8d-7cec-809d-9930-cd51da8b5b29" class="" dir="auto">اس یونٹ کا بنیادی خاکہ اور تمام موضوعات کا باہمی تعلق درج ذیل ہے:</p><ol type="1" id="3f224f8d-7cec-80b6-9faf-e16edb4ad417" class="numbered-list" start="1" dir="auto"><li><strong>بہار میں اردو تنقید: ایک جائزہ (Section 3.1):</strong></li></ol><ul id="3f224f8d-7cec-8044-9abd-f8a8bc205a63" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>3.1.1 بہار میں اردو تنقید کی روایت اور ارتقاء:</strong> بہار میں تنقید کی شروعات کیسے ہوئی، تذکرہ نگاری سے لے کر جدید اور تحقیقی تنقید تک اس نے کیسے ترقی کی۔</li></ul><ol type="1" id="3f224f8d-7cec-804a-b200-ecde1fd59aaa" class="numbered-list" start="1" dir="auto"><li><strong>بہار کے اہم اردو تنقید نگار (Section 3.2):</strong></li></ol><ul id="3f224f8d-7cec-8068-8d69-f6b0787af256" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>3.2.1 برجستہ نقادوں کی خدمات اور تنقیدی کارنامے:</strong> قاضی عبدالودود، کلیم الدین احمد، اور وھاب اشرفی جیسی عظیم شخصیات کے تنقیدی نظریات اور ان کی کتابوں کا تفصیلی مطالعہ۔</li></ul><hr id="3f224f8d-7cec-80d5-8e2c-fe0544507b04" dir="auto"/><h2 id="3f224f8d-7cec-80a7-ac90-daaa7107e1b3" class="" dir="auto">Section 3.1: Urdu Criticism in Bihar: An Overview</h2><h3 id="3f224f8d-7cec-801c-9cce-feb27c43ca6e" class="" dir="auto">(بہار میں اردو تنقید: ایک جائزہ)</h3><hr id="3f224f8d-7cec-801d-b6cf-cf92496a97c5" dir="auto"/><h3 id="3f224f8d-7cec-8004-9003-e444705ee341" class="" dir="auto">3.1.1 Tradition and Growth of Urdu Literary Criticism in Bihar</h3><h4 id="3f224f8d-7cec-8024-a528-d2237fc1136e" class="" dir="auto">(بہار میں اردو تنقید کی روایت اور ارتقاء)</h4><hr id="3f224f8d-7cec-804f-ad6d-ee77f88833dc" dir="auto"/><h4 id="3f224f8d-7cec-805c-b73e-f41ebb266af4" class="" dir="auto">1. بنیادی تعارف اور تاریخی پس منظر (Introduction &amp; Historical Background)</h4><p id="3f224f8d-7cec-8064-b6a2-ec0907ba3ea5" class="" dir="auto">بہار کی ادبی تاریخ اتنی ہی قدیم ہے جتنی کہ خود اردو زبان کی تاریخ۔ عظیم آباد (پٹنہ)، گیا، بھاگلپور، دربھنگہ اور مظفر پور جیسے شہر ہمیشہ سے علم و ادب کے گہوارے رہے ہیں۔</p><p id="3f224f8d-7cec-80ba-90ee-ffc83dac249d" class="" dir="auto">بہار میں تنقید کا سفر کسی ایک دن کا نتیجہ نہیں ہے، بلکہ یہ <strong>تذکرہ نگاری سے شروع ہو کر سائنسی، علمی، اور جدید تنقید</strong> تک پہنچا ہے۔</p><hr id="3f224f8d-7cec-8057-b7a7-ffe02f1bbdda" dir="auto"/><h4 id="3f224f8d-7cec-80d6-9ae1-dca8aa138460" class="" dir="auto">2. بہار میں اردو تنقید کے ارتقائی مراحل (Stages of Evolution)</h4><p id="3f224f8d-7cec-80ea-9716-ef66271ae85e" class="" dir="auto">بہار میں اردو تنقید کے ارتقاء کو ہم چار بنیادی ادوار (Phases) میں تقسیم کر کے آسانی سے یاد رکھ سکتے ہیں:</p><pre id="3f224f8d-7cec-80c6-b334-d19eff772ca1" class="code code-wrap"><code style="white-space:pre-wrap;word-break:break-all">                  ┌────────────────────────────────────────┐
+																	                  │   بہار میں اردو تنقید کا تاریخی سفر   │
+                  └───────────────────┬────────────────────┘
+                                      │
+       ┌──────────────────┬───────────┴───────────┬──────────────────┐
+       ▼                  ▼                       ▼                  ▼
+1. تذکرہ نگاری کا دور   2. تحریکی دور           3. سائنسی و تحقیقی   4. جدید و معاصر دور
+ (Early Tazkiras)    (Aligarh/Progressive)      (Scientific Era)     (Modern/Contemporary)</code></pre><h4 id="3f224f8d-7cec-80b4-ad90-f8822a785f93" class="" dir="auto">(ا) پہلا مرحلہ: تذکرہ نگاری اور ابتدائی نقوش (Early Tazkiras)</h4><ul id="3f224f8d-7cec-808d-96b1-d62a713abba9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اردو تنقید کے ابتدائی روایتی نقوش بہار میں لکھے گئے تذکروں میں ملتے ہیں۔</li></ul><ul id="3f224f8d-7cec-80db-839e-ffb01764f835" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ان تذکروں میں شعراء کے حالاتِ زندگی کے ساتھ ان کے کلام پر مختصر لیکن انتہائی قیمتی تنقیدی تبصرے ہوتے تھے۔</li></ul><ul id="3f224f8d-7cec-80c8-8674-d5b8b641d8eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم تذکرے:</strong></li></ul><ul id="3f224f8d-7cec-8022-a127-f4fe10c2dd64" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حکیم سید علی عظیم آبادی کا <strong>&quot;تذکرہِ مسرت افزا&quot;</strong>۔</li></ul><ul id="3f224f8d-7cec-80e7-9c27-e6c37f762631" class="bulleted-list" dir="auto"><li style="list-style-type:disc">شورش عظیم آبادی کا <strong>&quot;تذکرہِ شورش&quot;</strong>۔</li></ul><ul id="3f224f8d-7cec-805a-bd5e-e6d848aa5f09" class="bulleted-list" dir="auto"><li style="list-style-type:disc">حسین قلی خان فام کا <strong>&quot;تذکرہِ نشتر&quot;</strong>۔</li></ul><h4 id="3f224f8d-7cec-8075-88ab-e8ceb4609638" class="" dir="auto">(ب) دوسرا مرحلہ: اصلاحی اور تحریکی دور (Reformative &amp; Movement Era)</h4><ul id="3f224f8d-7cec-8082-9ae8-ca7ec1d7f4dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">19ویں صدی کے آخر اور 20ویں صدی کے آغاز میں سرسید کی علی گڑھ تحریک اور مولانا حالی کے اثرات بہار کے ادبا پر بھی گہرے پڑے۔</li></ul><ul id="3f224f8d-7cec-8015-a544-c81b7e76aaf0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">شاہاد عظیم آبادی، راسخ عظیم آبادی اور امداد امام اثر نے ادب کو مقصدیت اور اصلاح سے جوڑنا شروع کیا۔</li></ul><ul id="3f224f8d-7cec-8014-a521-d5d7a09138a9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>امداد امام اثر</strong> کی کتاب <strong>&quot;کاشف الحقائق&quot;</strong> اردو تنقید کی تاریخ میں ایک عظیم سنگِ میل مانی جاتی ہے، جس میں مشرق اور مغرب کی شاعری کا موازنہ کیا گیا۔</li></ul><h4 id="3f224f8d-7cec-80f5-ac51-db2db4412781" class="" dir="auto">(ج) تیسرا مرحلہ: سائنسی، تحقیقی اور بے باک تنقید (Scientific &amp; Research-based Era)</h4><ul id="3f224f8d-7cec-807c-a6f7-fdd0e96f2ca3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">20ویں صدی کے وسط میں بہار نے اردو ادب کو ایسے نقاد دیے جنہوں نے پورے ہند و پاک کی تنقیدی دنیا میں ہلچل مچا دی۔</li></ul><ul id="3f224f8d-7cec-8008-bae6-c67d782db430" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>قاضی عبدالودود:</strong> انہوں نے اردو میں &quot;تحقیقی تنقید&quot; (Research-based Criticism) کی بنیاد رکھی اور ثابت کیا کہ بغیر ٹھوس ثبوت اور حقائق کے کوئی تنقید معتبر نہیں ہو سکتی۔</li></ul><ul id="3f224f8d-7cec-8064-aa66-d9e6581b6178" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>کلیم الدین احمد:</strong> انہوں نے اپنے بے باک، سخت اور مغرب سے متاثر تنقیدی نظریات کے ذریعے اردو کی روایتی تنقید کو چیلنج کیا اور اردو شاعری (خاص طور پر غزل) پر انقلابی سوالات اٹھائے۔</li></ul><h4 id="3f224f8d-7cec-808a-a36e-f56aecef1fbb" class="" dir="auto">(د) چوتھا مرحلہ: جدیدیت اور معاصر تنقید (Modern &amp; Contemporary Criticism)</h4><ul id="3f224f8d-7cec-80aa-b7ac-def41deaccfa" class="bulleted-list" dir="auto"><li style="list-style-type:disc">20ویں صدی کے آخری حصے میں بہار کے نقادوں نے جدیدیت (Modernism) اور ساختیا ت (Structuralism) کے نظریات کو اپنایا۔</li></ul><ul id="3f224f8d-7cec-80b1-acb6-ed4ec78a5714" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پروفیسر وھاب اشرفی</strong> جیسے نقادوں نے عالمی ادبی فلسفوں کو اردو تنقید میں شامل کیا اور تنقید کی تاریخ کو ایک نیا موڑ دیا۔</li></ul><hr id="3f224f8d-7cec-80fb-b5b1-e1b426046787" dir="auto"/><figure id="3f224f8d-7cec-8080-8965-f31c7a999037" class="image" data-notion-image="image%208.png" dir="ltr"><a href="image%208.png"><img style="width:1024px" src="image%208.png"/></a></figure><hr id="3f224f8d-7cec-806a-8cd9-c69305f04eb5" dir="auto"/><h4 id="3f224f8d-7cec-80b0-8f0a-c5c15a4cc439" class="" dir="auto">3. بہار کی اردو تنقید کی خصوصیات (Key Features of Bihar&#x27;s Criticism)</h4><p id="3f224f8d-7cec-802f-afc6-f3ec56f0ec38" class="" dir="auto">امتحان میں اچھے نمبرات حاصل کرنے کے لیے بہار کی تنقیدی روایت کی ان نمایاں خصوصیات کو ضرور لکھیں:</p><ol type="1" id="3f224f8d-7cec-8098-b1f4-e371652153e4" class="numbered-list" start="1" dir="auto"><li><strong>تحقیق اور تنقید کا امتزاج (Blend of Research &amp; Criticism):</strong> بہار کے نقادوں نے صرف ہوائی باتیں نہیں کیں، بلکہ ہر تنقیدی دعوے کے پیچھے ٹھوس تاریخی ثبوت (Solid Evidence) پیش کیے۔</li></ol><ol type="1" id="3f224f8d-7cec-807c-8519-e01b609e533a" class="numbered-list" start="2" dir="auto"><li><strong>بے باکی اور غیر جانبداری (Fearlessness &amp; Objectivity):</strong> کلیم الدین احمد اور قاضی عبدالودود جیسے نقادوں نے کسی کی شخصیت سے متاثر ہوئے بغیر صرف حقائق کی بنیاد پر فیصلے کیے۔</li></ol><ol type="1" id="3f224f8d-7cec-8007-bfc9-d9ba27a31d5a" class="numbered-list" start="3" dir="auto"><li><strong>مشرق و مغرب کا موازنہ (Comparative Approach):</strong> امداد امام اثر سے لے کر وھاب اشرفی تک، بہار کے نقادوں نے مشرقی ادب اور مغربی نظریات (Western Criticism) کا گہرا موازنہ کیا۔</li></ol><hr id="3f224f8d-7cec-8034-9b75-d35da7d46c4a" dir="auto"/><h4 id="3f224f8d-7cec-8093-84d0-e5bed172ea14" class="" dir="auto">4. ارتقاء کا خلاصہ (Summary Table)</h4><p id="3f224f8d-7cec-80c1-9491-fdc5a02f2245" class="" dir="auto">امتحان کے وقت فوری دہرائی کے لیے یہ خاکہ ذہن میں رکھیں:</p><table id="3f224f8d-7cec-80ae-a219-f564764d0f5b" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-809a-95c3-fcfc94b0f499" dir="ltr"><th id="tZDX" class="simple-table-header-color simple-table-header">مرحلہ (Phase)</th><th id="L&gt;&gt;V" class="simple-table-header-color simple-table-header">نمائندہ شخصیات / کتابیں</th><th id="Rnbk" class="simple-table-header-color simple-table-header">بنیادی خصوصیت</th></tr></thead><tbody><tr id="3f224f8d-7cec-8014-b4d6-eba4a39f9c13" dir="ltr"><td id="tZDX" class=""><strong>ابتدائی دور (تذکرے)</strong></td><td id="L&gt;&gt;V" class="">تذکرہِ مسرت افزا، تذکرہِ نشتر</td><td id="Rnbk" class="">شعراء کا تعارف اور مختصر تاثراتی تبصرے</td></tr><tr id="3f224f8d-7cec-8035-83c8-e3ff9f3136d1" dir="ltr"><td id="tZDX" class=""><strong>اصلاحی و موازنہ دور</strong></td><td id="L&gt;&gt;V" class="">امداد امام اثر (<em>کاشف الحقائق</em>)</td><td id="Rnbk" class="">مشرق و مغرب کا علمی موازنہ اور اصولِ شاعری</td></tr><tr id="3f224f8d-7cec-80a4-9fda-c06f0083a811" dir="ltr"><td id="tZDX" class=""><strong>سائنسی و تحقیقی دور</strong></td><td id="L&gt;&gt;V" class="">قاضی عبدالودود، کلیم الدین احمد</td><td id="Rnbk" class="">تحقیقی ثبوت، بے باک تجزیہ اور روایات سے بغاوت</td></tr><tr id="3f224f8d-7cec-800f-9b17-eeb8ace35ab2" dir="ltr"><td id="tZDX" class=""><strong>جدید دور</strong></td><td id="L&gt;&gt;V" class="">پروفیسر وھاب اشرفی (<em>تاریخِ تنقید</em>)</td><td id="Rnbk" class="">جدید فلسفے، ساختِیات اور جامع تنقیدی تاریخ</td></tr></tbody></table><hr id="3f224f8d-7cec-80af-9b62-d9db742dd2a1" dir="auto"/><h4 id="3f224f8d-7cec-805b-b38d-f40e141bb27e" class="" dir="auto">5. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-80cd-9bc7-f063cc4c7828" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>مرکزی اہمیت:</strong> بہار (خاص طور پر عظیم آباد/پٹنہ) اردو تنقید کا ایک انتہائی مضبوط اور تاریخی مرکز رہا ہے۔</li></ul><ul id="3f224f8d-7cec-805d-a49e-cc5e43397023" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پہلا بڑا کارنامہ:</strong> امداد امام اثر کی کتاب <strong>&quot;کاشف الحقائق&quot;</strong> نے اردو میں موازنہ اور اصولی تنقید کو فروغ دیا۔</li></ul><ul id="3f224f8d-7cec-80a8-b510-d0cdd7d969f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>منفرد پہچان:</strong> بہار نے اردو ادب کو &quot;تحقیقی تنقید&quot; (قاضی عبدالودود) اور &quot;انقلابی و بے باک تنقید&quot; (کلیم الدین احمد) عطا کی۔</li></ul><hr id="3f224f8d-7cec-8013-9b1e-e6d61970911a" dir="auto"/><h1 id="3f224f8d-7cec-80cf-bc8a-d8d7ce1571d4" class="" dir="auto">Section 3.2: Prominent Urdu Critics of Bihar</h1><h2 id="3f224f8d-7cec-8062-a9ea-e8ec22feb2ad" class="" dir="auto">(بہار کے اہم اردو تنقید نگار)</h2><hr id="3f224f8d-7cec-8056-9af7-cd871183e235" dir="auto"/><h3 id="3f224f8d-7cec-8092-996d-d42b1aec2738" class="" dir="auto">3.2.1 Critical Works and Literary Contribution of Leading Critics from Bihar</h3><h4 id="3f224f8d-7cec-80a2-84d3-e82b7d6c94a1" class="" dir="auto">(بہار کے برجستہ نقادوں کی خدمات اور تنقیدی کارنامے)</h4><hr id="3f224f8d-7cec-805f-9e4a-fe4940cddc41" dir="auto"/><h3 id="3f224f8d-7cec-800d-b543-d96f858effe5" class="" dir="auto">📘 بنیادی تعارف (Introduction)</h3><p id="3f224f8d-7cec-8092-8ac5-e650eefa5eb3" class="" dir="auto">پچھلے بخش (3.1.1) میں ہم نے دیکھا کہ بہار میں اردو تنقید کی روایت تذکرہ نگاری سے شروع ہو کر کس طرح جدید دور تک پہنچی۔</p><p id="3f224f8d-7cec-8063-8f4a-d6c3015a68f6" class="" dir="auto">اب اس آخری اور انتہائی اہم موضوع میں ہم <strong>بہار کے ان برجستہ اور عظیم نقادوں (Leading Critics)</strong> کی خدمات کا تفصیلی مطالعہ کریں گے جن کی وجہ سے نہ صرف بہار بلکہ پورے برصغیر (Subcontinent) میں اردو تنقید کو ایک نیا معیار، علمی گہرائی اور شاندار شناخت ملی۔</p><p id="3f224f8d-7cec-80fd-b229-f91acb996107" class="" dir="auto">امتحان میں اس موضوع سے سیدھا اور تفصیلی سوال پوچھا جاتا ہے۔ ہم بہار کے چار سب سے اہم نقادوں کو ایک ایک کر کے آسان زبان میں سمجھیں گے:</p><ol type="1" id="3f224f8d-7cec-80d4-a6af-c37a6f2596c9" class="numbered-list" start="1" dir="auto"><li><strong>امداد امام اثر (Imdad Imam Asar)</strong> — نظریاتی اور تقابلی تنقید کے معمار۔</li></ol><ol type="1" id="3f224f8d-7cec-80b2-982e-c0b704620b67" class="numbered-list" start="2" dir="auto"><li><strong>قاضی عبدالودود (Qazi Abdul Wadood)</strong> — تحقیقی تنقید (Research-based Criticism) کے امام۔</li></ol><ol type="1" id="3f224f8d-7cec-80b2-be18-c838f7fcbe68" class="numbered-list" start="3" dir="auto"><li><strong>کلیم الدین احمد (Kaleemuddin Ahmad)</strong> — بے باک، سائنسی اور انقلابی تنقید کے بانی۔</li></ol><ol type="1" id="3f224f8d-7cec-8098-8dd0-c603255ebde9" class="numbered-list" start="4" dir="auto"><li><strong>پروفیسر وھاب اشرفی (Prof. Waheed/Wahab Ashrafi)</strong> — جدیدیت اور جامع تاریخِ تنقید کے معمار۔</li></ol><hr id="3f224f8d-7cec-808a-a5db-dd5b407dacd4" dir="auto"/><h4 id="3f224f8d-7cec-8029-8e80-ecbfd92523ef" class="" dir="auto">1. امداد امام اثر (Imdad Imam Asar)</h4><h4 id="3f224f8d-7cec-80a5-8aaf-ee985a5aa6c1" class="" dir="auto">(ا) تعارف اور مقام</h4><ul id="3f224f8d-7cec-80f1-b441-cbb74c35ec5f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">امداد امام اثر بہار کے ایک عظیم عالم، ادیب اور مفکر تھے۔</li></ul><ul id="3f224f8d-7cec-802d-8772-e2af55fc78e3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے اردو تنقید کو روایتی خیالات سے نکال کر <strong>عالمی اور تقابلی (Comparative)</strong> نقطہ نظر دیا۔</li></ul><h4 id="3f224f8d-7cec-80e0-b467-cec88688fee5" class="" dir="auto">(ب) شاہکار کتاب: &quot;کاشف الحقائق&quot; (Kashif-ul-Haqaiq)</h4><ul id="3f224f8d-7cec-8012-96bc-cad1d5dc0c81" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ان کا سب سے بڑا کارنامہ ان کی مشہور کتاب <strong>&quot;کاشف الحقائق&quot;</strong> ہے۔</li></ul><ul id="3f224f8d-7cec-80f7-9f02-f05a7640f61d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>کتاب کی خصوصیت:</strong> اس کتاب میں انہوں نے صرف اردو شاعری ہی نہیں بلکہ عربی، فارسی، سنسکرت، انگریزی اور فرانسیسی ادبیات کا گہرا موازنہ (Comparison) پیش کیا۔</li></ul><ul id="3f224f8d-7cec-80cd-b90f-e34f6ce2a386" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے شاعری کے بنیادی اصولوں، بلاغت اور اصنافِ سخن پر نہایت علمی اور سائنسی انداز میں روشنی ڈالی۔</li></ul><hr id="3f224f8d-7cec-80dc-a9ad-d002fd107825" dir="auto"/><h4 id="3f224f8d-7cec-80da-a79a-d49faf878ada" class="" dir="auto">2. قاضی عبدالودود (Qazi Abdul Wadood)</h4><h4 id="3f224f8d-7cec-8043-bfb9-def361c56088" class="" dir="auto">(ا) تعارف اور مقام</h4><ul id="3f224f8d-7cec-8061-ba49-e2154c2c8a3b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">قاضی عبدالودود کو اردو ادب میں <strong>&quot;تحقیقی تنقید کا بانی / امام&quot;</strong> کہا جاتا ہے۔</li></ul><ul id="3f224f8d-7cec-806b-9669-e16d0eaf8c56" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ان کا ماننا تھا کہ بغیر ٹھوس تاریخی حقائق اور تحقیق کے جو تنقید کی جائے، وہ بے بنیاد ہوتی ہے۔</li></ul><h4 id="3f224f8d-7cec-80ca-a6fe-f34430035e0c" class="" dir="auto">(ب) تنقیدی خصوصیات اور کارنامے</h4><ul id="3f224f8d-7cec-809a-b05d-e9d83cabb022" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>حقیقت اور ثبوت پر زور:</strong> انہوں نے غالب، میر تقی میر اور دیگر کلاسیکی شعراء کے کلام، تاریخِ پیدائش اور واقعات کی سچی چھان بین کی۔</li></ul><ul id="3f224f8d-7cec-8071-864d-f4499412137c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>غیر جانبداری:</strong> وہ کسی شخصیت سے متاثر نہیں ہوتے تھے؛ جہاں ذرا سی بھی غلطی یا تاریخی برائی نظر آتی، وہ ثبوت کے ساتھ اسے بے نقاب کر دیتے تھے۔</li></ul><ul id="3f224f8d-7cec-807e-af68-d843745ba2b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>اہم تصانیف/تحریرات:</strong> &quot;اشتر و سوزن&quot;، &quot;عیارستان&quot;، اور غالب و اشاعتِ غالب پر ان کے علمی و تحقیقی مضامین اردو ادب کا انمول سرمایا ہیں۔</li></ul><hr id="3f224f8d-7cec-8068-b7d9-fa4958976446" dir="auto"/><figure id="3f224f8d-7cec-807f-96db-d57cd4f7f9d9" class="image" data-notion-image="image%209.png" dir="ltr"><a href="image%209.png"><img style="width:1536px" src="image%209.png"/></a></figure><hr id="3f224f8d-7cec-808e-a26a-cb617a4dbbfc" dir="auto"/><h4 id="3f224f8d-7cec-80cc-b714-fc3252a34a26" class="" dir="auto">3. کلیم الدین احمد (Kaleemuddin Ahmad)</h4><h4 id="3f224f8d-7cec-800d-9995-c26b0d1f1964" class="" dir="auto">(ا) تعارف اور مقام</h4><ul id="3f224f8d-7cec-8035-a2d5-e5575720f396" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اردو تنقید کی تاریخ میں <strong>کلیم الدین احمد</strong> کا نام ایک زلزلے اور انقلاب کی مانند ہے۔</li></ul><ul id="3f224f8d-7cec-80d9-9774-e616031937b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">وہ انگریزی ادب کے پروفیسر تھے اور انہوں نے مغربی تنقیدی اصولوں کو اردو پر بڑی بے باکی اور سختی سے لاگو کیا۔</li></ul><h4 id="3f224f8d-7cec-8019-ac01-cc34115b66df" class="" dir="auto">(ب) انقلابی نظریات اور چیلنجز</h4><ul id="3f224f8d-7cec-80ea-b27c-e708f906526d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>غزل پر سخت حملہ:</strong> انہوں نے اردو غزل کے روایتی ڈھانچے کو چیلنج کیا اور غزل کو <strong>&quot;نیم وحشیانہ صنفِ سخن&quot;</strong> قرار دیا کیونکہ اس کے اشعار میں اپسی ربط (Continuity) نہیں ہوتا۔</li></ul><ul id="3f224f8d-7cec-806d-bde3-cc489912b138" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>روایتی تنقید کی نفی:</strong> انہوں نے کہا کہ حالی اور شبلی سے پہلے اردو میں تنقید کا وجود ہی نہیں تھا اور بعد میں بھی لوگوں نے صرف ایک دوسرے کی نقل کی۔</li></ul><h4 id="3f224f8d-7cec-80fd-b11c-fc00a0c68bb5" class="" dir="auto">(ج) اہم کتابیں (Key Works)</h4><ol type="1" id="3f224f8d-7cec-80dc-8ae7-f9c510295f35" class="numbered-list" start="1" dir="auto"><li><strong>&quot;اردو شاعری پر ایک نظر&quot;</strong> (کتاب جس نے ادبی دنیا میں ہلچل مچا دی)۔</li></ol><ol type="1" id="3f224f8d-7cec-80e4-a42c-f34edac5ea43" class="numbered-list" start="2" dir="auto"><li><strong>&quot;اردو تنقید پر ایک نظر&quot;</strong>۔</li></ol><ol type="1" id="3f224f8d-7cec-8007-86fe-c7caf2b06f9c" class="numbered-list" start="3" dir="auto"><li><strong>&quot;عملی تنقید&quot;</strong> (Practical Criticism)۔</li></ol><hr id="3f224f8d-7cec-80a9-8e59-fabc403433fe" dir="auto"/><h4 id="3f224f8d-7cec-809f-bf36-c90b13c7a8fa" class="" dir="auto">4. پروفیسر وھاب اشرفی (Prof. Wahab Ashrafi)</h4><h4 id="3f224f8d-7cec-80e7-a55a-c285c69d6f8f" class="" dir="auto">(ا) تعارف اور مقام</h4><ul id="3f224f8d-7cec-8005-80c8-d49853efd2bf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">وھاب اشرفی بہار کے جدید اور معاصر (Contemporary) دور کے سب سے معتبر اور جامع نقاد مانے جاتے ہیں۔</li></ul><ul id="3f224f8d-7cec-8044-9c4d-da3ebf0bec37" class="bulleted-list" dir="auto"><li style="list-style-type:disc">انہوں نے جدید ترین مغربی نظریات جیسے <strong>ساختیات (Structuralism)</strong>، <strong>پسِ ساختیات</strong> اور <strong>لسانیات (Linguistics)</strong> کو آسان اردو میں پیش کیا۔</li></ul><h4 id="3f224f8d-7cec-80b5-bffc-ef772f5489fa" class="" dir="auto">(ب) شاہکار کارنامہ: &quot;تاریخِ اردو تنقید&quot;</h4><ul id="3f224f8d-7cec-8024-9a07-d5672bde11c9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ان کی سب سے اہم کتاب <strong>&quot;تاریخِ اردو تنقید&quot; (3 جلدیں)</strong> ہے، جس پر انہیں ہندوستان کا سب سے بڑا ادبی انعام <strong>&quot;سہتیہ اکادمی ایوارڈ&quot; (Sahitya Akademi Award)</strong> ملا۔</li></ul><ul id="3f224f8d-7cec-80f8-b4b5-f703a57c0910" class="bulleted-list" dir="auto"><li style="list-style-type:disc">اس کتاب میں انہوں نے اردو تنقید کی پوری تاریخ اور تمام مکاتبِ فکر کا نہایت جامع اور غیر جانبدارانہ تجزیہ کیا ہے۔</li></ul><hr id="3f224f8d-7cec-8003-99a8-e7d0e51b8786" dir="auto"/><h4 id="3f224f8d-7cec-8026-b8d2-ce62df4e003e" class="" dir="auto">5. تمام نقادوں کی خدمات کا خلا صہ (Summary Table)</h4><p id="3f224f8d-7cec-80eb-9326-fac7aa5c51ed" class="" dir="auto">امتحان میں اس پورے ٹاپک کو یاد رکھنے اور جوابی کاپی میں پرکشش ٹیبل بنانے کے لیے اسے دیکھیں:</p><table id="3f224f8d-7cec-8058-bdc6-ceca01ad5a53" class="simple-table" dir="ltr"><thead class="simple-table-header"><tr id="3f224f8d-7cec-8099-85dd-c7633de1967e" dir="ltr"><th id="Q{C}" class="simple-table-header-color simple-table-header">نقاد کا نام (Critic)</th><th id="sKns" class="simple-table-header-color simple-table-header">بنیادی پہچان / دبستان</th><th id="sg|j" class="simple-table-header-color simple-table-header">شاہکار کتابیں (Major Books)</th><th id="XjSm" class="simple-table-header-color simple-table-header">سب سے بڑا کارنامہ / نعرہ</th></tr></thead><tbody><tr id="3f224f8d-7cec-800a-8b99-d7294b4cf36a" dir="ltr"><td id="Q{C}" class=""><strong>امداد امام اثر</strong></td><td id="sKns" class="">نظریاتی و تقابلی تنقید</td><td id="sg|j" class=""><strong>کاشف الحقائق</strong></td><td id="XjSm" class="">مشرق و مغرب کا تقابلی جائزہ اور اصولی تنقید</td></tr><tr id="3f224f8d-7cec-8076-91eb-cbd18b220684" dir="ltr"><td id="Q{C}" class=""><strong>قاضی عبدالودود</strong></td><td id="sKns" class="">تحقیقی تنقید (Research)</td><td id="sg|j" class=""><strong>اشتر و سوزن</strong>، <strong>عیارستان</strong></td><td id="XjSm" class="">تنقید کو ٹھوس حقائق اور ثبوتوں پر قائم کرنا</td></tr><tr id="3f224f8d-7cec-8029-b144-f64a02c700e3" dir="ltr"><td id="Q{C}" class=""><strong>کلیم الدین احمد</strong></td><td id="sKns" class="">سائنسی و بے باک تنقید</td><td id="sg|j" class=""><strong>اردو شاعری پر ایک نظر</strong></td><td id="XjSm" class="">روایات سے بغاوت اور مغربی اصولوں کا بے باک استعمال</td></tr><tr id="3f224f8d-7cec-800b-ad9f-c534158ce601" dir="ltr"><td id="Q{C}" class=""><strong>پروفیسر وھاب اشرفی</strong></td><td id="sKns" class="">جدید و جامعتِ تنقید</td><td id="sg|j" class=""><strong>تاریخِ اردو تنقید</strong> (3 جلدیں)</td><td id="XjSm" class="">سہتیہ اکادمی ایوارڈ یافتہ، جدید فلسفوں کی تفہیم</td></tr></tbody></table><hr id="3f224f8d-7cec-8082-8e7a-d2c4fcb8f589" dir="auto"/><h4 id="3f224f8d-7cec-80a7-bc69-ff526aa9379a" class="" dir="auto">6. امتحان کے لیے فوری دہرائی (Quick Revision Notes)</h4><ul id="3f224f8d-7cec-804e-9ac6-d3de3a30301f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>امداد امام اثر:</strong> &quot;کاشف الحقائق&quot; کے ذریعے تقابلی تنقید کی بنیاد رکھی۔</li></ul><ul id="3f224f8d-7cec-8076-8fc3-f33970a8c39e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>قاضی عبدالودود:</strong> تحقیقی تنقید کے امام؛ بغیر ثبوت کے کسی بات کو تسلیم نہیں کرتے تھے۔</li></ul><ul id="3f224f8d-7cec-80aa-88b5-d8ae5e814283" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>کلیم الدین احمد:</strong> اردو کے سب سے بے باک نقاد؛ &quot;اردو شاعری پر ایک نظر&quot; کے ذریعے غزل اور روایتی تنقید کا گہرا محاکمہ کیا۔</li></ul><ul id="3f224f8d-7cec-80e3-b805-fd8ba6f61517" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>پروفیسر وھاب اشرفی:</strong> &quot;تاریخِ اردو تنقید&quot; کے مصنف؛ جدید تنقیدی نظریات اور ساختیات کو فروغ دیا۔</li></ul><hr id="3f224f8d-7cec-80e8-80bf-c7678eb918e6" dir="auto"/><h3 id="3f224f8d-7cec-80e5-8025-c2a5934a7638" class="" dir="auto">🎓 مبارک ہو! پورا سلیبس (MIC 06: Study of Urdu Criticism) مکمل ہو گیا ہے۔</h3><p id="3f224f8d-7cec-805f-9886-e60b2ab12cc5" class="" dir="auto">آپ کے امتحان کے تمام 3 یونٹس آسان زبان، نوٹس، جداول (Tables) اور وژول پرامپٹس کے ساتھ مکمل طور پر تیار کر دیے گئے ہیں:</p><ul id="3f224f8d-7cec-80bc-8a5a-e55da3daa149" class="bulleted-list" dir="auto"><li style="list-style-type:disc">✅ <strong>Unit 1:</strong> Fundamentals and Evolution of Urdu Criticism (تنقید کا فن اور ارتقاء)</li></ul><ul id="3f224f8d-7cec-80f9-83c0-d562e956a474" class="bulleted-list" dir="auto"><li style="list-style-type:disc">✅ <strong>Unit 2:</strong> Hali and &#x27;Muqaddama-e-Sher-o-Shairi&#x27; (حالی اور مقدمہ شعر و شاعری)</li></ul><ul id="3f224f8d-7cec-80c3-825c-d899bf808b06" class="bulleted-list" dir="auto"><li style="list-style-type:disc">✅ <strong>Unit 3:</strong> Representative Critics of Bihar (بہار کے نمائندہ تنقید نگار)</li></ul><p id="3f224f8d-7cec-8038-92e3-fb49ea1b5de7" class="" dir="auto">امتحان کے لیے آپ کو بہت بہت مبارکباد اور نیک خواہشات! اگر آپ کو کسی خاص سوال، فارمیٹ یا ریویژن کے لیے مدد چاہیے تو بلا جھجک بتائیں۔</p><p id="3f224f8d-7cec-8075-a2cb-e5902b9297dd" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
