@@ -42,7 +42,7 @@ const CONFIG = {
       id: "mic-6-urdu",
       title: "MIC 06: Study of Urdu Criticism",
       description: "N/A",
-      path: "subjects/mic-5-urdu/mic-5-urdu.html",
+      path: "subjects/mic-6-urdu/mic-6-urdu.html",
       badge: "URDU"
     }
   ]
